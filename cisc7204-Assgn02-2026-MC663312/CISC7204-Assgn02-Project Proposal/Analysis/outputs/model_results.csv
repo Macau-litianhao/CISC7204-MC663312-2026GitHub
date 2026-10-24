@@ -1,0 +1,17 @@
+factor,term,r2,aic,n_params,model,drop_in_r2,full_r2,share_of_explained_%,metric,value,reading
+Departure hour,C(hour_grp),0.011898127512386725,6561199.49517979,7.0,univariate_r2,,,,,,
+Month,C(month_grp),0.010728847389761986,6561919.091342426,12.0,univariate_r2,,,,,,
+Carrier,C(Reporting_Airline),0.0059860121675952005,6564794.781131315,15.0,univariate_r2,,,,,,
+Origin airport,C(origin_grp),0.002659095791099131,6566831.598746786,31.0,univariate_r2,,,,,,
+Distance band,C(dist_band),0.00014166528037373727,6568296.17603695,7.0,univariate_r2,,,,,,
+Distance,Distance,1.725937149377188e-05,6568360.825514196,2.0,univariate_r2,,,,,,
+hour_grp,,,,,incremental_r2,0.011302009736693264,0.02930285912583286,41.086378591014835,,,
+month_grp,,,,,incremental_r2,0.010608161568688934,0.02930285912583286,38.5640211360611,,,
+Reporting_Airline,,,,,incremental_r2,0.004693978913574148,0.02930285912583286,17.06409738041638,,,
+origin_grp,,,,,incremental_r2,0.0008310797172048634,0.02930285912583286,3.0212375228746704,,,
+Distance,,,,,incremental_r2,7.26939166479923e-05,0.02930285912583286,0.26426536963300684,,,
+,,,,,summary,,,,R²,0.011898127512386725,one factor alone explains very little
+,,,,,summary,,,,R²,0.02930285912583286,upper bound on aggregate predictability
+,,,,,summary,,,,pseudo-R²,0.05099223521823437,the tail is harder to explain than the mean
+,,,,,summary,,,,McFadden pseudo-R²,0.053411873010108524,"risk is rankable, not point-predictable"
+,,,,,summary,,,,AUC,0.679180287110985,"useful discrimination, far from certain"

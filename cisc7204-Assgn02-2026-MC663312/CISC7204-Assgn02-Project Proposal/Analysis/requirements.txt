@@ -1,0 +1,32 @@
+# CISC7204 Assignment 02 - pair project analysis
+# Python 3.14, tested on Windows 11 with the Anaconda distribution.
+# Install:  pip install -r requirements.txt
+
+# --- core analysis ---------------------------------------------------------
+pandas==3.0.3
+numpy==2.4.6
+pyarrow==23.0.1
+
+# --- static visualisation --------------------------------------------------
+matplotlib==3.11.0
+seaborn==0.13.2
+wordcloud==1.9.6
+
+# --- interactive visualisation --------------------------------------------
+plotly==6.7.0
+dash==4.4.1
+folium==0.20.0
+
+# --- statistics ------------------------------------------------------------
+scipy==1.18.0
+statsmodels==0.14.6
+
+# --- notebook build pipeline ----------------------------------------------
+nbformat==5.10.4
+nbclient==0.11.0
+jupyter_client
+ipykernel
+
+# Optional: only needed to export Plotly figures as PNG (fig06 uses the
+# matplotlib tile grid instead, so the project runs without it).
+# kaleido==1.2.0

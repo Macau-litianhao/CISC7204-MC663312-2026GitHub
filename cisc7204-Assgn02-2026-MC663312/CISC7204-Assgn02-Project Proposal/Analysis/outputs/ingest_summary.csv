@@ -1,0 +1,9 @@
+check,value
+raw_rows,7079061.0
+duplicate_rows,0.0
+completed_rows,6965247.0
+arrdelay_notna,6965247.0
+delayed_flights,2521995.0
+delayed_with_cause,1449964.0
+cause_minus_arrdelay_median_abs,0.0
+arrdelay_identity_abs_median,18.0

@@ -1,0 +1,27 @@
+# ---- Jupyter / Python ----
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.venv/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ---- Office temp / lock files ----
+~$*
+
+# ---- Analysis data caches ----
+# ~570 MB of BTS On-Time Performance raw/processed data.
+# Regenerable with `python "CISC7204-Assgn02-Project Proposal/Analysis/run_all.py"`.
+# NEVER commit this — GitHub rejects any single file over 100 MB.
+**/Analysis/data/raw/
+**/Analysis/data/processed/
+
+# ---- Temporary render output ----
+**/Analysis/*.pdf
+**/*Project Proposal/_*.png
+**/*Project Proposal/_*.pdf
+
+# ---- Local scratch ----
+**/_scratch/
+**/Analysis/outputs/*.log
