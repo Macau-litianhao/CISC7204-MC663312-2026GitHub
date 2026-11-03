@@ -1,0 +1,275 @@
+/* Dashboard styling. Kept deliberately small: one grid, one card, one header.
+   Colour tokens mirror src/team01/schema.py so the dashboard and the printed
+   figures cannot drift apart. */
+
+:root {
+  --ink: #22303c;
+  --muted: #5a6673;
+  --line: #e3e8ed;
+  --surface: #ffffff;
+  --canvas: #f6f8fa;
+  --accent: #0072b2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-shell { max-width: 1440px; margin: 0 auto; padding: 22px 24px 48px; }
+
+/* ---------- header ---------- */
+.app-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.app-title { font-size: 21px; font-weight: 700; margin: 0; letter-spacing: -0.2px; }
+.app-subtitle { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+.app-note {
+  font-size: 11.5px;
+  color: var(--muted);
+  max-width: 340px;
+  text-align: right;
+  line-height: 1.45;
+}
+
+/* ---------- standfirst ---------- */
+/* The page is written, not just drawn: a four-sentence question before the first
+   control, set at a reading size so it is the thing a visitor actually reads. */
+.lede {
+  margin-top: 18px;
+  padding: 4px 2px 2px;
+}
+.lede-lead {
+  font-size: 15.5px;
+  line-height: 1.62;
+  color: var(--ink);
+  max-width: 78ch;
+  margin: 0 0 10px;
+}
+.lede-meta {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 78ch;
+  margin: 0;
+}
+.lede-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 114, 178, 0.35);
+}
+.lede-link:hover { border-bottom-color: var(--accent); }
+
+/* ---------- section bands ---------- */
+/* Three bands - findings, evidence, method - share one heading style so the page
+   reads as three chapters rather than a stack of cards. */
+.band { margin-top: 26px; }
+.band-head { margin-bottom: 12px; }
+.band-title {
+  font-size: 16.5px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  margin: 0;
+}
+.band-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 4px 0 0;
+  max-width: 78ch;
+}
+
+/* ---------- filters ---------- */
+.filter-bar {
+  display: grid;
+  grid-template-columns: 170px 1fr 1.6fr;
+  gap: 18px;
+  align-items: end;
+  padding: 16px 18px;
+  margin-top: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.filter-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.filter-cell-slider { padding-bottom: 2px; }
+
+/* RangeSlider marks: smaller than the Dash default so twelve fit - but 9.5px
+   was unreadable once projected, and the review puts the floor at 10.5px. */
+.filter-cell-slider .dash-slider-mark,
+.filter-cell-slider .dash-slider-mark span { font-size: 10.5px; color: var(--muted); }
+
+/* Dash ships its sliders in a saturated purple, the one control on the page
+   outside the Okabe-Ito system - it read as "third-party component nobody
+   styled". Accent blue everywhere, and a white ring around the handle so it
+   stays visible where it sits on the track it shares a colour with.
+
+   The class names matter: this project runs Dash 4, which renders
+   dash-slider-* (dash-slider-range / -thumb / -track / -mark). The first
+   attempt at this fix was written against rc-slider-*, the Dash 2/3 markup,
+   and silently did nothing - the handles stayed #7F4BC4. Keep these selectors
+   pinned to the version in requirements; !important is needed because Dash
+   injects its own component CSS after the asset bundle. */
+.filter-cell-slider .dash-slider-track { background-color: #E3E8ED !important; }
+.filter-cell-slider .dash-slider-range { background-color: var(--accent) !important; }
+.filter-cell-slider .dash-slider-thumb {
+  background-color: var(--accent) !important;
+  border: 2px solid var(--surface) !important;
+  box-shadow: 0 0 0 1.5px var(--accent);
+  width: 15px !important;
+  height: 15px !important;
+  top: -1px;
+}
+/* The two numeric boxes Dash draws at the ends of the range. They are real
+   inputs, so they stay - but at body size they out-shouted the slider. */
+.filter-cell-slider input.dash-range-slider-input {
+  width: 42px;
+  font-size: 11.5px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
+/* ---------- KPIs ---------- */
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin: 16px 0 6px;
+}
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.kpi-label {
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.kpi-value {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 3px;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-note { font-size: 11px; color: var(--muted); margin-top: 1px; }
+/* Sits between the KPI strip and the findings band, so the two totals (panel in
+   the header, sample in the cards) are explained where they are read. */
+.kpi-caption {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 2px;
+  max-width: 92ch;
+}
+
+/* ---------- panel grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+.panel-title { font-size: 13.5px; font-weight: 650; }
+.panel-read { font-size: 11.5px; color: var(--muted); margin: 2px 0 4px; line-height: 1.5; }
+/* The interpretive sentence under each chart. The accent rule says "this is the
+   finding, not another label"; the min-height holds the card steady while the
+   callback fills it. */
+.panel-find {
+  font-size: 12px;
+  color: var(--ink);
+  line-height: 1.55;
+  border-left: 2.5px solid var(--accent);
+  padding: 4px 0 2px 10px;
+  margin-top: 8px;
+  min-height: 34px;
+}
+
+/* ---------- method ---------- */
+.method { margin-top: 30px; }
+.method-lead { margin: 0 0 14px; }
+.method-note {
+  font-size: 12.5px;
+  color: var(--ink);
+  line-height: 1.6;
+  background: #F0F6FB;
+  border: 1px solid #D6E7F5;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 0;
+}
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.method-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 13px 15px;
+}
+/* Five cards in a two-column grid: let the fifth take the full width rather
+   than sitting orphaned in the bottom-left cell. */
+.method-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.method-title { font-size: 12.5px; font-weight: 650; margin: 0 0 5px; }
+.method-text { font-size: 12px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+.footer-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 114, 178, 0.35);
+}
+
+@media (max-width: 1080px) {
+  .grid { grid-template-columns: 1fr; }
+  .method-grid { grid-template-columns: 1fr; }
+  /* 5 KPIs: 3 columns leaves a 2-card second row instead of a lone fifth card. */
+  .kpi-strip { grid-template-columns: repeat(3, 1fr); }
+  .filter-bar { grid-template-columns: 1fr; }
+  .app-header { flex-direction: column; align-items: flex-start; }
+  .app-note { text-align: left; }
+  /* Single column makes the card ~960px wide; at the 320px graph height that is
+     a 3:1 letterbox that flattens every curve. 380px keeps roughly the aspect
+     ratio the two-column layout gives, so the shape of a series survives the
+     breakpoint. */
+  .grid .dash-graph { height: 380px !important; }
+}
+
+@media (max-width: 720px) {
+  .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  /* Twelve month marks no longer fit on a phone-width slider. Hiding every
+     second label keeps Jan, Mar, May, Jul, Sep, Nov - enough to place a
+     selection without the labels colliding. */
+  .filter-cell-slider .dash-slider-mark:nth-of-type(2n) { visibility: hidden; }
+}
+
+@media (max-width: 460px) {
+  .kpi-strip { grid-template-columns: 1fr; }
+}
+
+/* Dash's default loading spinner is heavy; keep it subtle. */
+._dash-loading-callback { padding-top: 4px; }

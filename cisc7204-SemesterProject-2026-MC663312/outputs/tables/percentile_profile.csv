@@ -1,0 +1,17 @@
+statistic,value
+p1,-37.0
+p5,-27.0
+p10,-22.0
+p25,-15.0
+p50,-6.0
+p75,7.0
+p90,36.0
+p95,71.0
+p99,187.0
+p99.9,577.0
+mean,4.54
+median,-6.0
+mean_percentile_rank,71.8
+share_late_15,0.18568
+share_late_60,0.06134
+share_late_180,0.0109

@@ -1,0 +1,61 @@
+# --- data -------------------------------------------------------------------
+# Everything under data/ is regenerable, so none of it is committed:
+#   make data     rebuilds the ten-year BTS panel and the airport reference
+#                 from the documented URLs (~6 GB, hours)
+#   make sample   rebuilds the synthetic smoke fixture in seconds
+# data/checksums.sha256 and data/README.md stay in the repository, so the
+# provenance behind every reported number remains auditable without the files.
+# The .gitkeep files keep the directory tree intact for the two build targets.
+data/raw/flights/*
+data/raw/weather/*
+data/raw/reference/*
+data/interim/*
+data/processed/*
+data/sample/*
+!data/raw/reference/.gitkeep
+!data/sample/.gitkeep
+!data/*/.gitkeep
+
+# --- video build intermediates ----------------------------------------------
+# docs/video is 168 MB on disk and only ~17 MB of it is worth a clone.
+# Delivered artefacts (Team01_IntroVideo.mp4, .srt, deck/) ARE committed: a
+# reader should be able to watch the video without installing anything.
+docs/video/_work/
+docs/video/_slides_png/
+docs/video/assets/
+docs/video/_old_*.mp4
+docs/video/Team01_Slides.pptx
+docs/video/Team01_Slides.pdf
+*.wav
+
+# --- generated artefacts ----------------------------------------------------
+# Figures and tables in outputs/ ARE committed: the report quotes them and a
+# reader should be able to check a number without running the pipeline.
+outputs/**/tmp/
+figures/*.png.tmp
+
+# --- python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# --- editors and OS ---------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+
+# --- local overrides --------------------------------------------------------
+# Keep personal paths and tokens out of the shared repository.
+config/local.yaml
+*.log

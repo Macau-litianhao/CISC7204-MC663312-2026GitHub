@@ -1,0 +1,7 @@
+factor,univariate_r2,cumulative_r2,incremental_r2,share_of_explained
+dep_hour,0.0095,0.0095,0.0095,0.4378
+month,0.0041,0.0136,0.004,0.1843
+carrier,0.0037,0.0171,0.0035,0.1613
+origin,0.0017,0.0179,0.0008,0.0369
+distance,0.0001,0.018,0.0001,0.0046
+"panel controls (year, covid_era)",,0.0218,0.0038,0.1751

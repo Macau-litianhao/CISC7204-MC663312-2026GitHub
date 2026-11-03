@@ -1,0 +1,6 @@
+cause_key,minutes,cause,family,share
+min_late_aircraft,2.9357933e+08,Late aircraft,Internal,0.38763732
+min_carrier,2.618623e+08,Carrier,Internal,0.34575868
+min_nas,1.5899882e+08,Air traffic / NAS,System,0.20993942
+min_weather,4.1526336e+07,Extreme weather,System,0.05483069
+min_security,1.388921e+06,Security,System,0.0018339084

@@ -1,0 +1,124 @@
+/* Narrative layer: fixture banner, closing strip, footer.
+
+   Deliberately a second file. style.css owns the page frame and the controls;
+   this owns the three components that carry meaning rather than layout, so the
+   two can be edited without one author overwriting the other. */
+
+/* A synthetic fixture is not a result. The printed figures say so with a red
+   footer and a corner tag; the page says it with a banner, not with 11px grey
+   text smaller than the subtitle. */
+.fixture-banner {
+  background: #FDECEC;
+  color: #B4232C;
+  border: 1px solid #F3C7C7;
+  border-radius: 8px;
+  padding: 9px 13px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+.fixture-banner .fixture-tag {
+  display: inline-block;
+  background: #B4232C;
+  color: #fff;
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-right: 8px;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
+/* The findings band: three claims, three numbers, one kicker each.
+
+   These live ABOVE the grid now. They used to be a closing strip, which buried
+   the argument under eight charts; a reader who scrolls past the headline number
+   without seeing it is a reader the page failed. */
+.insight-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 0;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.insight-item { display: flex; flex-direction: column; gap: 4px; }
+.insight-label {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 650;
+}
+.insight-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.insight-text { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+/* The "what to do" band: the same three numbers as the findings band, reframed
+   as advice for a passenger. Placed after the evidence and before the limits,
+   so the page leads with value and closes with rigor. The left rule echoes the
+   panel-find rule: "this is the finding, not another label". */
+.takeaway-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 0;
+}
+.takeaway-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 13px 15px;
+}
+.takeaway-title { font-size: 12.5px; font-weight: 650; color: var(--ink); margin: 0 0 5px; }
+.takeaway-text { font-size: 12px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+/* Provenance. Every printed figure carries it; the page must not be the one
+   place where a reader cannot find out where the numbers came from. */
+.app-footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.app-footer .footer-dot { padding: 0 6px; color: #C4CBD3; }
+
+/* The "selected airport" chip under the map. Lives here rather than in
+   style.css because it is a state indicator, not a page-frame rule. */
+.airport-chip { min-height: 22px; margin-top: -4px; font-size: 11.5px; color: var(--muted); }
+.airport-chip .chip {
+  display: inline-block;
+  background: #E6F1FB;
+  color: #0C447C;
+  border: 1px solid #B5D4F4;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-weight: 600;
+}
+.airport-chip .chip-clear {
+  background: none;
+  border: none;
+  color: #185FA5;
+  cursor: pointer;
+  font-size: 11.5px;
+  padding: 0 0 0 6px;
+  text-decoration: underline;
+}
+
+@media (max-width: 1080px) {
+  .insight-strip { grid-template-columns: 1fr; gap: 14px; }
+  .takeaway-strip { grid-template-columns: 1fr; gap: 10px; }
+}

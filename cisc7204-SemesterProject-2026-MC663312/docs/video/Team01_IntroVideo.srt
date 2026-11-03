@@ -1,0 +1,423 @@
+1
+00:00:00,000 --> 00:00:02,250
+Hi everyone, welcome to our project. We looked
+
+2
+00:00:02,250 --> 00:00:04,500
+at why flights get delayed in the United
+
+3
+00:00:04,500 --> 00:00:06,750
+States: where the delays come from, how they
+
+4
+00:00:06,750 --> 00:00:09,000
+build up through the day, and what a traveller
+
+5
+00:00:09,000 --> 00:00:11,250
+can actually do about it.
+
+6
+00:00:11,700 --> 00:00:14,310
+We are Class K, Team One. The slide shows our
+
+7
+00:00:14,310 --> 00:00:16,920
+six team members, and together we cover the
+
+8
+00:00:16,920 --> 00:00:19,530
+different roles this project needs. We'll take
+
+9
+00:00:19,530 --> 00:00:22,140
+you through what we found.
+
+10
+00:00:22,590 --> 00:00:25,259
+Let me start with our main conclusion, because
+
+11
+00:00:25,259 --> 00:00:27,928
+it shapes everything that follows. After
+
+12
+00:00:27,928 --> 00:00:30,597
+studying ten years of flights, we found delay
+
+13
+00:00:30,597 --> 00:00:33,266
+is predictable in its structure, even though
+
+14
+00:00:33,266 --> 00:00:35,934
+individual flights aren't. About three
+
+15
+00:00:35,934 --> 00:00:38,603
+quarters comes from the airline itself, and a
+
+16
+00:00:38,603 --> 00:00:41,272
+few flights carry most of the pain. I'll walk
+
+17
+00:00:41,272 --> 00:00:43,941
+you through the problem, the data, and the
+
+18
+00:00:43,941 --> 00:00:46,610
+five findings behind it.
+
+19
+00:00:47,060 --> 00:00:49,548
+Here's the problem that got us interested.
+
+20
+00:00:49,548 --> 00:00:52,036
+Every year the United States publishes one
+
+21
+00:00:52,036 --> 00:00:54,523
+average delay, and that single number hides
+
+22
+00:00:54,523 --> 00:00:57,011
+two different stories. The typical flight
+
+23
+00:00:57,011 --> 00:00:59,499
+lands about six minutes early, while the
+
+24
+00:00:59,499 --> 00:01:01,987
+average says seven minutes late, because a
+
+25
+00:01:01,987 --> 00:01:04,474
+handful of really bad flights drag it up. So
+
+26
+00:01:04,474 --> 00:01:06,962
+the question is: which story should we
+
+27
+00:01:06,962 --> 00:01:09,450
+believe?
+
+28
+00:01:09,900 --> 00:01:12,655
+That led us to four questions. Where do delay
+
+29
+00:01:12,655 --> 00:01:15,410
+minutes actually come from, and is that split
+
+30
+00:01:15,410 --> 00:01:18,165
+stable over ten years? How much delay passes
+
+31
+00:01:18,165 --> 00:01:20,920
+from one flight to the next? Do airports group
+
+32
+00:01:20,920 --> 00:01:23,675
+into their own delay patterns? And can we turn
+
+33
+00:01:23,675 --> 00:01:26,430
+all this into a tool a traveller can act on?
+
+34
+00:01:26,430 --> 00:01:29,185
+These four questions map directly onto the
+
+35
+00:01:29,185 --> 00:01:31,940
+rest of the talk.
+
+36
+00:01:32,390 --> 00:01:35,314
+To answer these, we brought together five
+
+37
+00:01:35,314 --> 00:01:38,237
+public datasets: flight-level records, the
+
+38
+00:01:38,237 --> 00:01:41,161
+delay-cause cross-check, hourly weather from N
+
+39
+00:01:41,161 --> 00:01:44,085
+O A A, airport details, and airline codes.
+
+40
+00:01:44,085 --> 00:01:47,009
+Everything is public, so anyone can check our
+
+41
+00:01:47,009 --> 00:01:49,932
+work. In total, that's over sixty-three
+
+42
+00:01:49,932 --> 00:01:52,856
+million rows, and that scale is what makes our
+
+43
+00:01:52,856 --> 00:01:55,780
+results believable.
+
+44
+00:01:56,230 --> 00:01:59,293
+Our whole analysis runs as one pipeline with
+
+45
+00:01:59,293 --> 00:02:02,357
+six stages: acquire, attribute, analyse the
+
+46
+00:02:02,357 --> 00:02:05,420
+heavy tail, trace the cascade, model, and
+
+47
+00:02:05,420 --> 00:02:08,483
+communicate. Each stage is a script, so one
+
+48
+00:02:08,483 --> 00:02:11,547
+command regenerates every figure, and
+
+49
+00:02:11,547 --> 00:02:14,610
+fifty-three tests pin every number back to its
+
+50
+00:02:14,610 --> 00:02:17,673
+source. We built it this way so nothing is a
+
+51
+00:02:17,673 --> 00:02:20,737
+black box, and anyone can reproduce our
+
+52
+00:02:20,737 --> 00:02:23,800
+results.
+
+53
+00:02:24,250 --> 00:02:26,861
+Our first finding answers where delay comes
+
+54
+00:02:26,861 --> 00:02:29,472
+from. Seventy-three point three percent traces
+
+55
+00:02:29,472 --> 00:02:32,084
+back to the airline itself, and only
+
+56
+00:02:32,084 --> 00:02:34,695
+twenty-six point seven percent to the system
+
+57
+00:02:34,695 --> 00:02:37,306
+around it. What surprised us is how stable
+
+58
+00:02:37,306 --> 00:02:39,917
+this is: it barely moved across the whole
+
+59
+00:02:39,917 --> 00:02:42,529
+decade, which tells us where airlines can
+
+60
+00:02:42,529 --> 00:02:45,140
+actually make a difference.
+
+61
+00:02:45,590 --> 00:02:48,345
+Our second finding is about concentration. The
+
+62
+00:02:48,345 --> 00:02:51,100
+Gini index is zero point eight seven six,
+
+63
+00:02:51,100 --> 00:02:53,855
+meaning a tiny share of flights creates most
+
+64
+00:02:53,855 --> 00:02:56,610
+of the delay. In plain terms, a few bad
+
+65
+00:02:56,610 --> 00:02:59,365
+flights cause most of the misery. So we report
+
+66
+00:02:59,365 --> 00:03:02,120
+percentiles and the heavy tail, and we re-run
+
+67
+00:03:02,120 --> 00:03:04,875
+every headline with the pandemic years
+
+68
+00:03:04,875 --> 00:03:07,630
+removed.
+
+69
+00:03:08,080 --> 00:03:11,031
+Our third finding is about how delay spreads
+
+70
+00:03:11,031 --> 00:03:13,983
+through the day. Late aircraft is the biggest
+
+71
+00:03:13,983 --> 00:03:16,934
+single cause, at thirty-eight point eight
+
+72
+00:03:16,934 --> 00:03:19,886
+percent. About six percent of flights start
+
+73
+00:03:19,886 --> 00:03:22,837
+already behind, and some of that delay is
+
+74
+00:03:22,837 --> 00:03:25,789
+inherited from an earlier leg. So one delayed
+
+75
+00:03:25,789 --> 00:03:28,740
+flight can quietly push the next one late too.
+
+76
+00:03:29,190 --> 00:03:32,141
+Findings four and five are where we're
+
+77
+00:03:32,141 --> 00:03:35,093
+careful. Airports do sort into five delay
+
+78
+00:03:35,093 --> 00:03:38,044
+profiles, but that grouping isn't very stable,
+
+79
+00:03:38,044 --> 00:03:40,996
+so we report it with caution. And our model
+
+80
+00:03:40,996 --> 00:03:43,947
+can rank risky flights, but it can't promise
+
+81
+00:03:43,947 --> 00:03:46,899
+an exact arrival time. Being honest about what
+
+82
+00:03:46,899 --> 00:03:49,850
+we can't claim is part of the result.
+
+83
+00:03:50,300 --> 00:03:53,033
+All of this comes together in one interactive
+
+84
+00:03:53,033 --> 00:03:55,765
+dashboard. Change the year, the airline, or
+
+85
+00:03:55,765 --> 00:03:58,498
+the month, and every panel recomputes live. We
+
+86
+00:03:58,498 --> 00:04:01,230
+also ran a usability check, with three timed
+
+87
+00:04:01,230 --> 00:04:03,963
+tasks, using someone who isn't a data
+
+88
+00:04:03,963 --> 00:04:06,695
+specialist. So the insight isn't locked in a
+
+89
+00:04:06,695 --> 00:04:09,428
+report; it's something you can actually play
+
+90
+00:04:09,428 --> 00:04:12,160
+with.
+
+91
+00:04:12,610 --> 00:04:15,104
+On how we work together: we split the eight
+
+92
+00:04:15,104 --> 00:04:17,598
+course roles among the six of us and rotate
+
+93
+00:04:17,598 --> 00:04:20,092
+them halfway through. We decide things as a
+
+94
+00:04:20,092 --> 00:04:22,586
+group, and every piece of work gets checked by
+
+95
+00:04:22,586 --> 00:04:25,080
+someone else.
+
+96
+00:04:25,530 --> 00:04:27,790
+For our timeline, we planned backwards from
+
+97
+00:04:27,790 --> 00:04:30,050
+the deadline. We've already finished the
+
+98
+00:04:30,050 --> 00:04:32,310
+proposal and this video, we'll present in
+
+99
+00:04:32,310 --> 00:04:34,570
+class later this month, and we'll wrap up the
+
+100
+00:04:34,570 --> 00:04:36,830
+project by early December.
+
+101
+00:04:37,280 --> 00:04:39,500
+Finally, we set clear quality checks for
+
+102
+00:04:39,500 --> 00:04:41,720
+ourselves, and we're upfront about what the
+
+103
+00:04:41,720 --> 00:04:43,940
+model can and can't do: it's good at ranking
+
+104
+00:04:43,940 --> 00:04:46,160
+risk, but it won't promise exact arrival
+
+105
+00:04:46,160 --> 00:04:48,380
+times.
+
+106
+00:04:48,830 --> 00:04:51,390
+Thank you for watching. That's our project.

@@ -1,0 +1,37 @@
+{
+  "mode": "full",
+  "checks": {
+    "stage": "panel_full",
+    "rows": 63079392,
+    "duplicate_rows": 0,
+    "duplicate_rate": 0.0,
+    "missing_required_cells": 1389694,
+    "arr_delay_na_total": 1389694,
+    "missing_arr_delay": 355,
+    "completed_rows": 61689698,
+    "cancelled_rows": 1239523,
+    "diverted_rows": 149829,
+    "mean_arr_delay": 4.542,
+    "median_arr_delay": -6.0,
+    "share_delayed_60": 0.06134,
+    "cause_coverage_above_threshold": 0.999999,
+    "cause_coverage_below_threshold": 0.0,
+    "flights_above_threshold": 11454282,
+    "year_min": 2015,
+    "year_max": 2024
+  },
+  "completed_flights": 61689698,
+  "years": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "share_delayed_60": 0.06134
+}

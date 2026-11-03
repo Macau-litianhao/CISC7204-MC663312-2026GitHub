@@ -1,0 +1,61 @@
+month,cause_key,share,cause,family
+1,min_carrier,0.34831715,Carrier,Internal
+2,min_carrier,0.3414643,Carrier,Internal
+3,min_carrier,0.34783593,Carrier,Internal
+4,min_carrier,0.3414868,Carrier,Internal
+5,min_carrier,0.32752803,Carrier,Internal
+6,min_carrier,0.3324225,Carrier,Internal
+7,min_carrier,0.33464175,Carrier,Internal
+8,min_carrier,0.33539823,Carrier,Internal
+9,min_carrier,0.36315146,Carrier,Internal
+10,min_carrier,0.37864667,Carrier,Internal
+11,min_carrier,0.3762797,Carrier,Internal
+12,min_carrier,0.3537138,Carrier,Internal
+1,min_late_aircraft,0.365872,Late aircraft,Internal
+2,min_late_aircraft,0.36537364,Late aircraft,Internal
+3,min_late_aircraft,0.3894327,Late aircraft,Internal
+4,min_late_aircraft,0.38972804,Late aircraft,Internal
+5,min_late_aircraft,0.3949597,Late aircraft,Internal
+6,min_late_aircraft,0.40585554,Late aircraft,Internal
+7,min_late_aircraft,0.4107523,Late aircraft,Internal
+8,min_late_aircraft,0.39264235,Late aircraft,Internal
+9,min_late_aircraft,0.36430904,Late aircraft,Internal
+10,min_late_aircraft,0.37548748,Late aircraft,Internal
+11,min_late_aircraft,0.37018862,Late aircraft,Internal
+12,min_late_aircraft,0.39170858,Late aircraft,Internal
+1,min_nas,0.21534333,Air traffic / NAS,System
+2,min_nas,0.22492564,Air traffic / NAS,System
+3,min_nas,0.21892221,Air traffic / NAS,System
+4,min_nas,0.21687564,Air traffic / NAS,System
+5,min_nas,0.21802415,Air traffic / NAS,System
+6,min_nas,0.20308521,Air traffic / NAS,System
+7,min_nas,0.19654076,Air traffic / NAS,System
+8,min_nas,0.21245761,Air traffic / NAS,System
+9,min_nas,0.22118342,Air traffic / NAS,System
+10,min_nas,0.20651406,Air traffic / NAS,System
+11,min_nas,0.20737666,Air traffic / NAS,System
+12,min_nas,0.19181922,Air traffic / NAS,System
+1,min_weather,0.06874519,Extreme weather,System
+2,min_weather,0.066521876,Extreme weather,System
+3,min_weather,0.04193313,Extreme weather,System
+4,min_weather,0.049913347,Extreme weather,System
+5,min_weather,0.05798101,Extreme weather,System
+6,min_weather,0.056852877,Extreme weather,System
+7,min_weather,0.056441728,Extreme weather,System
+8,min_weather,0.057584982,Extreme weather,System
+9,min_weather,0.04936998,Extreme weather,System
+10,min_weather,0.037537996,Extreme weather,System
+11,min_weather,0.043699138,Extreme weather,System
+12,min_weather,0.06084723,Extreme weather,System
+1,min_security,0.0017223685,Security,System
+2,min_security,0.0017145735,Security,System
+3,min_security,0.0018760302,Security,System
+4,min_security,0.0019961204,Security,System
+5,min_security,0.0015071095,Security,System
+6,min_security,0.0017839541,Security,System
+7,min_security,0.0016235275,Security,System
+8,min_security,0.0019169146,Security,System
+9,min_security,0.0019861362,Security,System
+10,min_security,0.0018137813,Security,System
+11,min_security,0.0024558357,Security,System
+12,min_security,0.0019111348,Security,System
