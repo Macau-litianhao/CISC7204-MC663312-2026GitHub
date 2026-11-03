@@ -240,17 +240,84 @@ def build_narration(work: str) -> list[str]:
 # step 2 — captions
 # --------------------------------------------------------------------------
 
-def _wrap(text: str, width: int = 46) -> list[str]:
-    words, lines, cur = text.split(), [], ""
-    for w in words:
-        if len(cur) + len(w) + 1 <= width:
-            cur = f"{cur} {w}".strip()
-        else:
-            lines.append(cur)
-            cur = w
+def _balanced(text: str, soft: int, min_side: int = 15) -> list[str]:
+    """Split an over-long clause into single-line cues.
+
+    A cue wider than one caption line would wrap to two lines in libass and
+    its upper line would climb back into the slide footer band. The split
+    point is the space nearest the midpoint, subject to both halves keeping
+    at least `min_side` characters, so neither half reads as a stub.
+    """
+    if len(text) <= soft:
+        return [text]
+    out, cur = [], text
+    while len(cur) > soft:
+        mid = len(cur) // 2
+        spaces = [p for p, ch in enumerate(cur) if ch == " "
+                  and min_side <= p <= len(cur) - min_side - 1]
+        if spaces:
+            cut = min(spaces, key=lambda p: abs(p - mid))
+        else:  # pathological: fall back to the last space inside the limit
+            cut = max(cur.rfind(" ", 0, soft), 1)
+        out.append(cur[:cut].strip())
+        cur = cur[cut:].strip()
     if cur:
-        lines.append(cur)
-    return lines or [""]
+        out.append(cur)
+    return out
+
+
+def _split_cues(text: str, soft: int = 46, hard: int = 92) -> list[str]:
+    """Split one slide's narration into caption cues.
+
+    The first cut wrapped at a fixed 46 characters, which left cues like a
+    lone "times." on screen for 2.2 seconds — readable, but it reads as a
+    machine fragment. Cues now break at sentence ends and clause marks, a
+    fragment shorter than three words is merged into its neighbour, and a
+    single unbroken clause longer than `hard` characters is split at the
+    last word boundary as a fallback.
+    """
+    import re  # noqa: PLC0415
+
+    parts = re.split(r'(?<=[.!?])\s+', text.strip())
+    cues: list[str] = []
+    for sent in parts:
+        if not sent:
+            continue
+        if len(sent) <= soft:
+            cues.append(sent)
+            continue
+        clauses = re.split(r'(?<=[,;:])\s+', sent)
+        cur = ""
+        for cl in clauses:
+            cand = f"{cur} {cl}".strip()
+            if len(cand) <= soft:
+                cur = cand
+                continue
+            if cur:
+                cues.append(cur)
+            while len(cl) > hard:  # pathological: no clause break available
+                cut = cl.rfind(" ", 0, hard)
+                cut = cut if cut > 0 else hard
+                cues.append(cl[:cut].strip())
+                cl = cl[cut:].strip()
+            cur = cl
+        if cur:
+            cues.append(cur)
+
+    # every cue must fit one line: split the long ones at a balanced point
+    flat: list[str] = []
+    for c in cues:
+        flat.extend(_balanced(c, soft))
+
+    # merge sub-word-count fragments — but only while the result still fits
+    # one line; a merged cue that wraps defeats the purpose.
+    merged: list[str] = []
+    for c in flat:
+        if merged and len(c.split()) < 3 and len(merged[-1]) + len(c) + 1 <= soft:
+            merged[-1] = f"{merged[-1]} {c}"
+        else:
+            merged.append(c)
+    return merged or [""]
 
 
 def write_srt(timeline: list[tuple[float, float]]) -> None:
@@ -262,13 +329,17 @@ def write_srt(timeline: list[tuple[float, float]]) -> None:
 
     out, n = [], 0
     for i, (start, end) in enumerate(timeline):
-        lines = _wrap(NARRATION[i])
-        step = (end - start) / len(lines)
-        for j, line in enumerate(lines):
+        cues = _split_cues(NARRATION[i])
+        # cues share the slide's duration in proportion to their length, so a
+        # long clause stays up longer than a short one instead of every cue
+        # getting an identical slice.
+        total_chars = sum(len(c) for c in cues) or 1
+        t = start
+        for c in cues:
+            share = (end - start) * len(c) / total_chars
             n += 1
-            s = start + j * step
-            e = start + (j + 1) * step
-            out.append(f"{n}\n{ts(s)} --> {ts(e)}\n{line}\n")
+            out.append(f"{n}\n{ts(t)} --> {ts(t + share)}\n{c}\n")
+            t += share
     with open(SRT, "w", encoding="utf-8") as fh:
         fh.write("\n".join(out))
     print(f"  captions -> {SRT}")
@@ -322,8 +393,10 @@ def build_video(pngs: list[str], wavs: list[str], work: str) -> str:
 
     # burn captions; on a Windows drive letter the colon must be escaped.
     srt_arg = SRT.replace("\\", "/").replace(":", r"\:")
+    # MarginV sits the single-line cue just under the slide footer band
+    # (footer baseline ~y=989 of 1080); 16 px pushed the captions on top of it.
     style = ("FontName=Arial,Fontsize=12,PrimaryColour=&H00FFFFFF,"
-             "OutlineColour=&H90000000,Outline=2,Shadow=0,MarginV=16")
+             "OutlineColour=&H90000000,Outline=2,Shadow=0,MarginV=6")
     r = _run(["-i", raw,
               "-vf", f"subtitles='{srt_arg}':force_style='{style}'",
               "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",

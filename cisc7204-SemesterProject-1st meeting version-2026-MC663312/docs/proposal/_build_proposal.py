@@ -393,9 +393,9 @@ H1("1. Project Overview and Research Question")
 P("This proposal documents an end-to-end, reproducible analysis of delay in U.S. domestic air travel, "
   "completed on the full ten-year panel. The region is the United States and the domain category is "
   "commercial air transportation. The analysis covers ten annual files from the Bureau of Transportation "
-  "Statistics (BTS) for 2015–2024 — 63,079,392 rows, of which 61,689,698 are completed flights by 20 "
+  "Statistics (BTS, n.d.-b) for 2015–2024 — 63,079,392 rows, of which 61,689,698 are completed flights by 20 "
   "reporting carriers — joined to airport reference metadata. The project attributes delay minutes to the "
-  "five causes published by BTS, measures how delay is inherited within the operating day, groups airports "
+  "five causes published by BTS (n.d.-a), measures how delay is inherited within the operating day, groups airports "
   "into delay-risk archetypes, ranks the factors that govern delay length and severe-delay risk, and "
   "communicates the result through a linked analytical dashboard and a narrative web page written for a "
   "non-specialist.", align='justify')
@@ -626,8 +626,9 @@ LEAD("Cascade measurement. ",
 
 LEAD("Airport archetypes. ",
      "Airports are described by a feature matrix covering mean delay, ninetieth-percentile delay, severe-delay "
-     "share, the five cause shares, seasonal amplitude, departures and hub stratum. Features are standardised; "
-     "k-means is run over a range of k and selected by silhouette score; Ward linkage provides a dendrogram as "
+     "share, the five cause shares, seasonal amplitude, departures and hub stratum (OurAirports, n.d.; Federal "
+     "Aviation Administration, n.d.). Features are standardised; "
+     "k-means is run over a range of k and selected by silhouette score (Rousseeuw, 1987); Ward linkage provides a dendrogram as "
      "a stability cross-check; PCA gives a two-dimensional projection for display. The chosen solution has "
      "k = 5 over 195 airports at silhouette 0.2045, and it is reported as unstable (mean ARI 0.69 against a "
      "0.70 threshold) rather than as a fixed taxonomy.")
@@ -635,7 +636,7 @@ LEAD("Airport archetypes. ",
 LEAD("Prediction and explanation. ",
      "A logistic baseline and a gradient-boosted classifier predict arrival delay of at least 60 minutes, "
      "with a time-based split so that later months are never used to train earlier ones. SHAP-style "
-     "importance ranks the factors, and dependence plots expose the departure-hour curve. The held-out AUC is "
+     "importance (Lundberg & Lee, 2017) ranks the factors, and dependence plots expose the departure-hour curve. The held-out AUC is "
      "0.685 (logistic) and 0.691 (gradient boosting) at a 6.1% base rate; the full model explains R-squared "
      "0.022. Departure hour is the strongest factor, carrying 49.9% of the ranked importance.")
 
@@ -661,7 +662,7 @@ P("Because this is a visualisation course, each chart is treated as a decision t
   "default. We adopt the encoding-effectiveness ordering of Cleveland and McGill (1984) and Mackinlay (1986): "
   "position along a common scale is read most accurately, followed by length, angle and slope, while area and "
   "colour hue are read least accurately. Each figure is therefore chosen by the question it answers, and "
-  "where a weaker encoding is unavoidable it is supported by direct labels and a legend that states the scale.",
+  "where a weaker encoding is unavoidable it is supported by direct labels and a legend that states the scale. This question-first ordering follows the task-oriented design framework of Munzner (2014), and the refusal to overstate a chart's evidence reflects Cairo's (2016) guidance.",
   align='justify')
 
 BUL("Part-to-whole: a unit waffle, where area encodes the share of delay minutes and every cell is labelled, "
@@ -897,7 +898,8 @@ H1("11. Limitations")
 BUL("Observational, not causal. BTS cause minutes are a reported partition in which overlapping causes are "
     "assigned by the reporting carrier; the split is not an independent causal decomposition.")
 BUL("Weather enters as a planned covariate, not a delivered one. The hour-matching join is implemented and "
-    "exercised on the fixture, but the ten-year Integrated Surface Database extraction is not yet part of "
+    "exercised on the fixture, but the ten-year Integrated Surface Database (ISD; National Centers for "
+    "Environmental Information, n.d.) extraction is not yet part of "
     "the pipeline, so until it lands the weather signal is only the carrier-reported weather cause share. "
     "If the extraction does not land before the report, the covariate is dropped from the claim rather than "
     "reported at partial coverage.")
@@ -925,14 +927,15 @@ refs = [
     "[Data set]. U.S. Department of Transportation. Retrieved October 21, 2026, from "
     "https://www.transtats.bts.gov/DatabaseInfo.asp?QO_VQ=EFI",
 
-    "Breiman, L. (2001). Random forests. Machine Learning, 45(1), 5–32. "
-    "https://doi.org/10.1023/A:1010933404324",
-
     "Cairo, A. (2016). The truthful art: Data, charts, and maps for communication. New Riders.",
 
     "Cleveland, W. S., & McGill, R. (1984). Graphical perception: Theory, experimentation, and application to "
     "the development of graphical methods. Journal of the American Statistical Association, 79(387), 531–554. "
     "https://doi.org/10.1080/01621459.1984.10478080",
+
+    "Federal Aviation Administration. (n.d.). Air traffic by the numbers and passenger boarding (enplanement) "
+    "data [Data set]. U.S. Department of Transportation. Retrieved October 21, 2026, from "
+    "https://www.faa.gov/air_traffic/by_the_numbers",
 
     "Lundberg, S. M., & Lee, S.-I. (2017). A unified approach to interpreting model predictions. In Advances "
     "in Neural Information Processing Systems (Vol. 30, pp. 4765–4774).",
@@ -977,6 +980,41 @@ for i, ref in enumerate(refs, 1):
 REQUIRED_FIGURES = {"01_cause_waffle.png", "13_dashboard_part1.png", "13_dashboard_part2.png"}
 _missing = REQUIRED_FIGURES - set(EMBEDDED)
 assert not _missing, f"figures never reached the document: {sorted(_missing)}"
+
+# =====================================================================
+# PAGE NUMBERS
+# =====================================================================
+# The submitted PDF had no folio on any of its ten pages, so a reader could not
+# say "see p. 6" and a marker could not record where a comment applied. A PAGE
+# field is used rather than a typed number: if the text is edited later and the
+# document re-paginates, the folio follows automatically instead of lying.
+
+
+def _add_page_number(section):
+    para = section.footer.paragraphs[0]
+    para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    para.paragraph_format.space_before = Pt(0)
+    para.paragraph_format.space_after = Pt(0)
+    run = para.add_run()
+    run.font.name = FONT
+    run.font.size = Pt(9)
+    fld_begin = OxmlElement('w:fldChar')
+    fld_begin.set(qn('w:fldCharType'), 'begin')
+    instr = OxmlElement('w:instrText')
+    instr.set(qn('xml:space'), 'preserve')
+    instr.text = ' PAGE '
+    fld_sep = OxmlElement('w:fldChar')
+    fld_sep.set(qn('w:fldCharType'), 'separate')
+    placeholder = OxmlElement('w:t')
+    placeholder.text = '1'
+    fld_end = OxmlElement('w:fldChar')
+    fld_end.set(qn('w:fldCharType'), 'end')
+    for el in (fld_begin, instr, fld_sep, placeholder, fld_end):
+        run._r.append(el)
+
+
+for _section in doc.sections:
+    _add_page_number(_section)
 
 doc.save(OUT)
 print("SAVED:", OUT)

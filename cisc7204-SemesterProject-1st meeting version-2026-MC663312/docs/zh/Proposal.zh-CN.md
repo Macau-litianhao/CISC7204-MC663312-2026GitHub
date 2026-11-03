@@ -5,7 +5,7 @@
 CISC7204 数据科学与数据可视化 · 学期项目提案（团队版）
 
 > 本文件是英文提案 `docs/proposal/CISC7204-Team01-ProjectProposal.pdf` 的**中文对照版，仅供组内审阅与自查**。  
-> 正式提交以英文 PDF（9 页，含封面与参考文献）为准。参考文献按 APA 规范保留英文原文，不翻译。
+> 正式提交以英文 PDF（10 页，含封面与参考文献，页脚 1–10）为准。参考文献按 APA 规范保留英文原文，不翻译。
 
 | 项目   | 内容                                                                                                                                   |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -13,7 +13,7 @@ CISC7204 数据科学与数据可视化 · 学期项目提案（团队版）
 | 团队   | Class K — Team 01                                                                                                                    |
 | 成员   | AO KIT I（MC660004）· LI YING FANG（MC661599）· HO MAN HOU（MC661647）· WU PEI YE（MC661846）· LI TIAN HAO（MC663312）· SAVIDI AVRAM（MC664364） |
 | 提交日期 | 2026 年 11 月 5 日                                                                                                                      |
-| 篇幅   | 正文 9 页（上限 15 页）                                                                                                                      |
+| 篇幅   | 正文 10 页（上限 15 页，页脚 1–10）                                                                                                          |
 
 ---
 
@@ -244,13 +244,13 @@ Team01-FlightDelay-Project/
 
 ## 12. 参考文献（APA，共 13 条）
 
-> 按 APA 规范保留英文原文，不翻译。
+> 按 APA 规范保留英文原文，不翻译。英文版正文已为每一条补上括注引用（13/13），并删去实际未使用的 Breiman (2001)、补上 Table 2 用到但原先缺失的 FAA 数据条目；本中文对照版只同步条目本身。
 
 1. Bureau of Transportation Statistics. (n.d.-a). *Airline on-time performance: Delay cause* [Data set]. U.S. Department of Transportation. Retrieved October 21, 2026, from <https://www.transtats.bts.gov/ot_delay/ot_delaycause1.asp>
 2. Bureau of Transportation Statistics. (n.d.-b). *Reporting carrier on-time performance (1987–present)* [Data set]. U.S. Department of Transportation. Retrieved October 21, 2026, from <https://www.transtats.bts.gov/DatabaseInfo.asp?QO_VQ=EFI>
-3. Breiman, L. (2001). Random forests. *Machine Learning, 45*(1), 5–32. <https://doi.org/10.1023/A:1010933404324>
-4. Cairo, A. (2016). *The truthful art: Data, charts, and maps for communication*. New Riders.
-5. Cleveland, W. S., & McGill, R. (1984). Graphical perception: Theory, experimentation, and application to the development of graphical methods. *Journal of the American Statistical Association, 79*(387), 531–554. <https://doi.org/10.1080/01621459.1984.10478080>
+3. Cairo, A. (2016). *The truthful art: Data, charts, and maps for communication*. New Riders.
+4. Cleveland, W. S., & McGill, R. (1984). Graphical perception: Theory, experimentation, and application to the development of graphical methods. *Journal of the American Statistical Association, 79*(387), 531–554. <https://doi.org/10.1080/01621459.1984.10478080>
+5. Federal Aviation Administration. (n.d.). *Air traffic by the numbers* and *passenger boarding (enplanement)* data [Data set]. U.S. Department of Transportation. Retrieved October 21, 2026, from <https://www.faa.gov/air_traffic/by_the_numbers>
 6. Lundberg, S. M., & Lee, S.-I. (2017). A unified approach to interpreting model predictions. In *Advances in Neural Information Processing Systems* (Vol. 30, pp. 4765–4774).
 7. Mackinlay, J. (1986). Automating the design of graphical presentations of relational information. *ACM Transactions on Graphics, 5*(2), 110–141. <https://doi.org/10.1145/22949.22950>
 8. Munzner, T. (2014). *Visualization analysis and design*. CRC Press.

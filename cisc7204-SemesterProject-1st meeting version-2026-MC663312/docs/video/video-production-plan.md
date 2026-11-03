@@ -32,10 +32,10 @@
 
 **做法**：用 `edge-tts` 逐段合成 `video_script.md` 里的 16 段旁白，再用 ffmpeg/剪映把 16 张图 + 16 段音频对齐成片。
 
-**已出片**：`Team01_IntroVideo.mp4`（**4:52，1920×1080，H.264 + AAC，字幕已烧录**）。
+**已出片**：`Team01_IntroVideo.mp4`（**4:51.81，1920×1080，H.264 + AAC，131 条逐句字幕已烧录**）。
 - 音色 `en-US-AndrewMultilingualNeural`，16 段配音存于 `assets/narration/official/01..16.mp3`。
 - 一键重建脚本：`docs/video/_build_official_video.py`（复用已有配音、自动按目标时长拉伸语速、烧录逐行字幕）。
-- 语速用 ffmpeg `atempo` 精确拉到 ~285 s 语音 + 16×0.45 s 停顿 = 4:52，落在课程 4:45–5:00 区间内。
+- 语速用 ffmpeg `atempo` 精确拉到 ~285 s 语音 + 16×0.45 s 停顿 = 4:51.81，落在课程 4:45–5:00 区间内。
 - 旧 19 页版本已备份为 `_old_19slide_Team01_IntroVideo.mp4`。
 
 **音色选择**（微软神经音色，免费）：

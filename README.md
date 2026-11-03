@@ -16,7 +16,20 @@ This repository showcases my coursework outcomes for **CISC7204 Data Visualizati
 |---|---|---|
 | [`cisc7204-Assgn01-2026-MC663312/`](cisc7204-Assgn01-2026-MC663312/) | Assignment 1 | Module 01–06 lab notebooks, assignment datasets, and the preliminary project proposal (stroke paradox analysis). |
 | [`cisc7204-Assgn02-2026-MC663312/`](cisc7204-Assgn02-2026-MC663312/) | Assignment 2 | Module 01–05 lab notebooks and their screen shots, the Dash project spaces, and the revised pair project proposal (Pair 14) together with the BTS flight-delay analysis behind it. |
-| [`cisc7204-SemesterProject-2026-MC663312/`](cisc7204-SemesterProject-2026-MC663312/) | Semester project (Class K, Team 01) | Ten years of US domestic flights (61,689,698 completed): delay attribution, within-day cascade, airport archetypes, gradient-boosted prediction, a linked eight-panel Dash dashboard, and the submitted proposal, minutes and five-minute video. |
+| [`cisc7204-SemesterProject-1st meeting version-2026-MC663312/`](cisc7204-SemesterProject-1st%20meeting%20version-2026-MC663312/) | Semester project (Class K, Team 01) — **first version, frozen at the 1st team meeting** | Ten years of US domestic flights (61,689,698 completed): delay attribution, within-day cascade, airport archetypes, gradient-boosted prediction, a linked eight-panel Dash dashboard, and the submitted proposal, minutes and five-minute video. |
+
+## Version status
+
+`cisc7204-SemesterProject-1st meeting version-2026-MC663312/` is the **first
+delivered version** of the team project — the snapshot that was frozen at the
+first team meeting (3 November 2026) and submitted for the 5 November checkpoint:
+proposal, first meeting minutes and introductory video.
+
+Work on the project continues in this same folder. Analysis, figures, dashboard
+panels and the report will keep being revised ahead of the final presentation and
+the 12 December submission, so treat the current contents as a checkpoint rather
+than a final state. The commit that first introduced this folder is a stable
+reference to the 1st-meeting snapshot; later commits are the continuing work.
 
 ## Assignment 2 structure
 
@@ -34,7 +47,7 @@ cisc7204-Assgn02-2026-MC663312/
 ## Semester project structure
 
 ```
-cisc7204-SemesterProject-2026-MC663312/
+cisc7204-SemesterProject-1st meeting version-2026-MC663312/
 ├── src/team01/                  analysis package: attribution, cascade, clustering,
 │                                models, visualisation, schema and IO
 ├── src/scripts/                 numbered pipeline stages 01–07; one command
@@ -67,8 +80,8 @@ away.
 ## Reproducing the semester project
 
 ```bash
-pip install -r cisc7204-SemesterProject-2026-MC663312/requirements.txt
-cd cisc7204-SemesterProject-2026-MC663312
+pip install -r "cisc7204-SemesterProject-1st meeting version-2026-MC663312/requirements.txt"
+cd "cisc7204-SemesterProject-1st meeting version-2026-MC663312"
 
 make smoke       # whole pipeline on a synthetic fixture: seconds, no download
 make test        # 53 tests

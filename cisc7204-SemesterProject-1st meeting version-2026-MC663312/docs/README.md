@@ -2,7 +2,7 @@
 
 | Path | What it is | Status |
 |---|---|---|
-| `proposal/CISC7204-Team01-ProjectProposal.pdf` | Team proposal, 10 pages (limit 15), five datasets D1–D5 with full links | Ready |
+| `proposal/CISC7204-Team01-ProjectProposal.pdf` | Team proposal, 10 pages with folio 1–10 (limit 15), 13 references all cited in the text, five datasets D1–D5 with full links | Ready |
 | `proposal/CISC7204-Team01-ProjectProposal.docx` | Source file for edits | Ready |
 | `meeting-minutes/00_Meeting_Minutes_Template.md` | The twelve-section course template, blank | Reference |
 | `meeting-minutes/01_Team01_Meeting_Minutes.md` | Minutes 01 (kick-off), twelve sections matching the official template, roles aligned with Work Plan 1 | Ready |
@@ -11,7 +11,7 @@
 | `forum/first-meeting-minutes-post.md` | Copy-paste text for the Collaborative Forum post | Ready |
 | `video/video_script.md` | Five-minute shot-by-shot script and compliance checklist | Ready |
 | `video/video-production-plan.md` | Three production routes — official voice, cloned voice, live recording — all mapped to the 16-slide deck | Ready |
-| `video/Team01_IntroVideo.mp4` (+ `.srt`) | Final narrated film, 4:52, 1920×1080, H.264 + AAC, subtitles burned in | Ready |
+| `video/Team01_IntroVideo.mp4` (+ `.srt`) | Final narrated film, 4:51.81, 1920×1080, H.264 + AAC, sentence-level captions burned in and clear of the slide footer | Ready |
 | `video/deck/deck.pptx` · `deck.pdf` · `png/` | 16-slide deck, exported PDF and one PNG per slide for video frames | Ready |
 | `video/_build_official_video.py` | One command rebuilds the film from the 16 narration clips | Ready |
 | `submission-checklist.md` | Two-channel gate: forum post + upload, six individuals | Ready |

@@ -137,14 +137,14 @@ extensions that use the additional capacity rather than repeating the pilot.
 
 ### 9. References
 
-Seven or more sources in APA 7, listed in full in the uploaded PDF: BTS on-time
-performance data (two datasets), BTS delay-cause data, NOAA ISD, OurAirports,
+Thirteen sources in APA 7, every one of them cited in the body text and listed in
+full in the uploaded PDF: BTS on-time performance data (two datasets), BTS
+delay-cause data, NOAA ISD, OurAirports, FAA air-traffic and enplanement figures,
 Cairo (2016) *The Truthful Art*, Cleveland and McGill (1984) on graphical
 perception, Mackinlay (1986) on the automated design of graphical presentations,
 Munzner (2014) *Visualization Analysis and Design*, Shneiderman (1996) on the task
 by data type taxonomy, Rousseeuw (1987) on silhouettes, Okabe and Ito (2008) on
-colour universal design, Breiman (2001) on random forests, and Lundberg and Lee
-(2017) on model interpretation.
+colour universal design, and Lundberg and Lee (2017) on model interpretation.
 
 ---
 
