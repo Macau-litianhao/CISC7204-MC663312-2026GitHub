@@ -5,6 +5,11 @@
 AO KIT I (MC660004) · LI YING FANG (MC661599) · HO MAN HOU (MC661647) ·
 WU PEI YE (MC661846) · LI TIAN HAO (MC663312) · SAVIDI AVRAM (MC664364)
 
+> **Version: 1st-meeting snapshot (2026-11-03, tag `v1.0-1st-meeting`).**
+> Frozen for the 5 November checkpoint — proposal, first meeting minutes and
+> introductory video. Actively revised in this same folder for the final
+> presentation and the 12 December submission; later commits are the continuing work.
+
 An end-to-end, reproducible analysis of delay in U.S. domestic air travel: where
 delay minutes come from, how they are inherited within the operating day, which
 airport archetypes exist, which factors govern delay length and severe-delay
