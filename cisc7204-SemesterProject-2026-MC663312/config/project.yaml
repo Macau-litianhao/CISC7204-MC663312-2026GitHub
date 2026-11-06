@@ -1,0 +1,132 @@
+# =============================================================================
+# Team01-FlightDelay-Project - single source of truth for paths and parameters
+#
+# Every script and notebook reads this file instead of hard-coding a path, so
+# switching from the ten-year panel to the 60k-row smoke fixture is one edit
+# (or one environment variable: TEAM01_MODE=sample).
+# =============================================================================
+
+project:
+  name: Team01-FlightDelay-Project
+  course: CISC7204 Data Science and Data Visualization
+  team: Class K - Team 01
+  version: 0.4.0
+
+# full   -> data/processed/flights.parquet, the real ten-year panel
+# sample -> data/sample/flights_sample.parquet, synthetic smoke fixture
+mode: full
+
+panel:
+  years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  # BTS publishes cause minutes only above this arrival-delay threshold.
+  attribution_threshold_min: 15
+  # A ten-year panel is not stationary: 2020-2021 lost most of its traffic and
+  # its delay mix changed with it, so pooled coefficients would be a blend of
+  # two different regimes. Both years are kept in the panel and flagged by a
+  # COVID dummy, and every headline statistic is recomputed without them.
+  covid_start: "2020-03-01"
+  covid_end: "2021-12-31"
+  sensitivity_exclude_years: [2020, 2021]
+
+sampling:
+  # Fixed-seed samples keep the heavy models fast and reproducible.
+  seed: 20261105
+  ols_rows: 600000
+  # The quantile regression is a linear program, and its solve time grows faster
+  # than the row count: 30k rows takes 36 s, 100k takes 409 s, so 250k would
+  # take around 40 minutes. 100k is the point where the p90 coefficients stop
+  # moving with the sample size (pseudo R2 0.0374 at 30k, 0.0353 at 100k) while
+  # the stage still finishes inside a normal pipeline run. The panel controls
+  # add ten more columns to that program; they are kept because a p90 that
+  # ignores the pandemic years is not a p90 of anything real.
+  tail_rows: 100000
+  gbm_rows: 400000
+  bootstrap_reps: 400
+
+cluster:
+  k_min: 3
+  k_max: 8
+  n_init: 25
+  # Minimum completed departures for an airport to enter the feature matrix.
+  min_departures: 20000
+  # A k whose smallest cluster holds fewer airports than this is not a typology,
+  # it is a singleton. The silhouette sweep usually peaks at such a k, so the
+  # selection rule and the figure have to use the same number - otherwise the
+  # chart appears to contradict the choice it illustrates.
+  min_cluster_size: 3
+  random_state: 20261105
+
+attribution:
+  # A carrier enters the comparison only if its attributed flights reach this
+  # many. The floor is applied to the attribution universe (delay >= 15 min),
+  # which is roughly a fifth of the panel, so it must scale with the data: the
+  # fixture has 9.7k attributed flights in total and the ten-year panel has
+  # millions. One absolute number would empty the table on one and admit
+  # hundred-flight carriers on the other.
+  carrier_min_flights: 5000
+  carrier_min_flights_sample: 250
+
+models:
+  # Time-based holdout: train on everything before this month, test on the rest.
+  holdout_start: "2024-07-01"
+  delay_thresholds_min: [15, 60]
+  # Panel controls enter every model as a block that is not a research factor:
+  # year fixed effects absorb the trend and the pandemic years, the COVID dummy
+  # absorbs the 2020-2021 regime break. Without them a pooled coefficient is a
+  # weighted average of ten different years presented as one number.
+  panel_controls: [year, covid_era]
+  # Origin airports are one-hot encoded, but only the busiest ones. A full
+  # panel has 350+ origins, and 350 dummies take the design matrix to 376
+  # columns; IRLS quantile regression then fails to converge at any usable
+  # sample size. Keeping the top airports and pooling the tail into "other"
+  # holds the matrix near 90 factor columns (about 103 with the
+  # year and COVID controls) while preserving the traffic that matters.
+  origin_top_k: 50
+  gbm_estimators: 300
+  gbm_learning_rate: 0.05
+  gbm_max_depth: 6
+  shap_sample_rows: 5000
+
+viz:
+  # Okabe-Ito colour-vision-deficiency safe palette, fixed per cause.
+  palette: okabe_ito
+  dpi: 300
+  figure_width_cm: 16.0
+  # An hour with a handful of flights produces a share that is arithmetically
+  # correct and visually a lie: 18 flights at 22:00 once drew a 67% inherited
+  # share, which reads as a night-time crisis rather than as an empty airport.
+  # The printed cascade figure and the dashboard hourly panel both read this
+  # key, so the two can never disagree about where the data stops being enough.
+  min_hour_flights: 200
+
+paths:
+  raw_flights: data/raw/flights
+  raw_weather: data/raw/weather
+  reference: data/raw/reference
+  interim: data/interim
+  processed: data/processed
+  sample: data/sample
+  figures: figures
+  tables: outputs/tables
+  metrics: outputs/metrics
+
+files:
+  flights_parquet: data/processed/flights.parquet
+  flights_sample_parquet: data/sample/flights_sample.parquet
+  # The reference table follows the active mode as well. When both modes shared
+  # one path, running the fixture first wrote 15 synthetic airports into
+  # data/raw/ and the real download then saw "file exists" and skipped itself,
+  # so the real panel was clustered on fake coordinates.
+  airports_csv: data/raw/reference/airports.csv
+  airports_sample_csv: data/sample/airports_sample.csv
+  weather_parquet: data/processed/weather_hourly.parquet
+  airport_features_parquet: data/processed/airport_features.parquet
+  airport_clusters_csv: outputs/tables/airport_clusters.csv
+  checksum_manifest: data/checksums.sha256
+
+dashboard:
+  host: 127.0.0.1
+  port: 8050
+  # The app reads at most this many rows so a laptop browser stays responsive.
+  max_rows: 400000
+  cache_ttl_seconds: 900

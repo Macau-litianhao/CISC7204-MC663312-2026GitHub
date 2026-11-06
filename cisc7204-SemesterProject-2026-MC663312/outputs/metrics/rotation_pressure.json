@@ -1,0 +1,4037 @@
+{
+  "rotations": 1595516,
+  "rotation_share_of_flights": 0.9349,
+  "positive_delay_minutes": 17926468.0,
+  "inherited_minutes": 5225952.0,
+  "inherited_share": 0.2915,
+  "pressure_to_positive_arrival_ratio": 0.2915,
+  "interpretation": "Pressure is an assumed minimum-turnaround shortfall, not minutes of realised arrival delay. Ratios may exceed one.",
+  "hourly": [
+    {
+      "dep_hour": 0,
+      "delay_min": 49699.0,
+      "inherited_min": 11706.0,
+      "flights": 4189,
+      "inherited_share": 0.23549999296665192,
+      "mean_inherited": 2.79
+    },
+    {
+      "dep_hour": 1,
+      "delay_min": 27939.0,
+      "inherited_min": 6928.0,
+      "flights": 2108,
+      "inherited_share": 0.24799999594688416,
+      "mean_inherited": 3.29
+    },
+    {
+      "dep_hour": 2,
+      "delay_min": 12990.0,
+      "inherited_min": 5509.0,
+      "flights": 688,
+      "inherited_share": 0.42410001158714294,
+      "mean_inherited": 8.01
+    },
+    {
+      "dep_hour": 3,
+      "delay_min": 7560.0,
+      "inherited_min": 3771.0,
+      "flights": 448,
+      "inherited_share": 0.49880000948905945,
+      "mean_inherited": 8.42
+    },
+    {
+      "dep_hour": 4,
+      "delay_min": 2645.0,
+      "inherited_min": 961.0,
+      "flights": 199,
+      "inherited_share": 0.36329999566078186,
+      "mean_inherited": 4.83
+    },
+    {
+      "dep_hour": 5,
+      "delay_min": 223105.0,
+      "inherited_min": 24419.0,
+      "flights": 34580,
+      "inherited_share": 0.10949999839067459,
+      "mean_inherited": 0.71
+    },
+    {
+      "dep_hour": 6,
+      "delay_min": 740525.0,
+      "inherited_min": 46599.0,
+      "flights": 112925,
+      "inherited_share": 0.06289999932050705,
+      "mean_inherited": 0.41
+    },
+    {
+      "dep_hour": 7,
+      "delay_min": 774287.0,
+      "inherited_min": 53083.0,
+      "flights": 111032,
+      "inherited_share": 0.06859999895095825,
+      "mean_inherited": 0.48
+    },
+    {
+      "dep_hour": 8,
+      "delay_min": 798388.0,
+      "inherited_min": 99017.0,
+      "flights": 105606,
+      "inherited_share": 0.12399999797344208,
+      "mean_inherited": 0.94
+    },
+    {
+      "dep_hour": 9,
+      "delay_min": 734595.0,
+      "inherited_min": 151238.0,
+      "flights": 94590,
+      "inherited_share": 0.20589999854564667,
+      "mean_inherited": 1.6
+    },
+    {
+      "dep_hour": 10,
+      "delay_min": 854146.0,
+      "inherited_min": 229335.0,
+      "flights": 101228,
+      "inherited_share": 0.2685000002384186,
+      "mean_inherited": 2.27
+    },
+    {
+      "dep_hour": 11,
+      "delay_min": 921623.0,
+      "inherited_min": 266060.0,
+      "flights": 99714,
+      "inherited_share": 0.28870001435279846,
+      "mean_inherited": 2.67
+    },
+    {
+      "dep_hour": 12,
+      "delay_min": 985727.0,
+      "inherited_min": 302507.0,
+      "flights": 96897,
+      "inherited_share": 0.3068999946117401,
+      "mean_inherited": 3.12
+    },
+    {
+      "dep_hour": 13,
+      "delay_min": 1033392.0,
+      "inherited_min": 304753.0,
+      "flights": 94724,
+      "inherited_share": 0.29490000009536743,
+      "mean_inherited": 3.22
+    },
+    {
+      "dep_hour": 14,
+      "delay_min": 1142072.0,
+      "inherited_min": 343431.0,
+      "flights": 91297,
+      "inherited_share": 0.30070000886917114,
+      "mean_inherited": 3.76
+    },
+    {
+      "dep_hour": 15,
+      "delay_min": 1281009.0,
+      "inherited_min": 390269.0,
+      "flights": 96613,
+      "inherited_share": 0.30469998717308044,
+      "mean_inherited": 4.04
+    },
+    {
+      "dep_hour": 16,
+      "delay_min": 1295884.0,
+      "inherited_min": 426695.0,
+      "flights": 91187,
+      "inherited_share": 0.3292999863624573,
+      "mean_inherited": 4.68
+    },
+    {
+      "dep_hour": 17,
+      "delay_min": 1545985.0,
+      "inherited_min": 524544.0,
+      "flights": 103494,
+      "inherited_share": 0.3393000066280365,
+      "mean_inherited": 5.07
+    },
+    {
+      "dep_hour": 18,
+      "delay_min": 1485246.0,
+      "inherited_min": 552655.0,
+      "flights": 94565,
+      "inherited_share": 0.37209999561309814,
+      "mean_inherited": 5.84
+    },
+    {
+      "dep_hour": 19,
+      "delay_min": 1350496.0,
+      "inherited_min": 529807.0,
+      "flights": 84922,
+      "inherited_share": 0.392300009727478,
+      "mean_inherited": 6.24
+    },
+    {
+      "dep_hour": 20,
+      "delay_min": 1142751.0,
+      "inherited_min": 436362.0,
+      "flights": 70999,
+      "inherited_share": 0.38190001249313354,
+      "mean_inherited": 6.15
+    },
+    {
+      "dep_hour": 21,
+      "delay_min": 794930.0,
+      "inherited_min": 297146.0,
+      "flights": 52144,
+      "inherited_share": 0.37380000948905945,
+      "mean_inherited": 5.7
+    },
+    {
+      "dep_hour": 22,
+      "delay_min": 528832.0,
+      "inherited_min": 165272.0,
+      "flights": 36928,
+      "inherited_share": 0.3125,
+      "mean_inherited": 4.48
+    },
+    {
+      "dep_hour": 23,
+      "delay_min": 192641.0,
+      "inherited_min": 53885.0,
+      "flights": 14439,
+      "inherited_share": 0.27970001101493835,
+      "mean_inherited": 3.73
+    }
+  ],
+  "by_airport": [
+    {
+      "origin": "BUR",
+      "delay_min": 59228.0,
+      "inherited_min": 27576.0,
+      "rotations": 5982,
+      "inherited_share": 0.46560001373291016
+    },
+    {
+      "origin": "LGA",
+      "delay_min": 444454.0,
+      "inherited_min": 183025.0,
+      "rotations": 34672,
+      "inherited_share": 0.41179999709129333
+    },
+    {
+      "origin": "OKC",
+      "delay_min": 48781.0,
+      "inherited_min": 19838.0,
+      "rotations": 5007,
+      "inherited_share": 0.4066999852657318
+    },
+    {
+      "origin": "ONT",
+      "delay_min": 54500.0,
+      "inherited_min": 22091.0,
+      "rotations": 5881,
+      "inherited_share": 0.40529999136924744
+    },
+    {
+      "origin": "ABQ",
+      "delay_min": 50871.0,
+      "inherited_min": 19702.0,
+      "rotations": 5250,
+      "inherited_share": 0.3873000144958496
+    },
+    {
+      "origin": "MKE",
+      "delay_min": 76490.0,
+      "inherited_min": 29495.0,
+      "rotations": 7064,
+      "inherited_share": 0.3856000006198883
+    },
+    {
+      "origin": "SJC",
+      "delay_min": 100817.0,
+      "inherited_min": 38504.0,
+      "rotations": 12359,
+      "inherited_share": 0.38190001249313354
+    },
+    {
+      "origin": "SAT",
+      "delay_min": 87266.0,
+      "inherited_min": 33268.0,
+      "rotations": 8774,
+      "inherited_share": 0.38119998574256897
+    },
+    {
+      "origin": "PBI",
+      "delay_min": 102661.0,
+      "inherited_min": 38540.0,
+      "rotations": 6283,
+      "inherited_share": 0.37540000677108765
+    },
+    {
+      "origin": "SMF",
+      "delay_min": 102186.0,
+      "inherited_min": 37489.0,
+      "rotations": 11861,
+      "inherited_share": 0.3668999969959259
+    },
+    {
+      "origin": "RSW",
+      "delay_min": 110171.0,
+      "inherited_min": 40003.0,
+      "rotations": 8338,
+      "inherited_share": 0.36309999227523804
+    },
+    {
+      "origin": "MCI",
+      "delay_min": 111342.0,
+      "inherited_min": 40028.0,
+      "rotations": 11086,
+      "inherited_share": 0.359499990940094
+    },
+    {
+      "origin": "BNA",
+      "delay_min": 177922.0,
+      "inherited_min": 63965.0,
+      "rotations": 16951,
+      "inherited_share": 0.359499990940094
+    },
+    {
+      "origin": "JAX",
+      "delay_min": 70861.0,
+      "inherited_min": 24880.0,
+      "rotations": 5788,
+      "inherited_share": 0.35109999775886536
+    },
+    {
+      "origin": "CMH",
+      "delay_min": 83561.0,
+      "inherited_min": 29175.0,
+      "rotations": 7837,
+      "inherited_share": 0.3490999937057495
+    },
+    {
+      "origin": "MSY",
+      "delay_min": 136856.0,
+      "inherited_min": 47542.0,
+      "rotations": 11525,
+      "inherited_share": 0.3474000096321106
+    },
+    {
+      "origin": "MEM",
+      "delay_min": 59703.0,
+      "inherited_min": 20710.0,
+      "rotations": 5137,
+      "inherited_share": 0.34689998626708984
+    },
+    {
+      "origin": "SFO",
+      "delay_min": 442526.0,
+      "inherited_min": 152119.0,
+      "rotations": 37087,
+      "inherited_share": 0.34380000829696655
+    },
+    {
+      "origin": "PIT",
+      "delay_min": 87108.0,
+      "inherited_min": 29894.0,
+      "rotations": 8438,
+      "inherited_share": 0.3431999981403351
+    },
+    {
+      "origin": "TPA",
+      "delay_min": 211018.0,
+      "inherited_min": 72268.0,
+      "rotations": 17669,
+      "inherited_share": 0.3425000011920929
+    },
+    {
+      "origin": "CHS",
+      "delay_min": 59968.0,
+      "inherited_min": 20520.0,
+      "rotations": 5172,
+      "inherited_share": 0.34220001101493835
+    },
+    {
+      "origin": "OMA",
+      "delay_min": 58023.0,
+      "inherited_min": 19844.0,
+      "rotations": 5756,
+      "inherited_share": 0.34200000762939453
+    },
+    {
+      "origin": "IND",
+      "delay_min": 102492.0,
+      "inherited_min": 34568.0,
+      "rotations": 9147,
+      "inherited_share": 0.33730000257492065
+    },
+    {
+      "origin": "AUS",
+      "delay_min": 190180.0,
+      "inherited_min": 63020.0,
+      "rotations": 16112,
+      "inherited_share": 0.3314000070095062
+    },
+    {
+      "origin": "SNA",
+      "delay_min": 84542.0,
+      "inherited_min": 27838.0,
+      "rotations": 8892,
+      "inherited_share": 0.3292999863624573
+    },
+    {
+      "origin": "STL",
+      "delay_min": 150533.0,
+      "inherited_min": 49071.0,
+      "rotations": 14086,
+      "inherited_share": 0.32600000500679016
+    },
+    {
+      "origin": "RDU",
+      "delay_min": 157628.0,
+      "inherited_min": 50183.0,
+      "rotations": 11934,
+      "inherited_share": 0.31839999556541443
+    },
+    {
+      "origin": "SJU",
+      "delay_min": 138411.0,
+      "inherited_min": 44055.0,
+      "rotations": 7791,
+      "inherited_share": 0.3183000087738037
+    },
+    {
+      "origin": "DCA",
+      "delay_min": 229785.0,
+      "inherited_min": 72755.0,
+      "rotations": 20823,
+      "inherited_share": 0.3165999948978424
+    },
+    {
+      "origin": "OAK",
+      "delay_min": 99382.0,
+      "inherited_min": 31384.0,
+      "rotations": 11775,
+      "inherited_share": 0.3158000111579895
+    },
+    {
+      "origin": "DAL",
+      "delay_min": 172697.0,
+      "inherited_min": 53807.0,
+      "rotations": 17083,
+      "inherited_share": 0.311599999666214
+    },
+    {
+      "origin": "BOI",
+      "delay_min": 43478.0,
+      "inherited_min": 13512.0,
+      "rotations": 5128,
+      "inherited_share": 0.3107999861240387
+    },
+    {
+      "origin": "CLE",
+      "delay_min": 128344.0,
+      "inherited_min": 39512.0,
+      "rotations": 9720,
+      "inherited_share": 0.30790001153945923
+    },
+    {
+      "origin": "EWR",
+      "delay_min": 462190.0,
+      "inherited_min": 141684.0,
+      "rotations": 30894,
+      "inherited_share": 0.30649998784065247
+    },
+    {
+      "origin": "BDL",
+      "delay_min": 67574.0,
+      "inherited_min": 20563.0,
+      "rotations": 5819,
+      "inherited_share": 0.3043000102043152
+    },
+    {
+      "origin": "LAS",
+      "delay_min": 510411.0,
+      "inherited_min": 151283.0,
+      "rotations": 43197,
+      "inherited_share": 0.2964000105857849
+    },
+    {
+      "origin": "HOU",
+      "delay_min": 130859.0,
+      "inherited_min": 38574.0,
+      "rotations": 12866,
+      "inherited_share": 0.2948000133037567
+    },
+    {
+      "origin": "ORD",
+      "delay_min": 790624.0,
+      "inherited_min": 226593.0,
+      "rotations": 65371,
+      "inherited_share": 0.2865999937057495
+    },
+    {
+      "origin": "SAN",
+      "delay_min": 226357.0,
+      "inherited_min": 63571.0,
+      "rotations": 21825,
+      "inherited_share": 0.2808000147342682
+    },
+    {
+      "origin": "BOS",
+      "delay_min": 370398.0,
+      "inherited_min": 103210.0,
+      "rotations": 27648,
+      "inherited_share": 0.2786000072956085
+    },
+    {
+      "origin": "CVG",
+      "delay_min": 110523.0,
+      "inherited_min": 30282.0,
+      "rotations": 9186,
+      "inherited_share": 0.27399998903274536
+    },
+    {
+      "origin": "SLC",
+      "delay_min": 236786.0,
+      "inherited_min": 62743.0,
+      "rotations": 29193,
+      "inherited_share": 0.26499998569488525
+    },
+    {
+      "origin": "PHX",
+      "delay_min": 384446.0,
+      "inherited_min": 100355.0,
+      "rotations": 41424,
+      "inherited_share": 0.26100000739097595
+    },
+    {
+      "origin": "MSP",
+      "delay_min": 296686.0,
+      "inherited_min": 76179.0,
+      "rotations": 32280,
+      "inherited_share": 0.25679999589920044
+    },
+    {
+      "origin": "LAX",
+      "delay_min": 511589.0,
+      "inherited_min": 130749.0,
+      "rotations": 50750,
+      "inherited_share": 0.2556000053882599
+    },
+    {
+      "origin": "MCO",
+      "delay_min": 507501.0,
+      "inherited_min": 128824.0,
+      "rotations": 36325,
+      "inherited_share": 0.25380000472068787
+    },
+    {
+      "origin": "DEN",
+      "delay_min": 696215.0,
+      "inherited_min": 175871.0,
+      "rotations": 61392,
+      "inherited_share": 0.2526000142097473
+    },
+    {
+      "origin": "MDW",
+      "delay_min": 197665.0,
+      "inherited_min": 49405.0,
+      "rotations": 18569,
+      "inherited_share": 0.2498999983072281
+    },
+    {
+      "origin": "PHL",
+      "delay_min": 254948.0,
+      "inherited_min": 63391.0,
+      "rotations": 20240,
+      "inherited_share": 0.24860000610351562
+    },
+    {
+      "origin": "DTW",
+      "delay_min": 333141.0,
+      "inherited_min": 81020.0,
+      "rotations": 33911,
+      "inherited_share": 0.24320000410079956
+    },
+    {
+      "origin": "BWI",
+      "delay_min": 241928.0,
+      "inherited_min": 58797.0,
+      "rotations": 21574,
+      "inherited_share": 0.24300000071525574
+    },
+    {
+      "origin": "IAH",
+      "delay_min": 369525.0,
+      "inherited_min": 84544.0,
+      "rotations": 33187,
+      "inherited_share": 0.2287999987602234
+    },
+    {
+      "origin": "ATL",
+      "delay_min": 788240.0,
+      "inherited_min": 178438.0,
+      "rotations": 87082,
+      "inherited_share": 0.2264000028371811
+    },
+    {
+      "origin": "FLL",
+      "delay_min": 375543.0,
+      "inherited_min": 84465.0,
+      "rotations": 24441,
+      "inherited_share": 0.2249000072479248
+    },
+    {
+      "origin": "PDX",
+      "delay_min": 154952.0,
+      "inherited_min": 34777.0,
+      "rotations": 19198,
+      "inherited_share": 0.22439999878406525
+    },
+    {
+      "origin": "DFW",
+      "delay_min": 718555.0,
+      "inherited_min": 160561.0,
+      "rotations": 59488,
+      "inherited_share": 0.22339999675750732
+    },
+    {
+      "origin": "CLT",
+      "delay_min": 396903.0,
+      "inherited_min": 86910.0,
+      "rotations": 34900,
+      "inherited_share": 0.21899999678134918
+    },
+    {
+      "origin": "JFK",
+      "delay_min": 325711.0,
+      "inherited_min": 69847.0,
+      "rotations": 23862,
+      "inherited_share": 0.21439999341964722
+    },
+    {
+      "origin": "IAD",
+      "delay_min": 124620.0,
+      "inherited_min": 26213.0,
+      "rotations": 11366,
+      "inherited_share": 0.2102999985218048
+    },
+    {
+      "origin": "HNL",
+      "delay_min": 78505.0,
+      "inherited_min": 15629.0,
+      "rotations": 9110,
+      "inherited_share": 0.19910000264644623
+    },
+    {
+      "origin": "MIA",
+      "delay_min": 250359.0,
+      "inherited_min": 44700.0,
+      "rotations": 17378,
+      "inherited_share": 0.1784999966621399
+    },
+    {
+      "origin": "ANC",
+      "delay_min": 52861.0,
+      "inherited_min": 6952.0,
+      "rotations": 7672,
+      "inherited_share": 0.1315000057220459
+    },
+    {
+      "origin": "SEA",
+      "delay_min": 583053.0,
+      "inherited_min": 74877.0,
+      "rotations": 67357,
+      "inherited_share": 0.12839999794960022
+    }
+  ],
+  "uncertainty": {
+    "method": "Aircraft-cluster percentile bootstrap; 1000 draws; zero-rotation sampled tails retained",
+    "ratio_ci_low": 0.27779752016067505,
+    "ratio_ci_high": 0.305971622467041,
+    "limits": "Conditional on sampled aircraft, observed source records, timezone reference and the minimum-turn assumption; not a causal confidence interval or correction for missing legs"
+  },
+  "by_aircraft": [
+    {
+      "tail_number": "233NV",
+      "pressure_min": 46725.0,
+      "positive_arrival_min": 125041.0,
+      "rotations": 6934
+    },
+    {
+      "tail_number": "235NV",
+      "pressure_min": 48298.0,
+      "positive_arrival_min": 134142.0,
+      "rotations": 6124
+    },
+    {
+      "tail_number": "250NV",
+      "pressure_min": 40594.0,
+      "positive_arrival_min": 112440.0,
+      "rotations": 7742
+    },
+    {
+      "tail_number": "278NV",
+      "pressure_min": 15231.0,
+      "positive_arrival_min": 40956.0,
+      "rotations": 2003
+    },
+    {
+      "tail_number": "305NV",
+      "pressure_min": 30890.0,
+      "positive_arrival_min": 82868.0,
+      "rotations": 6298
+    },
+    {
+      "tail_number": "863GA",
+      "pressure_min": 2403.0,
+      "positive_arrival_min": 5601.0,
+      "rotations": 375
+    },
+    {
+      "tail_number": "N022AA",
+      "pressure_min": 6931.0,
+      "positive_arrival_min": 23702.0,
+      "rotations": 1742
+    },
+    {
+      "tail_number": "N027JB",
+      "pressure_min": 0.0,
+      "positive_arrival_min": 33.0,
+      "rotations": 33
+    },
+    {
+      "tail_number": "N11206",
+      "pressure_min": 20828.0,
+      "positive_arrival_min": 100918.0,
+      "rotations": 8459
+    },
+    {
+      "tail_number": "N12175",
+      "pressure_min": 17611.0,
+      "positive_arrival_min": 47578.0,
+      "rotations": 4174
+    },
+    {
+      "tail_number": "N122DU",
+      "pressure_min": 16256.0,
+      "positive_arrival_min": 61803.0,
+      "rotations": 5771
+    },
+    {
+      "tail_number": "N128DN",
+      "pressure_min": 4628.0,
+      "positive_arrival_min": 40119.0,
+      "rotations": 4171
+    },
+    {
+      "tail_number": "N130HQ",
+      "pressure_min": 25617.0,
+      "positive_arrival_min": 69263.0,
+      "rotations": 8316
+    },
+    {
+      "tail_number": "N133AN",
+      "pressure_min": 17827.0,
+      "positive_arrival_min": 93043.0,
+      "rotations": 6489
+    },
+    {
+      "tail_number": "N13538",
+      "pressure_min": 33712.0,
+      "positive_arrival_min": 94259.0,
+      "rotations": 7238
+    },
+    {
+      "tail_number": "N14249",
+      "pressure_min": 19821.0,
+      "positive_arrival_min": 99008.0,
+      "rotations": 7510
+    },
+    {
+      "tail_number": "N152DL",
+      "pressure_min": 1013.0,
+      "positive_arrival_min": 8326.0,
+      "rotations": 763
+    },
+    {
+      "tail_number": "N15985",
+      "pressure_min": 10774.0,
+      "positive_arrival_min": 33416.0,
+      "rotations": 3213
+    },
+    {
+      "tail_number": "N16976",
+      "pressure_min": 34696.0,
+      "positive_arrival_min": 100704.0,
+      "rotations": 7403
+    },
+    {
+      "tail_number": "N17306",
+      "pressure_min": 3870.0,
+      "positive_arrival_min": 18218.0,
+      "rotations": 1704
+    },
+    {
+      "tail_number": "N17335",
+      "pressure_min": 634.0,
+      "positive_arrival_min": 3149.0,
+      "rotations": 421
+    },
+    {
+      "tail_number": "N175DZ",
+      "pressure_min": 3170.0,
+      "positive_arrival_min": 13868.0,
+      "rotations": 1155
+    },
+    {
+      "tail_number": "N176DZ",
+      "pressure_min": 2156.0,
+      "positive_arrival_min": 12748.0,
+      "rotations": 693
+    },
+    {
+      "tail_number": "N178UA",
+      "pressure_min": 0.0,
+      "positive_arrival_min": 56.0,
+      "rotations": 5
+    },
+    {
+      "tail_number": "N181UW",
+      "pressure_min": 21393.0,
+      "positive_arrival_min": 135621.0,
+      "rotations": 9635
+    },
+    {
+      "tail_number": "N188AA",
+      "pressure_min": 2544.0,
+      "positive_arrival_min": 17416.0,
+      "rotations": 1515
+    },
+    {
+      "tail_number": "N208AN",
+      "pressure_min": 23824.0,
+      "positive_arrival_min": 77305.0,
+      "rotations": 6895
+    },
+    {
+      "tail_number": "N208SY",
+      "pressure_min": 35540.0,
+      "positive_arrival_min": 112981.0,
+      "rotations": 10608
+    },
+    {
+      "tail_number": "N2180J",
+      "pressure_min": 830.0,
+      "positive_arrival_min": 3505.0,
+      "rotations": 261
+    },
+    {
+      "tail_number": "N225UA",
+      "pressure_min": 379.0,
+      "positive_arrival_min": 4595.0,
+      "rotations": 213
+    },
+    {
+      "tail_number": "N233NN",
+      "pressure_min": 33376.0,
+      "positive_arrival_min": 101260.0,
+      "rotations": 9965
+    },
+    {
+      "tail_number": "N238FR",
+      "pressure_min": 63169.0,
+      "positive_arrival_min": 173593.0,
+      "rotations": 10337
+    },
+    {
+      "tail_number": "N242NN",
+      "pressure_min": 32534.0,
+      "positive_arrival_min": 111692.0,
+      "rotations": 10345
+    },
+    {
+      "tail_number": "N243WN",
+      "pressure_min": 71343.0,
+      "positive_arrival_min": 170402.0,
+      "rotations": 17665
+    },
+    {
+      "tail_number": "N246PS",
+      "pressure_min": 46140.0,
+      "positive_arrival_min": 109361.0,
+      "rotations": 8402
+    },
+    {
+      "tail_number": "N250SY",
+      "pressure_min": 48922.0,
+      "positive_arrival_min": 116868.0,
+      "rotations": 13531
+    },
+    {
+      "tail_number": "N27255",
+      "pressure_min": 6946.0,
+      "positive_arrival_min": 41030.0,
+      "rotations": 3412
+    },
+    {
+      "tail_number": "N272AK",
+      "pressure_min": 7161.0,
+      "positive_arrival_min": 62156.0,
+      "rotations": 7849
+    },
+    {
+      "tail_number": "N274AK",
+      "pressure_min": 9083.0,
+      "positive_arrival_min": 69147.0,
+      "rotations": 7959
+    },
+    {
+      "tail_number": "N287AK",
+      "pressure_min": 8607.0,
+      "positive_arrival_min": 62350.0,
+      "rotations": 6702
+    },
+    {
+      "tail_number": "N288NN",
+      "pressure_min": 23225.0,
+      "positive_arrival_min": 74007.0,
+      "rotations": 7555
+    },
+    {
+      "tail_number": "N288WN",
+      "pressure_min": 65888.0,
+      "positive_arrival_min": 160796.0,
+      "rotations": 17272
+    },
+    {
+      "tail_number": "N28912",
+      "pressure_min": 424.0,
+      "positive_arrival_min": 5214.0,
+      "rotations": 453
+    },
+    {
+      "tail_number": "N29124",
+      "pressure_min": 10625.0,
+      "positive_arrival_min": 57192.0,
+      "rotations": 3736
+    },
+    {
+      "tail_number": "N292SY",
+      "pressure_min": 33866.0,
+      "positive_arrival_min": 81491.0,
+      "rotations": 10067
+    },
+    {
+      "tail_number": "N293PQ",
+      "pressure_min": 33511.0,
+      "positive_arrival_min": 101521.0,
+      "rotations": 10560
+    },
+    {
+      "tail_number": "N293SY",
+      "pressure_min": 25035.0,
+      "positive_arrival_min": 75825.0,
+      "rotations": 9144
+    },
+    {
+      "tail_number": "N294AK",
+      "pressure_min": 6950.0,
+      "positive_arrival_min": 55763.0,
+      "rotations": 6030
+    },
+    {
+      "tail_number": "N29985",
+      "pressure_min": 490.0,
+      "positive_arrival_min": 2121.0,
+      "rotations": 96
+    },
+    {
+      "tail_number": "N3023J",
+      "pressure_min": 29906.0,
+      "positive_arrival_min": 94773.0,
+      "rotations": 3661
+    },
+    {
+      "tail_number": "N303DQ",
+      "pressure_min": 8941.0,
+      "positive_arrival_min": 35599.0,
+      "rotations": 5022
+    },
+    {
+      "tail_number": "N306DU",
+      "pressure_min": 16425.0,
+      "positive_arrival_min": 60815.0,
+      "rotations": 5187
+    },
+    {
+      "tail_number": "N307AS",
+      "pressure_min": 10995.0,
+      "positive_arrival_min": 89060.0,
+      "rotations": 9971
+    },
+    {
+      "tail_number": "N30913",
+      "pressure_min": 916.0,
+      "positive_arrival_min": 7806.0,
+      "rotations": 432
+    },
+    {
+      "tail_number": "N312US",
+      "pressure_min": 29997.0,
+      "positive_arrival_min": 130361.0,
+      "rotations": 11335
+    },
+    {
+      "tail_number": "N313DU",
+      "pressure_min": 7474.0,
+      "positive_arrival_min": 36864.0,
+      "rotations": 2904
+    },
+    {
+      "tail_number": "N314US",
+      "pressure_min": 7510.0,
+      "positive_arrival_min": 31171.0,
+      "rotations": 3670
+    },
+    {
+      "tail_number": "N316PQ",
+      "pressure_min": 31924.0,
+      "positive_arrival_min": 96431.0,
+      "rotations": 10434
+    },
+    {
+      "tail_number": "N322FR",
+      "pressure_min": 59946.0,
+      "positive_arrival_min": 168946.0,
+      "rotations": 9125
+    },
+    {
+      "tail_number": "N323DN",
+      "pressure_min": 11612.0,
+      "positive_arrival_min": 81051.0,
+      "rotations": 9837
+    },
+    {
+      "tail_number": "N3241J",
+      "pressure_min": 885.0,
+      "positive_arrival_min": 4080.0,
+      "rotations": 109
+    },
+    {
+      "tail_number": "N326RP",
+      "pressure_min": 6081.0,
+      "positive_arrival_min": 35845.0,
+      "rotations": 2495
+    },
+    {
+      "tail_number": "N329DD",
+      "pressure_min": 4603.0,
+      "positive_arrival_min": 12439.0,
+      "rotations": 906
+    },
+    {
+      "tail_number": "N338RS",
+      "pressure_min": 4391.0,
+      "positive_arrival_min": 34817.0,
+      "rotations": 2410
+    },
+    {
+      "tail_number": "N34110",
+      "pressure_min": 31341.0,
+      "positive_arrival_min": 79895.0,
+      "rotations": 5527
+    },
+    {
+      "tail_number": "N34222",
+      "pressure_min": 23328.0,
+      "positive_arrival_min": 107506.0,
+      "rotations": 8235
+    },
+    {
+      "tail_number": "N346PR",
+      "pressure_min": 14614.0,
+      "positive_arrival_min": 85448.0,
+      "rotations": 6846
+    },
+    {
+      "tail_number": "N357DN",
+      "pressure_min": 14173.0,
+      "positive_arrival_min": 77172.0,
+      "rotations": 7786
+    },
+    {
+      "tail_number": "N360NB",
+      "pressure_min": 24864.0,
+      "positive_arrival_min": 102463.0,
+      "rotations": 11131
+    },
+    {
+      "tail_number": "N364FR",
+      "pressure_min": 33483.0,
+      "positive_arrival_min": 108829.0,
+      "rotations": 6566
+    },
+    {
+      "tail_number": "N365NK",
+      "pressure_min": 0.0,
+      "positive_arrival_min": 0.0,
+      "rotations": 0
+    },
+    {
+      "tail_number": "N370HA",
+      "pressure_min": 5288.0,
+      "positive_arrival_min": 57621.0,
+      "rotations": 3881
+    },
+    {
+      "tail_number": "N37464",
+      "pressure_min": 14834.0,
+      "positive_arrival_min": 84542.0,
+      "rotations": 8505
+    },
+    {
+      "tail_number": "N37540",
+      "pressure_min": 4728.0,
+      "positive_arrival_min": 26555.0,
+      "rotations": 2322
+    },
+    {
+      "tail_number": "N37553",
+      "pressure_min": 3612.0,
+      "positive_arrival_min": 18604.0,
+      "rotations": 1912
+    },
+    {
+      "tail_number": "N3756",
+      "pressure_min": 13617.0,
+      "positive_arrival_min": 85629.0,
+      "rotations": 9448
+    },
+    {
+      "tail_number": "N391HA",
+      "pressure_min": 4877.0,
+      "positive_arrival_min": 50859.0,
+      "rotations": 3977
+    },
+    {
+      "tail_number": "N39450",
+      "pressure_min": 15831.0,
+      "positive_arrival_min": 85366.0,
+      "rotations": 7857
+    },
+    {
+      "tail_number": "N396FR",
+      "pressure_min": 19457.0,
+      "positive_arrival_min": 60348.0,
+      "rotations": 2631
+    },
+    {
+      "tail_number": "N3AGAA",
+      "pressure_min": 4770.0,
+      "positive_arrival_min": 30166.0,
+      "rotations": 2620
+    },
+    {
+      "tail_number": "N3FCAA",
+      "pressure_min": 6317.0,
+      "positive_arrival_min": 33028.0,
+      "rotations": 2798
+    },
+    {
+      "tail_number": "N3FWAA",
+      "pressure_min": 4874.0,
+      "positive_arrival_min": 29465.0,
+      "rotations": 2666
+    },
+    {
+      "tail_number": "N3GKAA",
+      "pressure_min": 6198.0,
+      "positive_arrival_min": 35113.0,
+      "rotations": 2898
+    },
+    {
+      "tail_number": "N3HEAA",
+      "pressure_min": 5357.0,
+      "positive_arrival_min": 29115.0,
+      "rotations": 2791
+    },
+    {
+      "tail_number": "N3HLAA",
+      "pressure_min": 3507.0,
+      "positive_arrival_min": 27547.0,
+      "rotations": 2839
+    },
+    {
+      "tail_number": "N3NFAA",
+      "pressure_min": 3340.0,
+      "positive_arrival_min": 17533.0,
+      "rotations": 1855
+    },
+    {
+      "tail_number": "N3NMAA",
+      "pressure_min": 2074.0,
+      "positive_arrival_min": 14894.0,
+      "rotations": 1570
+    },
+    {
+      "tail_number": "N402QX",
+      "pressure_min": 4136.0,
+      "positive_arrival_min": 18055.0,
+      "rotations": 2735
+    },
+    {
+      "tail_number": "N405DX",
+      "pressure_min": 185.0,
+      "positive_arrival_min": 921.0,
+      "rotations": 80
+    },
+    {
+      "tail_number": "N408AS",
+      "pressure_min": 8430.0,
+      "positive_arrival_min": 77786.0,
+      "rotations": 9943
+    },
+    {
+      "tail_number": "N412DX",
+      "pressure_min": 817.0,
+      "positive_arrival_min": 1591.0,
+      "rotations": 36
+    },
+    {
+      "tail_number": "N417YX",
+      "pressure_min": 28868.0,
+      "positive_arrival_min": 82015.0,
+      "rotations": 10108
+    },
+    {
+      "tail_number": "N422AN",
+      "pressure_min": 6919.0,
+      "positive_arrival_min": 38902.0,
+      "rotations": 3675
+    },
+    {
+      "tail_number": "N423AS",
+      "pressure_min": 10619.0,
+      "positive_arrival_min": 82948.0,
+      "rotations": 9674
+    },
+    {
+      "tail_number": "N426QX",
+      "pressure_min": 5071.0,
+      "positive_arrival_min": 18415.0,
+      "rotations": 2707
+    },
+    {
+      "tail_number": "N431AS",
+      "pressure_min": 12736.0,
+      "positive_arrival_min": 90898.0,
+      "rotations": 10047
+    },
+    {
+      "tail_number": "N440AS",
+      "pressure_min": 9149.0,
+      "positive_arrival_min": 81976.0,
+      "rotations": 10202
+    },
+    {
+      "tail_number": "N454AA",
+      "pressure_min": 1241.0,
+      "positive_arrival_min": 6270.0,
+      "rotations": 823
+    },
+    {
+      "tail_number": "N464AS",
+      "pressure_min": 10263.0,
+      "positive_arrival_min": 82144.0,
+      "rotations": 10268
+    },
+    {
+      "tail_number": "N473AA",
+      "pressure_min": 6460.0,
+      "positive_arrival_min": 21572.0,
+      "rotations": 2019
+    },
+    {
+      "tail_number": "N485PX",
+      "pressure_min": 13658.0,
+      "positive_arrival_min": 51036.0,
+      "rotations": 5849
+    },
+    {
+      "tail_number": "N491UA",
+      "pressure_min": 26976.0,
+      "positive_arrival_min": 107280.0,
+      "rotations": 8377
+    },
+    {
+      "tail_number": "N491WN",
+      "pressure_min": 62689.0,
+      "positive_arrival_min": 153145.0,
+      "rotations": 15277
+    },
+    {
+      "tail_number": "N492UA",
+      "pressure_min": 24340.0,
+      "positive_arrival_min": 99446.0,
+      "rotations": 8463
+    },
+    {
+      "tail_number": "N4XBAA",
+      "pressure_min": 16086.0,
+      "positive_arrival_min": 54112.0,
+      "rotations": 3915
+    },
+    {
+      "tail_number": "N4XJAA",
+      "pressure_min": 10169.0,
+      "positive_arrival_min": 42972.0,
+      "rotations": 3846
+    },
+    {
+      "tail_number": "N504NK",
+      "pressure_min": 55147.0,
+      "positive_arrival_min": 151105.0,
+      "rotations": 9264
+    },
+    {
+      "tail_number": "N508JL",
+      "pressure_min": 28281.0,
+      "positive_arrival_min": 88992.0,
+      "rotations": 4440
+    },
+    {
+      "tail_number": "N518MQ",
+      "pressure_min": 5485.0,
+      "positive_arrival_min": 14595.0,
+      "rotations": 831
+    },
+    {
+      "tail_number": "N522DZ",
+      "pressure_min": 0.0,
+      "positive_arrival_min": 21.0,
+      "rotations": 2
+    },
+    {
+      "tail_number": "N523SW",
+      "pressure_min": 13055.0,
+      "positive_arrival_min": 32703.0,
+      "rotations": 4241
+    },
+    {
+      "tail_number": "N524SW",
+      "pressure_min": 13659.0,
+      "positive_arrival_min": 32386.0,
+      "rotations": 3582
+    },
+    {
+      "tail_number": "N528AS",
+      "pressure_min": 12793.0,
+      "positive_arrival_min": 71217.0,
+      "rotations": 9606
+    },
+    {
+      "tail_number": "N530DE",
+      "pressure_min": 1835.0,
+      "positive_arrival_min": 16081.0,
+      "rotations": 1806
+    },
+    {
+      "tail_number": "N530US",
+      "pressure_min": 1046.0,
+      "positive_arrival_min": 8616.0,
+      "rotations": 1237
+    },
+    {
+      "tail_number": "N532AS",
+      "pressure_min": 9547.0,
+      "positive_arrival_min": 65053.0,
+      "rotations": 8899
+    },
+    {
+      "tail_number": "N538EG",
+      "pressure_min": 38538.0,
+      "positive_arrival_min": 113838.0,
+      "rotations": 10009
+    },
+    {
+      "tail_number": "N539US",
+      "pressure_min": 12880.0,
+      "positive_arrival_min": 90228.0,
+      "rotations": 8526
+    },
+    {
+      "tail_number": "N547AA",
+      "pressure_min": 11677.0,
+      "positive_arrival_min": 42502.0,
+      "rotations": 3833
+    },
+    {
+      "tail_number": "N547UW",
+      "pressure_min": 1207.0,
+      "positive_arrival_min": 8642.0,
+      "rotations": 1013
+    },
+    {
+      "tail_number": "N552NW",
+      "pressure_min": 14622.0,
+      "positive_arrival_min": 92578.0,
+      "rotations": 9594
+    },
+    {
+      "tail_number": "N568UW",
+      "pressure_min": 23990.0,
+      "positive_arrival_min": 126609.0,
+      "rotations": 9804
+    },
+    {
+      "tail_number": "N571GJ",
+      "pressure_min": 2031.0,
+      "positive_arrival_min": 3358.0,
+      "rotations": 117
+    },
+    {
+      "tail_number": "N582DN",
+      "pressure_min": 2235.0,
+      "positive_arrival_min": 6492.0,
+      "rotations": 484
+    },
+    {
+      "tail_number": "N586NW",
+      "pressure_min": 16016.0,
+      "positive_arrival_min": 99153.0,
+      "rotations": 9819
+    },
+    {
+      "tail_number": "N589HA",
+      "pressure_min": 136.0,
+      "positive_arrival_min": 1026.0,
+      "rotations": 65
+    },
+    {
+      "tail_number": "N591JB",
+      "pressure_min": 51471.0,
+      "positive_arrival_min": 160340.0,
+      "rotations": 8404
+    },
+    {
+      "tail_number": "N595UA",
+      "pressure_min": 8963.0,
+      "positive_arrival_min": 52407.0,
+      "rotations": 3150
+    },
+    {
+      "tail_number": "N597NN",
+      "pressure_min": 49992.0,
+      "positive_arrival_min": 131081.0,
+      "rotations": 12893
+    },
+    {
+      "tail_number": "N598JB",
+      "pressure_min": 48449.0,
+      "positive_arrival_min": 154272.0,
+      "rotations": 8602
+    },
+    {
+      "tail_number": "N5CKAA",
+      "pressure_min": 1652.0,
+      "positive_arrival_min": 8156.0,
+      "rotations": 440
+    },
+    {
+      "tail_number": "N5ELAA",
+      "pressure_min": 4927.0,
+      "positive_arrival_min": 31465.0,
+      "rotations": 1592
+    },
+    {
+      "tail_number": "N5FCAA",
+      "pressure_min": 3197.0,
+      "positive_arrival_min": 18316.0,
+      "rotations": 1496
+    },
+    {
+      "tail_number": "N603QX",
+      "pressure_min": 31773.0,
+      "positive_arrival_min": 70314.0,
+      "rotations": 6151
+    },
+    {
+      "tail_number": "N606SW",
+      "pressure_min": 36990.0,
+      "positive_arrival_min": 77161.0,
+      "rotations": 4834
+    },
+    {
+      "tail_number": "N608JB",
+      "pressure_min": 59820.0,
+      "positive_arrival_min": 176961.0,
+      "rotations": 8785
+    },
+    {
+      "tail_number": "N616UX",
+      "pressure_min": 14784.0,
+      "positive_arrival_min": 59817.0,
+      "rotations": 6775
+    },
+    {
+      "tail_number": "N618NK",
+      "pressure_min": 75642.0,
+      "positive_arrival_min": 228887.0,
+      "rotations": 13703
+    },
+    {
+      "tail_number": "N624QX",
+      "pressure_min": 7268.0,
+      "positive_arrival_min": 24908.0,
+      "rotations": 3110
+    },
+    {
+      "tail_number": "N627JB",
+      "pressure_min": 51267.0,
+      "positive_arrival_min": 164863.0,
+      "rotations": 8847
+    },
+    {
+      "tail_number": "N627VA",
+      "pressure_min": 15333.0,
+      "positive_arrival_min": 76192.0,
+      "rotations": 5560
+    },
+    {
+      "tail_number": "N636RW",
+      "pressure_min": 24746.0,
+      "positive_arrival_min": 83798.0,
+      "rotations": 7115
+    },
+    {
+      "tail_number": "N639MQ",
+      "pressure_min": 7508.0,
+      "positive_arrival_min": 22128.0,
+      "rotations": 1821
+    },
+    {
+      "tail_number": "N643AE",
+      "pressure_min": 302.0,
+      "positive_arrival_min": 1200.0,
+      "rotations": 96
+    },
+    {
+      "tail_number": "N649PP",
+      "pressure_min": 5730.0,
+      "positive_arrival_min": 15317.0,
+      "rotations": 1523
+    },
+    {
+      "tail_number": "N651QX",
+      "pressure_min": 7458.0,
+      "positive_arrival_min": 24997.0,
+      "rotations": 3160
+    },
+    {
+      "tail_number": "N652RW",
+      "pressure_min": 27348.0,
+      "positive_arrival_min": 80895.0,
+      "rotations": 5997
+    },
+    {
+      "tail_number": "N65832",
+      "pressure_min": 17768.0,
+      "positive_arrival_min": 95165.0,
+      "rotations": 9462
+    },
+    {
+      "tail_number": "N66056",
+      "pressure_min": 2600.0,
+      "positive_arrival_min": 10802.0,
+      "rotations": 737
+    },
+    {
+      "tail_number": "N665NK",
+      "pressure_min": 50098.0,
+      "positive_arrival_min": 178225.0,
+      "rotations": 10486
+    },
+    {
+      "tail_number": "N667AW",
+      "pressure_min": 32123.0,
+      "positive_arrival_min": 128245.0,
+      "rotations": 10157
+    },
+    {
+      "tail_number": "N672MQ",
+      "pressure_min": 1998.0,
+      "positive_arrival_min": 6204.0,
+      "rotations": 510
+    },
+    {
+      "tail_number": "N676NK",
+      "pressure_min": 40299.0,
+      "positive_arrival_min": 144749.0,
+      "rotations": 8904
+    },
+    {
+      "tail_number": "N680DA",
+      "pressure_min": 8789.0,
+      "positive_arrival_min": 60645.0,
+      "rotations": 6926
+    },
+    {
+      "tail_number": "N696AE",
+      "pressure_min": 33976.0,
+      "positive_arrival_min": 96042.0,
+      "rotations": 8647
+    },
+    {
+      "tail_number": "N69804",
+      "pressure_min": 18343.0,
+      "positive_arrival_min": 92853.0,
+      "rotations": 9376
+    },
+    {
+      "tail_number": "N702FR",
+      "pressure_min": 64429.0,
+      "positive_arrival_min": 199309.0,
+      "rotations": 10787
+    },
+    {
+      "tail_number": "N702NK",
+      "pressure_min": 9703.0,
+      "positive_arrival_min": 35140.0,
+      "rotations": 1610
+    },
+    {
+      "tail_number": "N708EV",
+      "pressure_min": 58902.0,
+      "positive_arrival_min": 137460.0,
+      "rotations": 8820
+    },
+    {
+      "tail_number": "N708JB",
+      "pressure_min": 49745.0,
+      "positive_arrival_min": 159561.0,
+      "rotations": 8680
+    },
+    {
+      "tail_number": "N710AL",
+      "pressure_min": 853.0,
+      "positive_arrival_min": 7351.0,
+      "rotations": 675
+    },
+    {
+      "tail_number": "N712SW",
+      "pressure_min": 47226.0,
+      "positive_arrival_min": 112054.0,
+      "rotations": 12061
+    },
+    {
+      "tail_number": "N71411",
+      "pressure_min": 14071.0,
+      "positive_arrival_min": 77986.0,
+      "rotations": 7342
+    },
+    {
+      "tail_number": "N720AL",
+      "pressure_min": 1000.0,
+      "positive_arrival_min": 7642.0,
+      "rotations": 640
+    },
+    {
+      "tail_number": "N724AL",
+      "pressure_min": 500.0,
+      "positive_arrival_min": 3697.0,
+      "rotations": 315
+    },
+    {
+      "tail_number": "N732NK",
+      "pressure_min": 671.0,
+      "positive_arrival_min": 3693.0,
+      "rotations": 368
+    },
+    {
+      "tail_number": "N742GR",
+      "pressure_min": 7279.0,
+      "positive_arrival_min": 17801.0,
+      "rotations": 1008
+    },
+    {
+      "tail_number": "N744DB",
+      "pressure_min": 2316.0,
+      "positive_arrival_min": 7595.0,
+      "rotations": 981
+    },
+    {
+      "tail_number": "N762US",
+      "pressure_min": 39724.0,
+      "positive_arrival_min": 145902.0,
+      "rotations": 11194
+    },
+    {
+      "tail_number": "N764SK",
+      "pressure_min": 68201.0,
+      "positive_arrival_min": 166035.0,
+      "rotations": 13387
+    },
+    {
+      "tail_number": "N765YX",
+      "pressure_min": 1482.0,
+      "positive_arrival_min": 9810.0,
+      "rotations": 1436
+    },
+    {
+      "tail_number": "N769SW",
+      "pressure_min": 57942.0,
+      "positive_arrival_min": 144653.0,
+      "rotations": 15891
+    },
+    {
+      "tail_number": "N7738A",
+      "pressure_min": 68724.0,
+      "positive_arrival_min": 163869.0,
+      "rotations": 17418
+    },
+    {
+      "tail_number": "N784AA",
+      "pressure_min": 4421.0,
+      "positive_arrival_min": 28568.0,
+      "rotations": 2137
+    },
+    {
+      "tail_number": "N78506",
+      "pressure_min": 23396.0,
+      "positive_arrival_min": 103341.0,
+      "rotations": 8847
+    },
+    {
+      "tail_number": "N7853B",
+      "pressure_min": 49274.0,
+      "positive_arrival_min": 123924.0,
+      "rotations": 12700
+    },
+    {
+      "tail_number": "N791AS",
+      "pressure_min": 5121.0,
+      "positive_arrival_min": 23196.0,
+      "rotations": 3091
+    },
+    {
+      "tail_number": "N796SW",
+      "pressure_min": 35175.0,
+      "positive_arrival_min": 83863.0,
+      "rotations": 9604
+    },
+    {
+      "tail_number": "N802UA",
+      "pressure_min": 32047.0,
+      "positive_arrival_min": 127372.0,
+      "rotations": 11012
+    },
+    {
+      "tail_number": "N803AK",
+      "pressure_min": 482.0,
+      "positive_arrival_min": 4338.0,
+      "rotations": 554
+    },
+    {
+      "tail_number": "N805AA",
+      "pressure_min": 3542.0,
+      "positive_arrival_min": 14768.0,
+      "rotations": 1614
+    },
+    {
+      "tail_number": "N809AW",
+      "pressure_min": 35395.0,
+      "positive_arrival_min": 131241.0,
+      "rotations": 10771
+    },
+    {
+      "tail_number": "N812MQ",
+      "pressure_min": 533.0,
+      "positive_arrival_min": 1270.0,
+      "rotations": 37
+    },
+    {
+      "tail_number": "N814DN",
+      "pressure_min": 9394.0,
+      "positive_arrival_min": 73443.0,
+      "rotations": 10645
+    },
+    {
+      "tail_number": "N814NN",
+      "pressure_min": 15130.0,
+      "positive_arrival_min": 78236.0,
+      "rotations": 6269
+    },
+    {
+      "tail_number": "N828UA",
+      "pressure_min": 36632.0,
+      "positive_arrival_min": 131471.0,
+      "rotations": 10577
+    },
+    {
+      "tail_number": "N8306H",
+      "pressure_min": 33127.0,
+      "positive_arrival_min": 121906.0,
+      "rotations": 14079
+    },
+    {
+      "tail_number": "N8307K",
+      "pressure_min": 30453.0,
+      "positive_arrival_min": 121461.0,
+      "rotations": 14105
+    },
+    {
+      "tail_number": "N8317M",
+      "pressure_min": 32450.0,
+      "positive_arrival_min": 123300.0,
+      "rotations": 14187
+    },
+    {
+      "tail_number": "N834AW",
+      "pressure_min": 33165.0,
+      "positive_arrival_min": 124062.0,
+      "rotations": 10670
+    },
+    {
+      "tail_number": "N836UA",
+      "pressure_min": 33042.0,
+      "positive_arrival_min": 125531.0,
+      "rotations": 11149
+    },
+    {
+      "tail_number": "N837SK",
+      "pressure_min": 41335.0,
+      "positive_arrival_min": 97181.0,
+      "rotations": 8219
+    },
+    {
+      "tail_number": "N840AA",
+      "pressure_min": 2156.0,
+      "positive_arrival_min": 12270.0,
+      "rotations": 1789
+    },
+    {
+      "tail_number": "N840SK",
+      "pressure_min": 28680.0,
+      "positive_arrival_min": 67206.0,
+      "rotations": 6680
+    },
+    {
+      "tail_number": "N847VA",
+      "pressure_min": 17314.0,
+      "positive_arrival_min": 90191.0,
+      "rotations": 7332
+    },
+    {
+      "tail_number": "N8523W",
+      "pressure_min": 30609.0,
+      "positive_arrival_min": 118882.0,
+      "rotations": 12674
+    },
+    {
+      "tail_number": "N854VA",
+      "pressure_min": 16686.0,
+      "positive_arrival_min": 87218.0,
+      "rotations": 7238
+    },
+    {
+      "tail_number": "N8550Q",
+      "pressure_min": 25725.0,
+      "positive_arrival_min": 103260.0,
+      "rotations": 11430
+    },
+    {
+      "tail_number": "N857DZ",
+      "pressure_min": 7303.0,
+      "positive_arrival_min": 57971.0,
+      "rotations": 9228
+    },
+    {
+      "tail_number": "N8582Z",
+      "pressure_min": 26219.0,
+      "positive_arrival_min": 96041.0,
+      "rotations": 10252
+    },
+    {
+      "tail_number": "N8637A",
+      "pressure_min": 34453.0,
+      "positive_arrival_min": 137519.0,
+      "rotations": 15814
+    },
+    {
+      "tail_number": "N864RW",
+      "pressure_min": 27153.0,
+      "positive_arrival_min": 95711.0,
+      "rotations": 8253
+    },
+    {
+      "tail_number": "N866AS",
+      "pressure_min": 71564.0,
+      "positive_arrival_min": 141056.0,
+      "rotations": 10456
+    },
+    {
+      "tail_number": "N8728Q",
+      "pressure_min": 15385.0,
+      "positive_arrival_min": 65078.0,
+      "rotations": 5630
+    },
+    {
+      "tail_number": "N872AA",
+      "pressure_min": 5587.0,
+      "positive_arrival_min": 31223.0,
+      "rotations": 2617
+    },
+    {
+      "tail_number": "N87353",
+      "pressure_min": 16360.0,
+      "positive_arrival_min": 59898.0,
+      "rotations": 5153
+    },
+    {
+      "tail_number": "N8774Q",
+      "pressure_min": 7479.0,
+      "positive_arrival_min": 28389.0,
+      "rotations": 2963
+    },
+    {
+      "tail_number": "N8783L",
+      "pressure_min": 8458.0,
+      "positive_arrival_min": 33293.0,
+      "rotations": 3358
+    },
+    {
+      "tail_number": "N8842L",
+      "pressure_min": 12063.0,
+      "positive_arrival_min": 40365.0,
+      "rotations": 3466
+    },
+    {
+      "tail_number": "N8850Q",
+      "pressure_min": 12220.0,
+      "positive_arrival_min": 39879.0,
+      "rotations": 3244
+    },
+    {
+      "tail_number": "N8874Q",
+      "pressure_min": 6734.0,
+      "positive_arrival_min": 26072.0,
+      "rotations": 2532
+    },
+    {
+      "tail_number": "N8891Q",
+      "pressure_min": 7459.0,
+      "positive_arrival_min": 29126.0,
+      "rotations": 2676
+    },
+    {
+      "tail_number": "N8894Q",
+      "pressure_min": 5517.0,
+      "positive_arrival_min": 19151.0,
+      "rotations": 1781
+    },
+    {
+      "tail_number": "N890DN",
+      "pressure_min": 5124.0,
+      "positive_arrival_min": 42595.0,
+      "rotations": 6583
+    },
+    {
+      "tail_number": "N891AT",
+      "pressure_min": 35868.0,
+      "positive_arrival_min": 110825.0,
+      "rotations": 12760
+    },
+    {
+      "tail_number": "N892NN",
+      "pressure_min": 16403.0,
+      "positive_arrival_min": 85877.0,
+      "rotations": 6580
+    },
+    {
+      "tail_number": "N8972E",
+      "pressure_min": 3485.0,
+      "positive_arrival_min": 6639.0,
+      "rotations": 617
+    },
+    {
+      "tail_number": "N8986B",
+      "pressure_min": 23216.0,
+      "positive_arrival_min": 62757.0,
+      "rotations": 7416
+    },
+    {
+      "tail_number": "N900AE",
+      "pressure_min": 26090.0,
+      "positive_arrival_min": 79710.0,
+      "rotations": 8230
+    },
+    {
+      "tail_number": "N902XJ",
+      "pressure_min": 30578.0,
+      "positive_arrival_min": 86200.0,
+      "rotations": 8652
+    },
+    {
+      "tail_number": "N905WN",
+      "pressure_min": 38793.0,
+      "positive_arrival_min": 91554.0,
+      "rotations": 10436
+    },
+    {
+      "tail_number": "N906DL",
+      "pressure_min": 16608.0,
+      "positive_arrival_min": 66342.0,
+      "rotations": 8111
+    },
+    {
+      "tail_number": "N907DL",
+      "pressure_min": 22997.0,
+      "positive_arrival_min": 77574.0,
+      "rotations": 8522
+    },
+    {
+      "tail_number": "N908XJ",
+      "pressure_min": 29532.0,
+      "positive_arrival_min": 90627.0,
+      "rotations": 9949
+    },
+    {
+      "tail_number": "N913EV",
+      "pressure_min": 72753.0,
+      "positive_arrival_min": 172349.0,
+      "rotations": 15282
+    },
+    {
+      "tail_number": "N917XJ",
+      "pressure_min": 29590.0,
+      "positive_arrival_min": 91879.0,
+      "rotations": 9100
+    },
+    {
+      "tail_number": "N919DE",
+      "pressure_min": 13881.0,
+      "positive_arrival_min": 47167.0,
+      "rotations": 6180
+    },
+    {
+      "tail_number": "N919FJ",
+      "pressure_min": 38990.0,
+      "positive_arrival_min": 98991.0,
+      "rotations": 5916
+    },
+    {
+      "tail_number": "N919XJ",
+      "pressure_min": 27999.0,
+      "positive_arrival_min": 84497.0,
+      "rotations": 9109
+    },
+    {
+      "tail_number": "N924SW",
+      "pressure_min": 84700.0,
+      "positive_arrival_min": 186218.0,
+      "rotations": 13817
+    },
+    {
+      "tail_number": "N927UW",
+      "pressure_min": 20494.0,
+      "positive_arrival_min": 112384.0,
+      "rotations": 9952
+    },
+    {
+      "tail_number": "N932FR",
+      "pressure_min": 18553.0,
+      "positive_arrival_min": 43550.0,
+      "rotations": 2920
+    },
+    {
+      "tail_number": "N932WN",
+      "pressure_min": 70025.0,
+      "positive_arrival_min": 171576.0,
+      "rotations": 18437
+    },
+    {
+      "tail_number": "N933DL",
+      "pressure_min": 16266.0,
+      "positive_arrival_min": 59134.0,
+      "rotations": 6540
+    },
+    {
+      "tail_number": "N934AK",
+      "pressure_min": 4180.0,
+      "positive_arrival_min": 32759.0,
+      "rotations": 2760
+    },
+    {
+      "tail_number": "N935SW",
+      "pressure_min": 37128.0,
+      "positive_arrival_min": 80370.0,
+      "rotations": 9460
+    },
+    {
+      "tail_number": "N946AA",
+      "pressure_min": 7575.0,
+      "positive_arrival_min": 23960.0,
+      "rotations": 1914
+    },
+    {
+      "tail_number": "N946AK",
+      "pressure_min": 4318.0,
+      "positive_arrival_min": 26822.0,
+      "rotations": 2180
+    },
+    {
+      "tail_number": "N946LR",
+      "pressure_min": 36151.0,
+      "positive_arrival_min": 91526.0,
+      "rotations": 6455
+    },
+    {
+      "tail_number": "N952WN",
+      "pressure_min": 72645.0,
+      "positive_arrival_min": 175149.0,
+      "rotations": 18684
+    },
+    {
+      "tail_number": "N955AT",
+      "pressure_min": 41329.0,
+      "positive_arrival_min": 136673.0,
+      "rotations": 16486
+    },
+    {
+      "tail_number": "N956DN",
+      "pressure_min": 10426.0,
+      "positive_arrival_min": 39380.0,
+      "rotations": 4233
+    },
+    {
+      "tail_number": "N958AK",
+      "pressure_min": 3034.0,
+      "positive_arrival_min": 21185.0,
+      "rotations": 1899
+    },
+    {
+      "tail_number": "N958AT",
+      "pressure_min": 28999.0,
+      "positive_arrival_min": 85683.0,
+      "rotations": 8537
+    },
+    {
+      "tail_number": "N961UW",
+      "pressure_min": 26877.0,
+      "positive_arrival_min": 77858.0,
+      "rotations": 6343
+    },
+    {
+      "tail_number": "N969JT",
+      "pressure_min": 10711.0,
+      "positive_arrival_min": 53556.0,
+      "rotations": 4246
+    },
+    {
+      "tail_number": "N971UY",
+      "pressure_min": 21952.0,
+      "positive_arrival_min": 113038.0,
+      "rotations": 10293
+    },
+    {
+      "tail_number": "N975NK",
+      "pressure_min": 13432.0,
+      "positive_arrival_min": 42271.0,
+      "rotations": 2705
+    },
+    {
+      "tail_number": "N979SW",
+      "pressure_min": 84505.0,
+      "positive_arrival_min": 190428.0,
+      "rotations": 13836
+    },
+    {
+      "tail_number": "N984DL",
+      "pressure_min": 17353.0,
+      "positive_arrival_min": 60262.0,
+      "rotations": 7522
+    },
+    {
+      "tail_number": "N986AN",
+      "pressure_min": 20404.0,
+      "positive_arrival_min": 95855.0,
+      "rotations": 6851
+    },
+    {
+      "tail_number": "N987JB",
+      "pressure_min": 1613.0,
+      "positive_arrival_min": 12232.0,
+      "rotations": 963
+    },
+    {
+      "tail_number": "N988JT",
+      "pressure_min": 7816.0,
+      "positive_arrival_min": 46568.0,
+      "rotations": 4174
+    },
+    {
+      "tail_number": "N989JB",
+      "pressure_min": 1906.0,
+      "positive_arrival_min": 12180.0,
+      "rotations": 854
+    },
+    {
+      "tail_number": "N989NK",
+      "pressure_min": 7012.0,
+      "positive_arrival_min": 20502.0,
+      "rotations": 1380
+    },
+    {
+      "tail_number": "N994JL",
+      "pressure_min": 21449.0,
+      "positive_arrival_min": 76625.0,
+      "rotations": 3609
+    }
+  ],
+  "status": "exploratory_turnaround_pressure_not_arrival_attribution",
+  "sampling_unit": "aircraft tail; every source record retained",
+  "aircraft_sampled": 256,
+  "aircraft_available": 9487,
+  "sample_rows": 1706608,
+  "utc_valid_rows": 1706416,
+  "missing_utc_rows": 192,
+  "utc_status_counts": {
+    "usable_schedule": 1706413,
+    "unknown_origin_timezone": 187,
+    "ambiguous_or_nonexistent_local_time": 5,
+    "missing_or_nonpositive_elapsed": 3
+  },
+  "selected_tails": [
+    "233NV",
+    "235NV",
+    "250NV",
+    "278NV",
+    "305NV",
+    "863GA",
+    "N022AA",
+    "N027JB",
+    "N11206",
+    "N12175",
+    "N122DU",
+    "N128DN",
+    "N130HQ",
+    "N133AN",
+    "N13538",
+    "N14249",
+    "N152DL",
+    "N15985",
+    "N16976",
+    "N17306",
+    "N17335",
+    "N175DZ",
+    "N176DZ",
+    "N178UA",
+    "N181UW",
+    "N188AA",
+    "N208AN",
+    "N208SY",
+    "N2180J",
+    "N225UA",
+    "N233NN",
+    "N238FR",
+    "N242NN",
+    "N243WN",
+    "N246PS",
+    "N250SY",
+    "N27255",
+    "N272AK",
+    "N274AK",
+    "N287AK",
+    "N288NN",
+    "N288WN",
+    "N28912",
+    "N29124",
+    "N292SY",
+    "N293PQ",
+    "N293SY",
+    "N294AK",
+    "N29985",
+    "N3023J",
+    "N303DQ",
+    "N306DU",
+    "N307AS",
+    "N30913",
+    "N312US",
+    "N313DU",
+    "N314US",
+    "N316PQ",
+    "N322FR",
+    "N323DN",
+    "N3241J",
+    "N326RP",
+    "N329DD",
+    "N338RS",
+    "N34110",
+    "N34222",
+    "N346PR",
+    "N357DN",
+    "N360NB",
+    "N364FR",
+    "N365NK",
+    "N370HA",
+    "N37464",
+    "N37540",
+    "N37553",
+    "N3756",
+    "N391HA",
+    "N39450",
+    "N396FR",
+    "N3AGAA",
+    "N3FCAA",
+    "N3FWAA",
+    "N3GKAA",
+    "N3HEAA",
+    "N3HLAA",
+    "N3NFAA",
+    "N3NMAA",
+    "N402QX",
+    "N405DX",
+    "N408AS",
+    "N412DX",
+    "N417YX",
+    "N422AN",
+    "N423AS",
+    "N426QX",
+    "N431AS",
+    "N440AS",
+    "N454AA",
+    "N464AS",
+    "N473AA",
+    "N485PX",
+    "N491UA",
+    "N491WN",
+    "N492UA",
+    "N4XBAA",
+    "N4XJAA",
+    "N504NK",
+    "N508JL",
+    "N518MQ",
+    "N522DZ",
+    "N523SW",
+    "N524SW",
+    "N528AS",
+    "N530DE",
+    "N530US",
+    "N532AS",
+    "N538EG",
+    "N539US",
+    "N547AA",
+    "N547UW",
+    "N552NW",
+    "N568UW",
+    "N571GJ",
+    "N582DN",
+    "N586NW",
+    "N589HA",
+    "N591JB",
+    "N595UA",
+    "N597NN",
+    "N598JB",
+    "N5CKAA",
+    "N5ELAA",
+    "N5FCAA",
+    "N603QX",
+    "N606SW",
+    "N608JB",
+    "N616UX",
+    "N618NK",
+    "N624QX",
+    "N627JB",
+    "N627VA",
+    "N636RW",
+    "N639MQ",
+    "N643AE",
+    "N649PP",
+    "N651QX",
+    "N652RW",
+    "N65832",
+    "N66056",
+    "N665NK",
+    "N667AW",
+    "N672MQ",
+    "N676NK",
+    "N680DA",
+    "N696AE",
+    "N69804",
+    "N702FR",
+    "N702NK",
+    "N708EV",
+    "N708JB",
+    "N710AL",
+    "N712SW",
+    "N71411",
+    "N720AL",
+    "N724AL",
+    "N732NK",
+    "N742GR",
+    "N744DB",
+    "N762US",
+    "N764SK",
+    "N765YX",
+    "N769SW",
+    "N7738A",
+    "N784AA",
+    "N78506",
+    "N7853B",
+    "N791AS",
+    "N796SW",
+    "N802UA",
+    "N803AK",
+    "N805AA",
+    "N809AW",
+    "N812MQ",
+    "N814DN",
+    "N814NN",
+    "N828UA",
+    "N8306H",
+    "N8307K",
+    "N8317M",
+    "N834AW",
+    "N836UA",
+    "N837SK",
+    "N840AA",
+    "N840SK",
+    "N847VA",
+    "N8523W",
+    "N854VA",
+    "N8550Q",
+    "N857DZ",
+    "N8582Z",
+    "N8637A",
+    "N864RW",
+    "N866AS",
+    "N8728Q",
+    "N872AA",
+    "N87353",
+    "N8774Q",
+    "N8783L",
+    "N8842L",
+    "N8850Q",
+    "N8874Q",
+    "N8891Q",
+    "N8894Q",
+    "N890DN",
+    "N891AT",
+    "N892NN",
+    "N8972E",
+    "N8986B",
+    "N900AE",
+    "N902XJ",
+    "N905WN",
+    "N906DL",
+    "N907DL",
+    "N908XJ",
+    "N913EV",
+    "N917XJ",
+    "N919DE",
+    "N919FJ",
+    "N919XJ",
+    "N924SW",
+    "N927UW",
+    "N932FR",
+    "N932WN",
+    "N933DL",
+    "N934AK",
+    "N935SW",
+    "N946AA",
+    "N946AK",
+    "N946LR",
+    "N952WN",
+    "N955AT",
+    "N956DN",
+    "N958AK",
+    "N958AT",
+    "N961UW",
+    "N969JT",
+    "N971UY",
+    "N975NK",
+    "N979SW",
+    "N984DL",
+    "N986AN",
+    "N987JB",
+    "N988JT",
+    "N989JB",
+    "N989NK",
+    "N994JL"
+  ],
+  "seed": 20261105,
+  "min_turnaround_minutes": 25,
+  "time_basis": "UTC sequence; hour summaries use origin-local scheduled hour",
+  "sensitivity": {
+    "15": {
+      "rotations": 1595516,
+      "rotation_share_of_flights": 0.9349,
+      "positive_delay_minutes": 17926468.0,
+      "inherited_minutes": 4151568.0,
+      "inherited_share": 0.2316,
+      "pressure_to_positive_arrival_ratio": 0.2316,
+      "interpretation": "Hypothetical turnaround pressure, not a causal share of arrival delay; legacy inherited_* keys retain compatibility."
+    },
+    "25": {
+      "rotations": 1595516,
+      "rotation_share_of_flights": 0.9349,
+      "positive_delay_minutes": 17926468.0,
+      "inherited_minutes": 5225952.0,
+      "inherited_share": 0.2915,
+      "pressure_to_positive_arrival_ratio": 0.2915,
+      "interpretation": "Hypothetical turnaround pressure, not a causal share of arrival delay; legacy inherited_* keys retain compatibility.",
+      "uncertainty": {
+        "method": "Aircraft-cluster percentile bootstrap; 1000 draws; zero-rotation sampled tails retained",
+        "ratio_ci_low": 0.27779752016067505,
+        "ratio_ci_high": 0.305971622467041,
+        "limits": "Conditional on sampled aircraft, observed source records, timezone reference and the minimum-turn assumption; not a causal confidence interval or correction for missing legs"
+      },
+      "by_aircraft": [
+        {
+          "tail_number": "233NV",
+          "pressure_min": 46725.0,
+          "positive_arrival_min": 125041.0,
+          "rotations": 6934
+        },
+        {
+          "tail_number": "235NV",
+          "pressure_min": 48298.0,
+          "positive_arrival_min": 134142.0,
+          "rotations": 6124
+        },
+        {
+          "tail_number": "250NV",
+          "pressure_min": 40594.0,
+          "positive_arrival_min": 112440.0,
+          "rotations": 7742
+        },
+        {
+          "tail_number": "278NV",
+          "pressure_min": 15231.0,
+          "positive_arrival_min": 40956.0,
+          "rotations": 2003
+        },
+        {
+          "tail_number": "305NV",
+          "pressure_min": 30890.0,
+          "positive_arrival_min": 82868.0,
+          "rotations": 6298
+        },
+        {
+          "tail_number": "863GA",
+          "pressure_min": 2403.0,
+          "positive_arrival_min": 5601.0,
+          "rotations": 375
+        },
+        {
+          "tail_number": "N022AA",
+          "pressure_min": 6931.0,
+          "positive_arrival_min": 23702.0,
+          "rotations": 1742
+        },
+        {
+          "tail_number": "N027JB",
+          "pressure_min": 0.0,
+          "positive_arrival_min": 33.0,
+          "rotations": 33
+        },
+        {
+          "tail_number": "N11206",
+          "pressure_min": 20828.0,
+          "positive_arrival_min": 100918.0,
+          "rotations": 8459
+        },
+        {
+          "tail_number": "N12175",
+          "pressure_min": 17611.0,
+          "positive_arrival_min": 47578.0,
+          "rotations": 4174
+        },
+        {
+          "tail_number": "N122DU",
+          "pressure_min": 16256.0,
+          "positive_arrival_min": 61803.0,
+          "rotations": 5771
+        },
+        {
+          "tail_number": "N128DN",
+          "pressure_min": 4628.0,
+          "positive_arrival_min": 40119.0,
+          "rotations": 4171
+        },
+        {
+          "tail_number": "N130HQ",
+          "pressure_min": 25617.0,
+          "positive_arrival_min": 69263.0,
+          "rotations": 8316
+        },
+        {
+          "tail_number": "N133AN",
+          "pressure_min": 17827.0,
+          "positive_arrival_min": 93043.0,
+          "rotations": 6489
+        },
+        {
+          "tail_number": "N13538",
+          "pressure_min": 33712.0,
+          "positive_arrival_min": 94259.0,
+          "rotations": 7238
+        },
+        {
+          "tail_number": "N14249",
+          "pressure_min": 19821.0,
+          "positive_arrival_min": 99008.0,
+          "rotations": 7510
+        },
+        {
+          "tail_number": "N152DL",
+          "pressure_min": 1013.0,
+          "positive_arrival_min": 8326.0,
+          "rotations": 763
+        },
+        {
+          "tail_number": "N15985",
+          "pressure_min": 10774.0,
+          "positive_arrival_min": 33416.0,
+          "rotations": 3213
+        },
+        {
+          "tail_number": "N16976",
+          "pressure_min": 34696.0,
+          "positive_arrival_min": 100704.0,
+          "rotations": 7403
+        },
+        {
+          "tail_number": "N17306",
+          "pressure_min": 3870.0,
+          "positive_arrival_min": 18218.0,
+          "rotations": 1704
+        },
+        {
+          "tail_number": "N17335",
+          "pressure_min": 634.0,
+          "positive_arrival_min": 3149.0,
+          "rotations": 421
+        },
+        {
+          "tail_number": "N175DZ",
+          "pressure_min": 3170.0,
+          "positive_arrival_min": 13868.0,
+          "rotations": 1155
+        },
+        {
+          "tail_number": "N176DZ",
+          "pressure_min": 2156.0,
+          "positive_arrival_min": 12748.0,
+          "rotations": 693
+        },
+        {
+          "tail_number": "N178UA",
+          "pressure_min": 0.0,
+          "positive_arrival_min": 56.0,
+          "rotations": 5
+        },
+        {
+          "tail_number": "N181UW",
+          "pressure_min": 21393.0,
+          "positive_arrival_min": 135621.0,
+          "rotations": 9635
+        },
+        {
+          "tail_number": "N188AA",
+          "pressure_min": 2544.0,
+          "positive_arrival_min": 17416.0,
+          "rotations": 1515
+        },
+        {
+          "tail_number": "N208AN",
+          "pressure_min": 23824.0,
+          "positive_arrival_min": 77305.0,
+          "rotations": 6895
+        },
+        {
+          "tail_number": "N208SY",
+          "pressure_min": 35540.0,
+          "positive_arrival_min": 112981.0,
+          "rotations": 10608
+        },
+        {
+          "tail_number": "N2180J",
+          "pressure_min": 830.0,
+          "positive_arrival_min": 3505.0,
+          "rotations": 261
+        },
+        {
+          "tail_number": "N225UA",
+          "pressure_min": 379.0,
+          "positive_arrival_min": 4595.0,
+          "rotations": 213
+        },
+        {
+          "tail_number": "N233NN",
+          "pressure_min": 33376.0,
+          "positive_arrival_min": 101260.0,
+          "rotations": 9965
+        },
+        {
+          "tail_number": "N238FR",
+          "pressure_min": 63169.0,
+          "positive_arrival_min": 173593.0,
+          "rotations": 10337
+        },
+        {
+          "tail_number": "N242NN",
+          "pressure_min": 32534.0,
+          "positive_arrival_min": 111692.0,
+          "rotations": 10345
+        },
+        {
+          "tail_number": "N243WN",
+          "pressure_min": 71343.0,
+          "positive_arrival_min": 170402.0,
+          "rotations": 17665
+        },
+        {
+          "tail_number": "N246PS",
+          "pressure_min": 46140.0,
+          "positive_arrival_min": 109361.0,
+          "rotations": 8402
+        },
+        {
+          "tail_number": "N250SY",
+          "pressure_min": 48922.0,
+          "positive_arrival_min": 116868.0,
+          "rotations": 13531
+        },
+        {
+          "tail_number": "N27255",
+          "pressure_min": 6946.0,
+          "positive_arrival_min": 41030.0,
+          "rotations": 3412
+        },
+        {
+          "tail_number": "N272AK",
+          "pressure_min": 7161.0,
+          "positive_arrival_min": 62156.0,
+          "rotations": 7849
+        },
+        {
+          "tail_number": "N274AK",
+          "pressure_min": 9083.0,
+          "positive_arrival_min": 69147.0,
+          "rotations": 7959
+        },
+        {
+          "tail_number": "N287AK",
+          "pressure_min": 8607.0,
+          "positive_arrival_min": 62350.0,
+          "rotations": 6702
+        },
+        {
+          "tail_number": "N288NN",
+          "pressure_min": 23225.0,
+          "positive_arrival_min": 74007.0,
+          "rotations": 7555
+        },
+        {
+          "tail_number": "N288WN",
+          "pressure_min": 65888.0,
+          "positive_arrival_min": 160796.0,
+          "rotations": 17272
+        },
+        {
+          "tail_number": "N28912",
+          "pressure_min": 424.0,
+          "positive_arrival_min": 5214.0,
+          "rotations": 453
+        },
+        {
+          "tail_number": "N29124",
+          "pressure_min": 10625.0,
+          "positive_arrival_min": 57192.0,
+          "rotations": 3736
+        },
+        {
+          "tail_number": "N292SY",
+          "pressure_min": 33866.0,
+          "positive_arrival_min": 81491.0,
+          "rotations": 10067
+        },
+        {
+          "tail_number": "N293PQ",
+          "pressure_min": 33511.0,
+          "positive_arrival_min": 101521.0,
+          "rotations": 10560
+        },
+        {
+          "tail_number": "N293SY",
+          "pressure_min": 25035.0,
+          "positive_arrival_min": 75825.0,
+          "rotations": 9144
+        },
+        {
+          "tail_number": "N294AK",
+          "pressure_min": 6950.0,
+          "positive_arrival_min": 55763.0,
+          "rotations": 6030
+        },
+        {
+          "tail_number": "N29985",
+          "pressure_min": 490.0,
+          "positive_arrival_min": 2121.0,
+          "rotations": 96
+        },
+        {
+          "tail_number": "N3023J",
+          "pressure_min": 29906.0,
+          "positive_arrival_min": 94773.0,
+          "rotations": 3661
+        },
+        {
+          "tail_number": "N303DQ",
+          "pressure_min": 8941.0,
+          "positive_arrival_min": 35599.0,
+          "rotations": 5022
+        },
+        {
+          "tail_number": "N306DU",
+          "pressure_min": 16425.0,
+          "positive_arrival_min": 60815.0,
+          "rotations": 5187
+        },
+        {
+          "tail_number": "N307AS",
+          "pressure_min": 10995.0,
+          "positive_arrival_min": 89060.0,
+          "rotations": 9971
+        },
+        {
+          "tail_number": "N30913",
+          "pressure_min": 916.0,
+          "positive_arrival_min": 7806.0,
+          "rotations": 432
+        },
+        {
+          "tail_number": "N312US",
+          "pressure_min": 29997.0,
+          "positive_arrival_min": 130361.0,
+          "rotations": 11335
+        },
+        {
+          "tail_number": "N313DU",
+          "pressure_min": 7474.0,
+          "positive_arrival_min": 36864.0,
+          "rotations": 2904
+        },
+        {
+          "tail_number": "N314US",
+          "pressure_min": 7510.0,
+          "positive_arrival_min": 31171.0,
+          "rotations": 3670
+        },
+        {
+          "tail_number": "N316PQ",
+          "pressure_min": 31924.0,
+          "positive_arrival_min": 96431.0,
+          "rotations": 10434
+        },
+        {
+          "tail_number": "N322FR",
+          "pressure_min": 59946.0,
+          "positive_arrival_min": 168946.0,
+          "rotations": 9125
+        },
+        {
+          "tail_number": "N323DN",
+          "pressure_min": 11612.0,
+          "positive_arrival_min": 81051.0,
+          "rotations": 9837
+        },
+        {
+          "tail_number": "N3241J",
+          "pressure_min": 885.0,
+          "positive_arrival_min": 4080.0,
+          "rotations": 109
+        },
+        {
+          "tail_number": "N326RP",
+          "pressure_min": 6081.0,
+          "positive_arrival_min": 35845.0,
+          "rotations": 2495
+        },
+        {
+          "tail_number": "N329DD",
+          "pressure_min": 4603.0,
+          "positive_arrival_min": 12439.0,
+          "rotations": 906
+        },
+        {
+          "tail_number": "N338RS",
+          "pressure_min": 4391.0,
+          "positive_arrival_min": 34817.0,
+          "rotations": 2410
+        },
+        {
+          "tail_number": "N34110",
+          "pressure_min": 31341.0,
+          "positive_arrival_min": 79895.0,
+          "rotations": 5527
+        },
+        {
+          "tail_number": "N34222",
+          "pressure_min": 23328.0,
+          "positive_arrival_min": 107506.0,
+          "rotations": 8235
+        },
+        {
+          "tail_number": "N346PR",
+          "pressure_min": 14614.0,
+          "positive_arrival_min": 85448.0,
+          "rotations": 6846
+        },
+        {
+          "tail_number": "N357DN",
+          "pressure_min": 14173.0,
+          "positive_arrival_min": 77172.0,
+          "rotations": 7786
+        },
+        {
+          "tail_number": "N360NB",
+          "pressure_min": 24864.0,
+          "positive_arrival_min": 102463.0,
+          "rotations": 11131
+        },
+        {
+          "tail_number": "N364FR",
+          "pressure_min": 33483.0,
+          "positive_arrival_min": 108829.0,
+          "rotations": 6566
+        },
+        {
+          "tail_number": "N365NK",
+          "pressure_min": 0.0,
+          "positive_arrival_min": 0.0,
+          "rotations": 0
+        },
+        {
+          "tail_number": "N370HA",
+          "pressure_min": 5288.0,
+          "positive_arrival_min": 57621.0,
+          "rotations": 3881
+        },
+        {
+          "tail_number": "N37464",
+          "pressure_min": 14834.0,
+          "positive_arrival_min": 84542.0,
+          "rotations": 8505
+        },
+        {
+          "tail_number": "N37540",
+          "pressure_min": 4728.0,
+          "positive_arrival_min": 26555.0,
+          "rotations": 2322
+        },
+        {
+          "tail_number": "N37553",
+          "pressure_min": 3612.0,
+          "positive_arrival_min": 18604.0,
+          "rotations": 1912
+        },
+        {
+          "tail_number": "N3756",
+          "pressure_min": 13617.0,
+          "positive_arrival_min": 85629.0,
+          "rotations": 9448
+        },
+        {
+          "tail_number": "N391HA",
+          "pressure_min": 4877.0,
+          "positive_arrival_min": 50859.0,
+          "rotations": 3977
+        },
+        {
+          "tail_number": "N39450",
+          "pressure_min": 15831.0,
+          "positive_arrival_min": 85366.0,
+          "rotations": 7857
+        },
+        {
+          "tail_number": "N396FR",
+          "pressure_min": 19457.0,
+          "positive_arrival_min": 60348.0,
+          "rotations": 2631
+        },
+        {
+          "tail_number": "N3AGAA",
+          "pressure_min": 4770.0,
+          "positive_arrival_min": 30166.0,
+          "rotations": 2620
+        },
+        {
+          "tail_number": "N3FCAA",
+          "pressure_min": 6317.0,
+          "positive_arrival_min": 33028.0,
+          "rotations": 2798
+        },
+        {
+          "tail_number": "N3FWAA",
+          "pressure_min": 4874.0,
+          "positive_arrival_min": 29465.0,
+          "rotations": 2666
+        },
+        {
+          "tail_number": "N3GKAA",
+          "pressure_min": 6198.0,
+          "positive_arrival_min": 35113.0,
+          "rotations": 2898
+        },
+        {
+          "tail_number": "N3HEAA",
+          "pressure_min": 5357.0,
+          "positive_arrival_min": 29115.0,
+          "rotations": 2791
+        },
+        {
+          "tail_number": "N3HLAA",
+          "pressure_min": 3507.0,
+          "positive_arrival_min": 27547.0,
+          "rotations": 2839
+        },
+        {
+          "tail_number": "N3NFAA",
+          "pressure_min": 3340.0,
+          "positive_arrival_min": 17533.0,
+          "rotations": 1855
+        },
+        {
+          "tail_number": "N3NMAA",
+          "pressure_min": 2074.0,
+          "positive_arrival_min": 14894.0,
+          "rotations": 1570
+        },
+        {
+          "tail_number": "N402QX",
+          "pressure_min": 4136.0,
+          "positive_arrival_min": 18055.0,
+          "rotations": 2735
+        },
+        {
+          "tail_number": "N405DX",
+          "pressure_min": 185.0,
+          "positive_arrival_min": 921.0,
+          "rotations": 80
+        },
+        {
+          "tail_number": "N408AS",
+          "pressure_min": 8430.0,
+          "positive_arrival_min": 77786.0,
+          "rotations": 9943
+        },
+        {
+          "tail_number": "N412DX",
+          "pressure_min": 817.0,
+          "positive_arrival_min": 1591.0,
+          "rotations": 36
+        },
+        {
+          "tail_number": "N417YX",
+          "pressure_min": 28868.0,
+          "positive_arrival_min": 82015.0,
+          "rotations": 10108
+        },
+        {
+          "tail_number": "N422AN",
+          "pressure_min": 6919.0,
+          "positive_arrival_min": 38902.0,
+          "rotations": 3675
+        },
+        {
+          "tail_number": "N423AS",
+          "pressure_min": 10619.0,
+          "positive_arrival_min": 82948.0,
+          "rotations": 9674
+        },
+        {
+          "tail_number": "N426QX",
+          "pressure_min": 5071.0,
+          "positive_arrival_min": 18415.0,
+          "rotations": 2707
+        },
+        {
+          "tail_number": "N431AS",
+          "pressure_min": 12736.0,
+          "positive_arrival_min": 90898.0,
+          "rotations": 10047
+        },
+        {
+          "tail_number": "N440AS",
+          "pressure_min": 9149.0,
+          "positive_arrival_min": 81976.0,
+          "rotations": 10202
+        },
+        {
+          "tail_number": "N454AA",
+          "pressure_min": 1241.0,
+          "positive_arrival_min": 6270.0,
+          "rotations": 823
+        },
+        {
+          "tail_number": "N464AS",
+          "pressure_min": 10263.0,
+          "positive_arrival_min": 82144.0,
+          "rotations": 10268
+        },
+        {
+          "tail_number": "N473AA",
+          "pressure_min": 6460.0,
+          "positive_arrival_min": 21572.0,
+          "rotations": 2019
+        },
+        {
+          "tail_number": "N485PX",
+          "pressure_min": 13658.0,
+          "positive_arrival_min": 51036.0,
+          "rotations": 5849
+        },
+        {
+          "tail_number": "N491UA",
+          "pressure_min": 26976.0,
+          "positive_arrival_min": 107280.0,
+          "rotations": 8377
+        },
+        {
+          "tail_number": "N491WN",
+          "pressure_min": 62689.0,
+          "positive_arrival_min": 153145.0,
+          "rotations": 15277
+        },
+        {
+          "tail_number": "N492UA",
+          "pressure_min": 24340.0,
+          "positive_arrival_min": 99446.0,
+          "rotations": 8463
+        },
+        {
+          "tail_number": "N4XBAA",
+          "pressure_min": 16086.0,
+          "positive_arrival_min": 54112.0,
+          "rotations": 3915
+        },
+        {
+          "tail_number": "N4XJAA",
+          "pressure_min": 10169.0,
+          "positive_arrival_min": 42972.0,
+          "rotations": 3846
+        },
+        {
+          "tail_number": "N504NK",
+          "pressure_min": 55147.0,
+          "positive_arrival_min": 151105.0,
+          "rotations": 9264
+        },
+        {
+          "tail_number": "N508JL",
+          "pressure_min": 28281.0,
+          "positive_arrival_min": 88992.0,
+          "rotations": 4440
+        },
+        {
+          "tail_number": "N518MQ",
+          "pressure_min": 5485.0,
+          "positive_arrival_min": 14595.0,
+          "rotations": 831
+        },
+        {
+          "tail_number": "N522DZ",
+          "pressure_min": 0.0,
+          "positive_arrival_min": 21.0,
+          "rotations": 2
+        },
+        {
+          "tail_number": "N523SW",
+          "pressure_min": 13055.0,
+          "positive_arrival_min": 32703.0,
+          "rotations": 4241
+        },
+        {
+          "tail_number": "N524SW",
+          "pressure_min": 13659.0,
+          "positive_arrival_min": 32386.0,
+          "rotations": 3582
+        },
+        {
+          "tail_number": "N528AS",
+          "pressure_min": 12793.0,
+          "positive_arrival_min": 71217.0,
+          "rotations": 9606
+        },
+        {
+          "tail_number": "N530DE",
+          "pressure_min": 1835.0,
+          "positive_arrival_min": 16081.0,
+          "rotations": 1806
+        },
+        {
+          "tail_number": "N530US",
+          "pressure_min": 1046.0,
+          "positive_arrival_min": 8616.0,
+          "rotations": 1237
+        },
+        {
+          "tail_number": "N532AS",
+          "pressure_min": 9547.0,
+          "positive_arrival_min": 65053.0,
+          "rotations": 8899
+        },
+        {
+          "tail_number": "N538EG",
+          "pressure_min": 38538.0,
+          "positive_arrival_min": 113838.0,
+          "rotations": 10009
+        },
+        {
+          "tail_number": "N539US",
+          "pressure_min": 12880.0,
+          "positive_arrival_min": 90228.0,
+          "rotations": 8526
+        },
+        {
+          "tail_number": "N547AA",
+          "pressure_min": 11677.0,
+          "positive_arrival_min": 42502.0,
+          "rotations": 3833
+        },
+        {
+          "tail_number": "N547UW",
+          "pressure_min": 1207.0,
+          "positive_arrival_min": 8642.0,
+          "rotations": 1013
+        },
+        {
+          "tail_number": "N552NW",
+          "pressure_min": 14622.0,
+          "positive_arrival_min": 92578.0,
+          "rotations": 9594
+        },
+        {
+          "tail_number": "N568UW",
+          "pressure_min": 23990.0,
+          "positive_arrival_min": 126609.0,
+          "rotations": 9804
+        },
+        {
+          "tail_number": "N571GJ",
+          "pressure_min": 2031.0,
+          "positive_arrival_min": 3358.0,
+          "rotations": 117
+        },
+        {
+          "tail_number": "N582DN",
+          "pressure_min": 2235.0,
+          "positive_arrival_min": 6492.0,
+          "rotations": 484
+        },
+        {
+          "tail_number": "N586NW",
+          "pressure_min": 16016.0,
+          "positive_arrival_min": 99153.0,
+          "rotations": 9819
+        },
+        {
+          "tail_number": "N589HA",
+          "pressure_min": 136.0,
+          "positive_arrival_min": 1026.0,
+          "rotations": 65
+        },
+        {
+          "tail_number": "N591JB",
+          "pressure_min": 51471.0,
+          "positive_arrival_min": 160340.0,
+          "rotations": 8404
+        },
+        {
+          "tail_number": "N595UA",
+          "pressure_min": 8963.0,
+          "positive_arrival_min": 52407.0,
+          "rotations": 3150
+        },
+        {
+          "tail_number": "N597NN",
+          "pressure_min": 49992.0,
+          "positive_arrival_min": 131081.0,
+          "rotations": 12893
+        },
+        {
+          "tail_number": "N598JB",
+          "pressure_min": 48449.0,
+          "positive_arrival_min": 154272.0,
+          "rotations": 8602
+        },
+        {
+          "tail_number": "N5CKAA",
+          "pressure_min": 1652.0,
+          "positive_arrival_min": 8156.0,
+          "rotations": 440
+        },
+        {
+          "tail_number": "N5ELAA",
+          "pressure_min": 4927.0,
+          "positive_arrival_min": 31465.0,
+          "rotations": 1592
+        },
+        {
+          "tail_number": "N5FCAA",
+          "pressure_min": 3197.0,
+          "positive_arrival_min": 18316.0,
+          "rotations": 1496
+        },
+        {
+          "tail_number": "N603QX",
+          "pressure_min": 31773.0,
+          "positive_arrival_min": 70314.0,
+          "rotations": 6151
+        },
+        {
+          "tail_number": "N606SW",
+          "pressure_min": 36990.0,
+          "positive_arrival_min": 77161.0,
+          "rotations": 4834
+        },
+        {
+          "tail_number": "N608JB",
+          "pressure_min": 59820.0,
+          "positive_arrival_min": 176961.0,
+          "rotations": 8785
+        },
+        {
+          "tail_number": "N616UX",
+          "pressure_min": 14784.0,
+          "positive_arrival_min": 59817.0,
+          "rotations": 6775
+        },
+        {
+          "tail_number": "N618NK",
+          "pressure_min": 75642.0,
+          "positive_arrival_min": 228887.0,
+          "rotations": 13703
+        },
+        {
+          "tail_number": "N624QX",
+          "pressure_min": 7268.0,
+          "positive_arrival_min": 24908.0,
+          "rotations": 3110
+        },
+        {
+          "tail_number": "N627JB",
+          "pressure_min": 51267.0,
+          "positive_arrival_min": 164863.0,
+          "rotations": 8847
+        },
+        {
+          "tail_number": "N627VA",
+          "pressure_min": 15333.0,
+          "positive_arrival_min": 76192.0,
+          "rotations": 5560
+        },
+        {
+          "tail_number": "N636RW",
+          "pressure_min": 24746.0,
+          "positive_arrival_min": 83798.0,
+          "rotations": 7115
+        },
+        {
+          "tail_number": "N639MQ",
+          "pressure_min": 7508.0,
+          "positive_arrival_min": 22128.0,
+          "rotations": 1821
+        },
+        {
+          "tail_number": "N643AE",
+          "pressure_min": 302.0,
+          "positive_arrival_min": 1200.0,
+          "rotations": 96
+        },
+        {
+          "tail_number": "N649PP",
+          "pressure_min": 5730.0,
+          "positive_arrival_min": 15317.0,
+          "rotations": 1523
+        },
+        {
+          "tail_number": "N651QX",
+          "pressure_min": 7458.0,
+          "positive_arrival_min": 24997.0,
+          "rotations": 3160
+        },
+        {
+          "tail_number": "N652RW",
+          "pressure_min": 27348.0,
+          "positive_arrival_min": 80895.0,
+          "rotations": 5997
+        },
+        {
+          "tail_number": "N65832",
+          "pressure_min": 17768.0,
+          "positive_arrival_min": 95165.0,
+          "rotations": 9462
+        },
+        {
+          "tail_number": "N66056",
+          "pressure_min": 2600.0,
+          "positive_arrival_min": 10802.0,
+          "rotations": 737
+        },
+        {
+          "tail_number": "N665NK",
+          "pressure_min": 50098.0,
+          "positive_arrival_min": 178225.0,
+          "rotations": 10486
+        },
+        {
+          "tail_number": "N667AW",
+          "pressure_min": 32123.0,
+          "positive_arrival_min": 128245.0,
+          "rotations": 10157
+        },
+        {
+          "tail_number": "N672MQ",
+          "pressure_min": 1998.0,
+          "positive_arrival_min": 6204.0,
+          "rotations": 510
+        },
+        {
+          "tail_number": "N676NK",
+          "pressure_min": 40299.0,
+          "positive_arrival_min": 144749.0,
+          "rotations": 8904
+        },
+        {
+          "tail_number": "N680DA",
+          "pressure_min": 8789.0,
+          "positive_arrival_min": 60645.0,
+          "rotations": 6926
+        },
+        {
+          "tail_number": "N696AE",
+          "pressure_min": 33976.0,
+          "positive_arrival_min": 96042.0,
+          "rotations": 8647
+        },
+        {
+          "tail_number": "N69804",
+          "pressure_min": 18343.0,
+          "positive_arrival_min": 92853.0,
+          "rotations": 9376
+        },
+        {
+          "tail_number": "N702FR",
+          "pressure_min": 64429.0,
+          "positive_arrival_min": 199309.0,
+          "rotations": 10787
+        },
+        {
+          "tail_number": "N702NK",
+          "pressure_min": 9703.0,
+          "positive_arrival_min": 35140.0,
+          "rotations": 1610
+        },
+        {
+          "tail_number": "N708EV",
+          "pressure_min": 58902.0,
+          "positive_arrival_min": 137460.0,
+          "rotations": 8820
+        },
+        {
+          "tail_number": "N708JB",
+          "pressure_min": 49745.0,
+          "positive_arrival_min": 159561.0,
+          "rotations": 8680
+        },
+        {
+          "tail_number": "N710AL",
+          "pressure_min": 853.0,
+          "positive_arrival_min": 7351.0,
+          "rotations": 675
+        },
+        {
+          "tail_number": "N712SW",
+          "pressure_min": 47226.0,
+          "positive_arrival_min": 112054.0,
+          "rotations": 12061
+        },
+        {
+          "tail_number": "N71411",
+          "pressure_min": 14071.0,
+          "positive_arrival_min": 77986.0,
+          "rotations": 7342
+        },
+        {
+          "tail_number": "N720AL",
+          "pressure_min": 1000.0,
+          "positive_arrival_min": 7642.0,
+          "rotations": 640
+        },
+        {
+          "tail_number": "N724AL",
+          "pressure_min": 500.0,
+          "positive_arrival_min": 3697.0,
+          "rotations": 315
+        },
+        {
+          "tail_number": "N732NK",
+          "pressure_min": 671.0,
+          "positive_arrival_min": 3693.0,
+          "rotations": 368
+        },
+        {
+          "tail_number": "N742GR",
+          "pressure_min": 7279.0,
+          "positive_arrival_min": 17801.0,
+          "rotations": 1008
+        },
+        {
+          "tail_number": "N744DB",
+          "pressure_min": 2316.0,
+          "positive_arrival_min": 7595.0,
+          "rotations": 981
+        },
+        {
+          "tail_number": "N762US",
+          "pressure_min": 39724.0,
+          "positive_arrival_min": 145902.0,
+          "rotations": 11194
+        },
+        {
+          "tail_number": "N764SK",
+          "pressure_min": 68201.0,
+          "positive_arrival_min": 166035.0,
+          "rotations": 13387
+        },
+        {
+          "tail_number": "N765YX",
+          "pressure_min": 1482.0,
+          "positive_arrival_min": 9810.0,
+          "rotations": 1436
+        },
+        {
+          "tail_number": "N769SW",
+          "pressure_min": 57942.0,
+          "positive_arrival_min": 144653.0,
+          "rotations": 15891
+        },
+        {
+          "tail_number": "N7738A",
+          "pressure_min": 68724.0,
+          "positive_arrival_min": 163869.0,
+          "rotations": 17418
+        },
+        {
+          "tail_number": "N784AA",
+          "pressure_min": 4421.0,
+          "positive_arrival_min": 28568.0,
+          "rotations": 2137
+        },
+        {
+          "tail_number": "N78506",
+          "pressure_min": 23396.0,
+          "positive_arrival_min": 103341.0,
+          "rotations": 8847
+        },
+        {
+          "tail_number": "N7853B",
+          "pressure_min": 49274.0,
+          "positive_arrival_min": 123924.0,
+          "rotations": 12700
+        },
+        {
+          "tail_number": "N791AS",
+          "pressure_min": 5121.0,
+          "positive_arrival_min": 23196.0,
+          "rotations": 3091
+        },
+        {
+          "tail_number": "N796SW",
+          "pressure_min": 35175.0,
+          "positive_arrival_min": 83863.0,
+          "rotations": 9604
+        },
+        {
+          "tail_number": "N802UA",
+          "pressure_min": 32047.0,
+          "positive_arrival_min": 127372.0,
+          "rotations": 11012
+        },
+        {
+          "tail_number": "N803AK",
+          "pressure_min": 482.0,
+          "positive_arrival_min": 4338.0,
+          "rotations": 554
+        },
+        {
+          "tail_number": "N805AA",
+          "pressure_min": 3542.0,
+          "positive_arrival_min": 14768.0,
+          "rotations": 1614
+        },
+        {
+          "tail_number": "N809AW",
+          "pressure_min": 35395.0,
+          "positive_arrival_min": 131241.0,
+          "rotations": 10771
+        },
+        {
+          "tail_number": "N812MQ",
+          "pressure_min": 533.0,
+          "positive_arrival_min": 1270.0,
+          "rotations": 37
+        },
+        {
+          "tail_number": "N814DN",
+          "pressure_min": 9394.0,
+          "positive_arrival_min": 73443.0,
+          "rotations": 10645
+        },
+        {
+          "tail_number": "N814NN",
+          "pressure_min": 15130.0,
+          "positive_arrival_min": 78236.0,
+          "rotations": 6269
+        },
+        {
+          "tail_number": "N828UA",
+          "pressure_min": 36632.0,
+          "positive_arrival_min": 131471.0,
+          "rotations": 10577
+        },
+        {
+          "tail_number": "N8306H",
+          "pressure_min": 33127.0,
+          "positive_arrival_min": 121906.0,
+          "rotations": 14079
+        },
+        {
+          "tail_number": "N8307K",
+          "pressure_min": 30453.0,
+          "positive_arrival_min": 121461.0,
+          "rotations": 14105
+        },
+        {
+          "tail_number": "N8317M",
+          "pressure_min": 32450.0,
+          "positive_arrival_min": 123300.0,
+          "rotations": 14187
+        },
+        {
+          "tail_number": "N834AW",
+          "pressure_min": 33165.0,
+          "positive_arrival_min": 124062.0,
+          "rotations": 10670
+        },
+        {
+          "tail_number": "N836UA",
+          "pressure_min": 33042.0,
+          "positive_arrival_min": 125531.0,
+          "rotations": 11149
+        },
+        {
+          "tail_number": "N837SK",
+          "pressure_min": 41335.0,
+          "positive_arrival_min": 97181.0,
+          "rotations": 8219
+        },
+        {
+          "tail_number": "N840AA",
+          "pressure_min": 2156.0,
+          "positive_arrival_min": 12270.0,
+          "rotations": 1789
+        },
+        {
+          "tail_number": "N840SK",
+          "pressure_min": 28680.0,
+          "positive_arrival_min": 67206.0,
+          "rotations": 6680
+        },
+        {
+          "tail_number": "N847VA",
+          "pressure_min": 17314.0,
+          "positive_arrival_min": 90191.0,
+          "rotations": 7332
+        },
+        {
+          "tail_number": "N8523W",
+          "pressure_min": 30609.0,
+          "positive_arrival_min": 118882.0,
+          "rotations": 12674
+        },
+        {
+          "tail_number": "N854VA",
+          "pressure_min": 16686.0,
+          "positive_arrival_min": 87218.0,
+          "rotations": 7238
+        },
+        {
+          "tail_number": "N8550Q",
+          "pressure_min": 25725.0,
+          "positive_arrival_min": 103260.0,
+          "rotations": 11430
+        },
+        {
+          "tail_number": "N857DZ",
+          "pressure_min": 7303.0,
+          "positive_arrival_min": 57971.0,
+          "rotations": 9228
+        },
+        {
+          "tail_number": "N8582Z",
+          "pressure_min": 26219.0,
+          "positive_arrival_min": 96041.0,
+          "rotations": 10252
+        },
+        {
+          "tail_number": "N8637A",
+          "pressure_min": 34453.0,
+          "positive_arrival_min": 137519.0,
+          "rotations": 15814
+        },
+        {
+          "tail_number": "N864RW",
+          "pressure_min": 27153.0,
+          "positive_arrival_min": 95711.0,
+          "rotations": 8253
+        },
+        {
+          "tail_number": "N866AS",
+          "pressure_min": 71564.0,
+          "positive_arrival_min": 141056.0,
+          "rotations": 10456
+        },
+        {
+          "tail_number": "N8728Q",
+          "pressure_min": 15385.0,
+          "positive_arrival_min": 65078.0,
+          "rotations": 5630
+        },
+        {
+          "tail_number": "N872AA",
+          "pressure_min": 5587.0,
+          "positive_arrival_min": 31223.0,
+          "rotations": 2617
+        },
+        {
+          "tail_number": "N87353",
+          "pressure_min": 16360.0,
+          "positive_arrival_min": 59898.0,
+          "rotations": 5153
+        },
+        {
+          "tail_number": "N8774Q",
+          "pressure_min": 7479.0,
+          "positive_arrival_min": 28389.0,
+          "rotations": 2963
+        },
+        {
+          "tail_number": "N8783L",
+          "pressure_min": 8458.0,
+          "positive_arrival_min": 33293.0,
+          "rotations": 3358
+        },
+        {
+          "tail_number": "N8842L",
+          "pressure_min": 12063.0,
+          "positive_arrival_min": 40365.0,
+          "rotations": 3466
+        },
+        {
+          "tail_number": "N8850Q",
+          "pressure_min": 12220.0,
+          "positive_arrival_min": 39879.0,
+          "rotations": 3244
+        },
+        {
+          "tail_number": "N8874Q",
+          "pressure_min": 6734.0,
+          "positive_arrival_min": 26072.0,
+          "rotations": 2532
+        },
+        {
+          "tail_number": "N8891Q",
+          "pressure_min": 7459.0,
+          "positive_arrival_min": 29126.0,
+          "rotations": 2676
+        },
+        {
+          "tail_number": "N8894Q",
+          "pressure_min": 5517.0,
+          "positive_arrival_min": 19151.0,
+          "rotations": 1781
+        },
+        {
+          "tail_number": "N890DN",
+          "pressure_min": 5124.0,
+          "positive_arrival_min": 42595.0,
+          "rotations": 6583
+        },
+        {
+          "tail_number": "N891AT",
+          "pressure_min": 35868.0,
+          "positive_arrival_min": 110825.0,
+          "rotations": 12760
+        },
+        {
+          "tail_number": "N892NN",
+          "pressure_min": 16403.0,
+          "positive_arrival_min": 85877.0,
+          "rotations": 6580
+        },
+        {
+          "tail_number": "N8972E",
+          "pressure_min": 3485.0,
+          "positive_arrival_min": 6639.0,
+          "rotations": 617
+        },
+        {
+          "tail_number": "N8986B",
+          "pressure_min": 23216.0,
+          "positive_arrival_min": 62757.0,
+          "rotations": 7416
+        },
+        {
+          "tail_number": "N900AE",
+          "pressure_min": 26090.0,
+          "positive_arrival_min": 79710.0,
+          "rotations": 8230
+        },
+        {
+          "tail_number": "N902XJ",
+          "pressure_min": 30578.0,
+          "positive_arrival_min": 86200.0,
+          "rotations": 8652
+        },
+        {
+          "tail_number": "N905WN",
+          "pressure_min": 38793.0,
+          "positive_arrival_min": 91554.0,
+          "rotations": 10436
+        },
+        {
+          "tail_number": "N906DL",
+          "pressure_min": 16608.0,
+          "positive_arrival_min": 66342.0,
+          "rotations": 8111
+        },
+        {
+          "tail_number": "N907DL",
+          "pressure_min": 22997.0,
+          "positive_arrival_min": 77574.0,
+          "rotations": 8522
+        },
+        {
+          "tail_number": "N908XJ",
+          "pressure_min": 29532.0,
+          "positive_arrival_min": 90627.0,
+          "rotations": 9949
+        },
+        {
+          "tail_number": "N913EV",
+          "pressure_min": 72753.0,
+          "positive_arrival_min": 172349.0,
+          "rotations": 15282
+        },
+        {
+          "tail_number": "N917XJ",
+          "pressure_min": 29590.0,
+          "positive_arrival_min": 91879.0,
+          "rotations": 9100
+        },
+        {
+          "tail_number": "N919DE",
+          "pressure_min": 13881.0,
+          "positive_arrival_min": 47167.0,
+          "rotations": 6180
+        },
+        {
+          "tail_number": "N919FJ",
+          "pressure_min": 38990.0,
+          "positive_arrival_min": 98991.0,
+          "rotations": 5916
+        },
+        {
+          "tail_number": "N919XJ",
+          "pressure_min": 27999.0,
+          "positive_arrival_min": 84497.0,
+          "rotations": 9109
+        },
+        {
+          "tail_number": "N924SW",
+          "pressure_min": 84700.0,
+          "positive_arrival_min": 186218.0,
+          "rotations": 13817
+        },
+        {
+          "tail_number": "N927UW",
+          "pressure_min": 20494.0,
+          "positive_arrival_min": 112384.0,
+          "rotations": 9952
+        },
+        {
+          "tail_number": "N932FR",
+          "pressure_min": 18553.0,
+          "positive_arrival_min": 43550.0,
+          "rotations": 2920
+        },
+        {
+          "tail_number": "N932WN",
+          "pressure_min": 70025.0,
+          "positive_arrival_min": 171576.0,
+          "rotations": 18437
+        },
+        {
+          "tail_number": "N933DL",
+          "pressure_min": 16266.0,
+          "positive_arrival_min": 59134.0,
+          "rotations": 6540
+        },
+        {
+          "tail_number": "N934AK",
+          "pressure_min": 4180.0,
+          "positive_arrival_min": 32759.0,
+          "rotations": 2760
+        },
+        {
+          "tail_number": "N935SW",
+          "pressure_min": 37128.0,
+          "positive_arrival_min": 80370.0,
+          "rotations": 9460
+        },
+        {
+          "tail_number": "N946AA",
+          "pressure_min": 7575.0,
+          "positive_arrival_min": 23960.0,
+          "rotations": 1914
+        },
+        {
+          "tail_number": "N946AK",
+          "pressure_min": 4318.0,
+          "positive_arrival_min": 26822.0,
+          "rotations": 2180
+        },
+        {
+          "tail_number": "N946LR",
+          "pressure_min": 36151.0,
+          "positive_arrival_min": 91526.0,
+          "rotations": 6455
+        },
+        {
+          "tail_number": "N952WN",
+          "pressure_min": 72645.0,
+          "positive_arrival_min": 175149.0,
+          "rotations": 18684
+        },
+        {
+          "tail_number": "N955AT",
+          "pressure_min": 41329.0,
+          "positive_arrival_min": 136673.0,
+          "rotations": 16486
+        },
+        {
+          "tail_number": "N956DN",
+          "pressure_min": 10426.0,
+          "positive_arrival_min": 39380.0,
+          "rotations": 4233
+        },
+        {
+          "tail_number": "N958AK",
+          "pressure_min": 3034.0,
+          "positive_arrival_min": 21185.0,
+          "rotations": 1899
+        },
+        {
+          "tail_number": "N958AT",
+          "pressure_min": 28999.0,
+          "positive_arrival_min": 85683.0,
+          "rotations": 8537
+        },
+        {
+          "tail_number": "N961UW",
+          "pressure_min": 26877.0,
+          "positive_arrival_min": 77858.0,
+          "rotations": 6343
+        },
+        {
+          "tail_number": "N969JT",
+          "pressure_min": 10711.0,
+          "positive_arrival_min": 53556.0,
+          "rotations": 4246
+        },
+        {
+          "tail_number": "N971UY",
+          "pressure_min": 21952.0,
+          "positive_arrival_min": 113038.0,
+          "rotations": 10293
+        },
+        {
+          "tail_number": "N975NK",
+          "pressure_min": 13432.0,
+          "positive_arrival_min": 42271.0,
+          "rotations": 2705
+        },
+        {
+          "tail_number": "N979SW",
+          "pressure_min": 84505.0,
+          "positive_arrival_min": 190428.0,
+          "rotations": 13836
+        },
+        {
+          "tail_number": "N984DL",
+          "pressure_min": 17353.0,
+          "positive_arrival_min": 60262.0,
+          "rotations": 7522
+        },
+        {
+          "tail_number": "N986AN",
+          "pressure_min": 20404.0,
+          "positive_arrival_min": 95855.0,
+          "rotations": 6851
+        },
+        {
+          "tail_number": "N987JB",
+          "pressure_min": 1613.0,
+          "positive_arrival_min": 12232.0,
+          "rotations": 963
+        },
+        {
+          "tail_number": "N988JT",
+          "pressure_min": 7816.0,
+          "positive_arrival_min": 46568.0,
+          "rotations": 4174
+        },
+        {
+          "tail_number": "N989JB",
+          "pressure_min": 1906.0,
+          "positive_arrival_min": 12180.0,
+          "rotations": 854
+        },
+        {
+          "tail_number": "N989NK",
+          "pressure_min": 7012.0,
+          "positive_arrival_min": 20502.0,
+          "rotations": 1380
+        },
+        {
+          "tail_number": "N994JL",
+          "pressure_min": 21449.0,
+          "positive_arrival_min": 76625.0,
+          "rotations": 3609
+        }
+      ]
+    },
+    "45": {
+      "rotations": 1595516,
+      "rotation_share_of_flights": 0.9349,
+      "positive_delay_minutes": 17926468.0,
+      "inherited_minutes": 9371489.0,
+      "inherited_share": 0.5228,
+      "pressure_to_positive_arrival_ratio": 0.5228,
+      "interpretation": "Hypothetical turnaround pressure, not a causal share of arrival delay; legacy inherited_* keys retain compatibility."
+    }
+  }
+}

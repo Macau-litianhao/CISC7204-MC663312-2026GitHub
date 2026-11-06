@@ -1,0 +1,14 @@
+{
+  "source_airport_codes": 391,
+  "active_metadata_matches": 389,
+  "timezone_known": 390,
+  "missing_active_metadata": [
+    "ISN",
+    "TKI"
+  ],
+  "missing_timezones": [
+    "ISN"
+  ],
+  "scope": "All source origin/destination records, including cancelled/diverted. Metadata lookup retains large/medium/small airport types; excludes seaplane bases and closed facilities.",
+  "interpretation": "Current reference coverage is not a complete historical register. Gaps are flagged rather than assigned invented coordinates or timezones."
+}

@@ -1,0 +1,390 @@
+{
+  "mode": "full",
+  "controls": [
+    "year",
+    "covid_era"
+  ],
+  "ranking": [
+    {
+      "factor": "dep_hour",
+      "univariate_r2": 0.0095,
+      "cumulative_r2": 0.0095,
+      "incremental_r2": 0.0095,
+      "share_of_explained": 0.4378
+    },
+    {
+      "factor": "month",
+      "univariate_r2": 0.0041,
+      "cumulative_r2": 0.0136,
+      "incremental_r2": 0.004,
+      "share_of_explained": 0.1843
+    },
+    {
+      "factor": "carrier",
+      "univariate_r2": 0.0037,
+      "cumulative_r2": 0.0171,
+      "incremental_r2": 0.0035,
+      "share_of_explained": 0.1613
+    },
+    {
+      "factor": "origin",
+      "univariate_r2": 0.0017,
+      "cumulative_r2": 0.0179,
+      "incremental_r2": 0.0008,
+      "share_of_explained": 0.0369
+    },
+    {
+      "factor": "distance",
+      "univariate_r2": 0.0001,
+      "cumulative_r2": 0.018,
+      "incremental_r2": 0.0001,
+      "share_of_explained": 0.0046
+    },
+    {
+      "factor": "panel controls (year, covid_era)",
+      "univariate_r2": null,
+      "cumulative_r2": 0.0218,
+      "incremental_r2": 0.0038,
+      "share_of_explained": 0.1751
+    }
+  ],
+  "model_r2": 0.0218,
+  "ols": {
+    "r2": 0.0218,
+    "r2_adj": 0.0216,
+    "rows": 600000,
+    "controls": [
+      "year",
+      "covid_era"
+    ],
+    "factor_terms": 108
+  },
+  "quantile90": {
+    "pseudo_r2": 0.0562,
+    "rows": 100000
+  },
+  "risk": {
+    "threshold_min": 60,
+    "train_rows": 377002,
+    "test_rows": 22998,
+    "base_rate": 0.0609,
+    "test_base_rate": 0.067658,
+    "calibration": {
+      "logistic": [
+        {
+          "predicted": 0.021709159027133003,
+          "observed": 0.023043478260869565
+        },
+        {
+          "predicted": 0.0319962394765215,
+          "observed": 0.028695652173913042
+        },
+        {
+          "predicted": 0.04080551807239975,
+          "observed": 0.035217391304347825
+        },
+        {
+          "predicted": 0.04918406596831732,
+          "observed": 0.041757285776424534
+        },
+        {
+          "predicted": 0.05829110585988282,
+          "observed": 0.050434782608695654
+        },
+        {
+          "predicted": 0.06799604142553077,
+          "observed": 0.050434782608695654
+        },
+        {
+          "predicted": 0.07909668982984833,
+          "observed": 0.0743801652892562
+        },
+        {
+          "predicted": 0.09289881840172844,
+          "observed": 0.0817391304347826
+        },
+        {
+          "predicted": 0.11435557847377088,
+          "observed": 0.11217391304347826
+        },
+        {
+          "predicted": 0.15977634744679436,
+          "observed": 0.17869565217391303
+        }
+      ],
+      "gradient_boosting": [
+        {
+          "predicted": 0.018088486537329192,
+          "observed": 0.019130434782608695
+        },
+        {
+          "predicted": 0.029635659609019035,
+          "observed": 0.03129074315514994
+        },
+        {
+          "predicted": 0.037779945850307826,
+          "observed": 0.031752936059156155
+        },
+        {
+          "predicted": 0.0451711542480201,
+          "observed": 0.04088734232274902
+        },
+        {
+          "predicted": 0.0526250041170316,
+          "observed": 0.052608695652173916
+        },
+        {
+          "predicted": 0.06043995281834847,
+          "observed": 0.05302042590178183
+        },
+        {
+          "predicted": 0.0692930162620931,
+          "observed": 0.07006092254134029
+        },
+        {
+          "predicted": 0.08116461809821947,
+          "observed": 0.09173913043478261
+        },
+        {
+          "predicted": 0.09860242398487573,
+          "observed": 0.10956521739130434
+        },
+        {
+          "predicted": 0.1419026937592581,
+          "observed": 0.17652173913043478
+        }
+      ]
+    },
+    "yearly_test_metrics": [
+      {
+        "year": 2024,
+        "rows": 22998,
+        "roc_auc": 0.6897,
+        "pr_auc": 0.147,
+        "average_precision": 0.147,
+        "test_base_rate": 0.067658,
+        "brier": 0.06103,
+        "base_rate": 0.0609
+      }
+    ],
+    "models": {
+      "logistic": {
+        "roc_auc": 0.6857,
+        "pr_auc": 0.1452,
+        "average_precision": 0.1452,
+        "test_base_rate": 0.067658,
+        "brier": 0.06104,
+        "base_rate": 0.0609,
+        "features": 119
+      },
+      "gradient_boosting": {
+        "roc_auc": 0.6897,
+        "pr_auc": 0.147,
+        "average_precision": 0.147,
+        "test_base_rate": 0.067658,
+        "brier": 0.06103,
+        "base_rate": 0.0609
+      },
+      "constant_train_rate": {
+        "roc_auc": 0.5,
+        "pr_auc": 0.0677,
+        "average_precision": 0.0677,
+        "test_base_rate": 0.067658,
+        "brier": 0.06313,
+        "base_rate": 0.0609
+      },
+      "importance": [
+        {
+          "factor": "dep_hour",
+          "importance": 0.08962,
+          "share": 0.5002
+        },
+        {
+          "factor": "month",
+          "importance": 0.05137,
+          "share": 0.2867
+        },
+        {
+          "factor": "carrier",
+          "importance": 0.02769,
+          "share": 0.1545
+        },
+        {
+          "factor": "origin",
+          "importance": 0.00784,
+          "share": 0.0438
+        },
+        {
+          "factor": "distance",
+          "importance": 0.00265,
+          "share": 0.0148
+        },
+        {
+          "factor": "panel controls",
+          "importance": 0.0,
+          "share": 0.0
+        }
+      ]
+    },
+    "hour_response": [
+      {
+        "dep_hour": 0,
+        "mean_predicted_risk": 0.05913661600189575,
+        "flights": 32
+      },
+      {
+        "dep_hour": 1,
+        "mean_predicted_risk": 0.07076755848039537,
+        "flights": 10
+      },
+      {
+        "dep_hour": 2,
+        "mean_predicted_risk": 0.053242896911197865,
+        "flights": 2
+      },
+      {
+        "dep_hour": 3,
+        "mean_predicted_risk": 0.10079018242947729,
+        "flights": 2
+      },
+      {
+        "dep_hour": 4,
+        "mean_predicted_risk": 0.0462624095765243,
+        "flights": 1
+      },
+      {
+        "dep_hour": 5,
+        "mean_predicted_risk": 0.03329067878224262,
+        "flights": 630
+      },
+      {
+        "dep_hour": 6,
+        "mean_predicted_risk": 0.029110549938823043,
+        "flights": 1509
+      },
+      {
+        "dep_hour": 7,
+        "mean_predicted_risk": 0.031725528234630776,
+        "flights": 1639
+      },
+      {
+        "dep_hour": 8,
+        "mean_predicted_risk": 0.03738130958364809,
+        "flights": 1638
+      },
+      {
+        "dep_hour": 9,
+        "mean_predicted_risk": 0.04489780416096352,
+        "flights": 1284
+      },
+      {
+        "dep_hour": 10,
+        "mean_predicted_risk": 0.05010769970345614,
+        "flights": 1377
+      },
+      {
+        "dep_hour": 11,
+        "mean_predicted_risk": 0.05203689149656742,
+        "flights": 1475
+      },
+      {
+        "dep_hour": 12,
+        "mean_predicted_risk": 0.05740104254751502,
+        "flights": 1394
+      },
+      {
+        "dep_hour": 13,
+        "mean_predicted_risk": 0.06469075946323662,
+        "flights": 1360
+      },
+      {
+        "dep_hour": 14,
+        "mean_predicted_risk": 0.06953994803478326,
+        "flights": 1351
+      },
+      {
+        "dep_hour": 15,
+        "mean_predicted_risk": 0.07609486634485171,
+        "flights": 1359
+      },
+      {
+        "dep_hour": 16,
+        "mean_predicted_risk": 0.09181649723017936,
+        "flights": 1345
+      },
+      {
+        "dep_hour": 17,
+        "mean_predicted_risk": 0.08713129481939945,
+        "flights": 1420
+      },
+      {
+        "dep_hour": 18,
+        "mean_predicted_risk": 0.09315782361676217,
+        "flights": 1416
+      },
+      {
+        "dep_hour": 19,
+        "mean_predicted_risk": 0.09544224443454791,
+        "flights": 1282
+      },
+      {
+        "dep_hour": 20,
+        "mean_predicted_risk": 0.09401028469379269,
+        "flights": 1072
+      },
+      {
+        "dep_hour": 21,
+        "mean_predicted_risk": 0.08440937464752116,
+        "flights": 712
+      },
+      {
+        "dep_hour": 22,
+        "mean_predicted_risk": 0.07132690769582878,
+        "flights": 485
+      },
+      {
+        "dep_hour": 23,
+        "mean_predicted_risk": 0.06345712253934636,
+        "flights": 203
+      }
+    ],
+    "split": {
+      "requested_start": "2024-07-01",
+      "actual_test_start": "2024-07-01",
+      "train_last_date": "2024-06-30",
+      "fallback_to_chronological_80_20": false
+    }
+  },
+  "sensitivity": {
+    "excluded_years": [
+      2020,
+      2021
+    ],
+    "excluded_rows": 10277789,
+    "note": "",
+    "with_excluded": {
+      "rows": 61689698,
+      "mean_arr_delay": 4.54,
+      "median_arr_delay": -6.0,
+      "share_delayed_15": 0.1857,
+      "share_delayed_60": 0.0613,
+      "ols_r2": 0.0218
+    },
+    "without_excluded": {
+      "rows": 51411909,
+      "mean_arr_delay": 5.52,
+      "median_arr_delay": -6.0,
+      "share_delayed_15": 0.1947,
+      "share_delayed_60": 0.0649,
+      "ols_r2": 0.02
+    },
+    "delta": {
+      "mean_arr_delay": 0.98,
+      "median_arr_delay": 0.0,
+      "share_delayed_15": 0.009,
+      "share_delayed_60": 0.0036,
+      "ols_r2": -0.0018
+    }
+  },
+  "risk_rebuild_note": "Uniform 400000 completed-flight sample; training-only category mapping; unweighted logistic; held-out calibration and constant-training-rate baseline"
+}

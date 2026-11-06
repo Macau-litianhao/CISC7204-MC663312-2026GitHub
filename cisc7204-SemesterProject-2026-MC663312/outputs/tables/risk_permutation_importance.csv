@@ -1,0 +1,7 @@
+factor,importance,share
+dep_hour,0.08962,0.5002
+month,0.05137,0.2867
+carrier,0.02769,0.1545
+origin,0.00784,0.0438
+distance,0.00265,0.0148
+panel controls,0.0,0.0

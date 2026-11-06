@@ -1,0 +1,6 @@
+cause_key,minutes,cause,family,share
+min_late_aircraft,293579330.0,Late aircraft,Carrier + late aircraft,0.38763732
+min_carrier,261862300.0,Carrier,Carrier + late aircraft,0.34575868
+min_nas,158998820.0,Air traffic / NAS,Other reported causes,0.20993942
+min_weather,41526336.0,Extreme weather,Other reported causes,0.05483069
+min_security,1388921.0,Security,Other reported causes,0.0018339084

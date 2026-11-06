@@ -1,0 +1,154 @@
+{
+  "mode": "full",
+  "chosen_k": 4,
+  "airports": 195,
+  "input_airports": 195,
+  "unmatched_airports": [],
+  "metadata_match_rate": 1.0,
+  "airport_type_note": "Physical airport type proxy; not FAA hub classification",
+  "aggregate_provenance": "Unchanged flight aggregates from existing full-panel airport_clusters.csv; metadata and clusters recomputed",
+  "features": [
+    "n_dep",
+    "mean_arr_delay",
+    "p90_arr_delay",
+    "share_delayed_60",
+    "share_internal",
+    "share_late_aircraft",
+    "share_nas",
+    "share_weather",
+    "seasonal_amplitude",
+    "hub_stratum"
+  ],
+  "sweep": [
+    {
+      "k": 3,
+      "silhouette": 0.2253,
+      "calinski_harabasz": 51.7,
+      "davies_bouldin": 1.4528,
+      "inertia": 1267.6,
+      "smallest_cluster": 43,
+      "largest_cluster": 89
+    },
+    {
+      "k": 4,
+      "silhouette": 0.2328,
+      "calinski_harabasz": 50.2,
+      "davies_bouldin": 1.3494,
+      "inertia": 1090.3,
+      "smallest_cluster": 18,
+      "largest_cluster": 78
+    },
+    {
+      "k": 5,
+      "silhouette": 0.2238,
+      "calinski_harabasz": 46.3,
+      "davies_bouldin": 1.3386,
+      "inertia": 987.4,
+      "smallest_cluster": 6,
+      "largest_cluster": 79
+    },
+    {
+      "k": 6,
+      "silhouette": 0.1918,
+      "calinski_harabasz": 44.2,
+      "davies_bouldin": 1.403,
+      "inertia": 899.3,
+      "smallest_cluster": 4,
+      "largest_cluster": 49
+    },
+    {
+      "k": 7,
+      "silhouette": 0.197,
+      "calinski_harabasz": 43.5,
+      "davies_bouldin": 1.3667,
+      "inertia": 816.9,
+      "smallest_cluster": 4,
+      "largest_cluster": 52
+    },
+    {
+      "k": 8,
+      "silhouette": 0.204,
+      "calinski_harabasz": 42.4,
+      "davies_bouldin": 1.2506,
+      "inertia": 753.7,
+      "smallest_cluster": 3,
+      "largest_cluster": 47
+    }
+  ],
+  "stability": {
+    "mean_ari": 0.7132,
+    "min_ari": 0.5893,
+    "draws": 10,
+    "subsample_fraction": 0.8,
+    "verdict": "stable"
+  },
+  "archetypes": [
+    {
+      "cluster": 3,
+      "n_dep": 416736.3333333333,
+      "mean_arr_delay": 9.157757199999999,
+      "p90_arr_delay": 50.111111111111114,
+      "share_delayed_60": 0.08535075028104008,
+      "share_internal": 0.7236370188888889,
+      "share_late_aircraft": 0.39946151111111106,
+      "share_nas": 0.1983342088888889,
+      "share_weather": 0.07598288677777779,
+      "seasonal_amplitude": 16.89694488888889,
+      "hub_stratum": 2.444444417953491,
+      "airports": 18,
+      "archetype": "Mid-size airport, tail-heavy",
+      "largest_members": "DFW, MCO, EWR, FLL, MIA, PBI"
+    },
+    {
+      "cluster": 2,
+      "n_dep": 557798.6140350878,
+      "mean_arr_delay": 3.983844012105263,
+      "p90_arr_delay": 35.45614035087719,
+      "share_delayed_60": 0.06316477829222866,
+      "share_internal": 0.701408339122807,
+      "share_late_aircraft": 0.3774823328070176,
+      "share_nas": 0.24681298245614036,
+      "share_weather": 0.05061161142105263,
+      "seasonal_amplitude": 11.637384328070176,
+      "hub_stratum": 2.877192974090576,
+      "airports": 57,
+      "archetype": "Mid-size airport, airspace-constrained",
+      "largest_members": "ATL, ORD, DEN, CLT, LAS, SEA"
+    },
+    {
+      "cluster": 1,
+      "n_dep": 44375.3717948718,
+      "mean_arr_delay": 4.520734942692308,
+      "p90_arr_delay": 32.39230769230772,
+      "share_delayed_60": 0.06176975499561278,
+      "share_internal": 0.7388422926923077,
+      "share_late_aircraft": 0.37262740397435895,
+      "share_nas": 0.17749278280769232,
+      "share_weather": 0.0821812552051282,
+      "seasonal_amplitude": 11.346503473076922,
+      "hub_stratum": 2.0,
+      "airports": 78,
+      "archetype": "Mid-size airport, mixed-cause",
+      "largest_members": "GSP, LIT, MSN, XNA, ICT, MAF"
+    },
+    {
+      "cluster": 0,
+      "n_dep": 419516.5714285714,
+      "mean_arr_delay": 2.9051567938095237,
+      "p90_arr_delay": 28.333333333333332,
+      "share_delayed_60": 0.04665858569014297,
+      "share_internal": 0.7856322657142857,
+      "share_late_aircraft": 0.44109783,
+      "share_nas": 0.1746962107142857,
+      "share_weather": 0.037385638476190475,
+      "seasonal_amplitude": 8.036184123809525,
+      "hub_stratum": 2.904761791229248,
+      "airports": 42,
+      "archetype": "Mid-size airport, high late-aircraft share",
+      "largest_members": "LAX, PHX, SFO, SLC, SAN, MDW"
+    }
+  ],
+  "ward": {
+    "cophenetic_correlation": 0.4203
+  }
+}

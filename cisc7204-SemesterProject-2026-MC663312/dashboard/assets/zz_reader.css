@@ -1,0 +1,50 @@
+/* Reader-first hierarchy, with compact persistent context rather than sticky controls. */
+html { scroll-behavior: smooth; scroll-padding-top: 135px; }
+body { font-size:15px; font-family:"Segoe UI",system-ui,sans-serif; }
+.reader-hero { margin:24px 0; padding:24px 28px; background:#edf5fa; border-left:4px solid #0072b2; }
+.eyebrow { font-size:12px; font-weight:700; letter-spacing:.09em; color:#28516b; }
+.reader-hero h2 { font-size:30px; max-width:34ch; line-height:1.2; margin:12px 0 20px; }
+.hero-facts { display:flex; gap:36px; }
+.hero-facts>div { flex:1; }
+.hero-facts strong { display:block; font-size:30px; font-variant-numeric:tabular-nums; color:#164b6a; }
+.hero-facts span { display:block; font-size:15px; line-height:1.5; margin-top:4px; }
+.hero-note { font-size:13px; line-height:1.5; margin:16px 0 0; color:#425669; }
+.reader-sticky { position:sticky; top:0; background:#f6f8fa; z-index:30; border-bottom:1px solid #bccbd5; }
+.reader-nav { display:flex; gap:22px; overflow-x:auto; white-space:nowrap; padding:12px 0; }
+.reader-nav a,.current-scope a,.app-footer a { color:#005b8d; font-weight:600; }
+.current-scope { display:flex; gap:12px; justify-content:space-between; align-items:center; font-size:13px; padding:6px 0 10px; line-height:1.4; }
+.current-scope a { flex-shrink:0; }
+.reader-chapter { margin:32px 0; }
+.reader-chapter h2 { font-size:23px; }
+.band-note { font-size:15px; max-width:90ch; line-height:1.6; }
+.panel-title { font-size:18px; line-height:1.4; }
+.panel-find { font-size:15px; line-height:1.6; }
+.scope-badge { display:inline-block; background:#edf2f6; color:#3a5266; padding:4px 8px; border-radius:4px; font-size:12px; margin:8px 0; }
+.chart-help { font-size:13px; color:#405668; margin:4px 0 10px; }
+.chart-help summary,.reader-disclosure>summary { cursor:pointer; width:fit-content; }
+.reader-disclosure { margin:18px 0; padding:16px; border:1px solid #d5dfe6; border-radius:6px; background:white; }
+.reader-disclosure>summary { font-size:16px; font-weight:600; line-height:1.5; }
+.reader-disclosure[open]>summary { margin-bottom:20px; }
+.reader-disclosure dt { font-weight:600; margin-top:16px; }
+.reader-disclosure dd { margin:6px 0 0; line-height:1.6; max-width:85ch; }
+.method-text,.method-note { font-size:14px; line-height:1.65; }
+.kpi-note { font-size:12px; line-height:1.4; }
+.filter-label { font-size:13px; }
+.grid>div { min-width:0; }
+:focus-visible { outline:3px solid #b85b00; outline-offset:3px; }
+.skip-link { position:absolute; left:12px; top:-100px; background:white; padding:12px; z-index:100; }
+.skip-link:focus { top:8px; }
+@media(max-width:700px) {
+ .app-shell { padding:16px 14px 32px; }
+ .reader-hero { padding:18px; margin:18px 0; }
+ .reader-hero h2 { font-size:24px; }
+ .hero-facts { gap:18px; }
+ .hero-facts strong { font-size:25px; }
+ .hero-facts span { font-size:13px; }
+ .current-scope { font-size:11px; align-items:flex-start; }
+ .reader-nav { gap:18px; font-size:13px; }
+ .reader-chapter h2 { font-size:21px; }
+ .reader-disclosure { padding:12px; }
+ .filter-bar { position:static; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
