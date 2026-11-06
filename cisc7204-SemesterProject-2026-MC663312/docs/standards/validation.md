@@ -39,7 +39,8 @@ Expanding-window 2019/2020/2022/2024 checks use a separately disclosed specifica
 ## Dashboard
 
 KPI and most plots describe the bounded real-flight sample. Airport groups are a
-fixed full-panel reference. The map retains the navigation population, while the
+fixed full-panel reference. The map ignores the airport selector, displaying up to 120 busiest sampled
+airports with available coordinates; search supports other origins. The
 carrier comparison retains all carriers. Shared URL state includes airport.
 Histogram end bars are explicit overflow groups; small hourly bins are hidden.
 Static figure contact sheets are not screenshots of the running dashboard.
@@ -52,3 +53,31 @@ browser end-to-end performance. Real user testing and visual browser acceptance
 must be recorded separately; neither is inferred from passing automated tests.
 
 Browser acceptance is recorded in the sibling Teams Review/acceptance-2026-11-06 folder. Real-user task records remain blank until actual participants complete them.
+
+
+## Audit-corrected v0.5 contracts
+
+Acquisition retains only this invocation's year paths and atomically replaces the
+panel after successful writes. Completion eligibility is recomputed; unknown
+status flags and nonfinite predictors are not imputed. Reported causes require
+complete, nonnegative fields reconciling within one minute; exclusions are audited.
+Point and bootstrap estimators use that identical population and float64 sums.
+Undefined pressure ratios remain null rather than zero.
+
+Every categorical research factor and control has a saved reference level.
+Inference matrices must have full column rank. OLS covariance is clustered by
+operating day; quantile regression models signed arrival delay and makes point
+estimate claims only. Sequential R² is order-dependent; conditional drop-one R²
+retains the other factors and controls. Joint permutation applies one common row
+shuffle to an entire factor block, including its dummies; importances are not additive.
+
+The configured saved clustering fit is the subsample stability reference and the
+preprocessor is refitted inside each subsample. A stability heuristic does not
+constitute temporal validation or causal classification.
+
+Real and synthetic output namespaces are separate. Readers validate content hashes
+for source, settings, references and registered result tables. Reference snapshots
+are content-pinned. An intentional input update requires a complete dependent
+rebuild; changing metadata alone is not a valid recomputation. The full pipeline
+includes reference, temporal and supplementary checks. Coefficient/importance
+rebuilds invalidate any older report that quoted the superseded results.

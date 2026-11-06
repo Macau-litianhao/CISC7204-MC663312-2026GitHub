@@ -62,7 +62,7 @@ def add_utc_times(frame: pd.DataFrame, zones: dict[str, str]) -> pd.DataFrame:
         [~valid_clock, timezone.isna(), utc.isna(), elapsed.isna()],
         ['invalid_clock','unknown_origin_timezone','ambiguous_or_nonexistent_local_time','missing_or_nonpositive_elapsed'],
         default='usable_schedule')
-    out['dep_hour'] = ((hhmm // 100) % 24).astype('int8')
+    out['dep_hour'] = ((hhmm // 100) % 24).where(valid_clock).astype('Int8')
     return out
 
 

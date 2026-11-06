@@ -160,7 +160,7 @@ def cascade_summary(legs: pd.DataFrame, df: pd.DataFrame) -> dict:
     )
     hourly["inherited_share"] = (
         hourly["inherited_min"] / hourly["delay_min"].replace(0, np.nan)
-    ).replace([np.inf, -np.inf], np.nan).fillna(0.0).round(4)
+    ).replace([np.inf, -np.inf], np.nan).round(4)
     hourly["mean_inherited"] = (hourly["inherited_min"] / hourly["flights"]).round(2)
 
     by_airport = (
@@ -171,7 +171,7 @@ def cascade_summary(legs: pd.DataFrame, df: pd.DataFrame) -> dict:
     )
     by_airport["inherited_share"] = (
         by_airport["inherited_min"] / by_airport["delay_min"].replace(0, np.nan)
-    ).replace([np.inf, -np.inf], np.nan).fillna(0.0).round(4)
+    ).replace([np.inf, -np.inf], np.nan).round(4)
     by_airport = by_airport[by_airport["rotations"] >= 5000]
     by_airport = by_airport.sort_values("inherited_share", ascending=False)
 
@@ -250,7 +250,8 @@ def airport_feature_matrix(df: pd.DataFrame, airports: pd.DataFrame,
     })
 
     # Cause mix, defined on the attribution universe only.
-    universe = base.loc[base["arr_delay"] >= config.threshold()]
+    from . import attribution
+    universe, _ = attribution.cause_population(base)
     cause_sums = universe.groupby("origin", observed=True)[schema.CAUSE_COLUMNS].sum()
     total = cause_sums.sum(axis=1).replace(0, np.nan)
     features["share_internal"] = (
@@ -274,6 +275,7 @@ def airport_feature_matrix(df: pd.DataFrame, airports: pd.DataFrame,
     numeric = [c for c in schema.AIRPORT_FEATURES if c in features.columns]
     # Missing metadata must not be disguised as an observed airport-type value.
     measures = [c for c in numeric if c != "hub_stratum"]
-    features[measures] = features[measures].fillna(features[measures].median())
+    if features[measures].isna().any().any():
+        raise ValueError("Unavailable airport analytical features; explicitly exclude or resolve missing cause coverage instead of median imputation")
 
     return features.reset_index().rename(columns={"index": "origin"})

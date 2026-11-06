@@ -72,12 +72,6 @@
     "share_late_60": 0.06134,
     "share_late_180": 0.0109
   },
-  "concentration": {
-    "gini": 0.8757,
-    "top1_share": 0.25,
-    "top5_share": 0.5833,
-    "flights": 61689698
-  },
   "burden": {
     "flights": 61689698,
     "total_positive_minutes": 819597383.0,
@@ -85,10 +79,23 @@
     "mean_minutes_per_delayed_flight": 38.58,
     "delayed_flight_share": 0.3444
   },
-  "mean_vs_tail": {
-    "pearson_r": 0.9944,
-    "spearman_r": 0.986,
-    "verdict": "no paradox"
+  "concentration": {
+    "gini": 0.8757,
+    "top1_share": 0.25,
+    "top5_share": 0.5833,
+    "flights": 61689698
+  },
+  "scope": "fresh full-source completed delays; rotation analysis built separately",
+  "run_signature": {
+    "mode": "full",
+    "source_sha256": "dad608577e2b30e5fdb1b7e399a86fad893e59e29d3442d8eb575c224e0fc3d7",
+    "settings_sha256": "3db653841beafcdb0a5d80cd32bd36ddc1626ef6b3de1b4876f5d9126446e2ea",
+    "references": {
+      "airports.csv": "e869f2a5c500aa0a5c74c680559c4e3ab7e65c7a442daa7c92b7f99fb51613ca",
+      "airport_aliases.csv": "7def0791ca3396218f49fcd7c0287b493d44d747a14e55d46573d54c166af582",
+      "airport_timezones.csv": "b218baf3b864af711bfc5c2d6de38f4cdfde873e0c60289fd9c5cc22afe57876"
+    },
+    "protocol": "audit-corrected-v0.5"
   },
   "cascade": {
     "rotations": 1595516,
@@ -2145,5 +2152,16 @@
       "inherited_share": 0.27970001101493835,
       "mean_inherited": 3.73
     }
-  ]
+  ],
+  "mean_vs_tail": {
+    "pearson_r": 0.9944149891370899,
+    "spearman_r": 0.9860139860139862,
+    "scope": "Twelve pooled calendar-month aggregates; not individual-flight correlation"
+  },
+  "artifact_sha256": {
+    "outputs/tables/lorenz_curve.csv": "e56d02c83122cc0dbb4ab7b53a15d3da080f0f801cfe7d68309bbd571c073cfd",
+    "outputs/tables/percentile_profile.csv": "4a5739b7c80b09b4102af0395667f7a90431d73e2317bd354b667d70e09ed26a",
+    "outputs/tables/cascade_by_hour.csv": "3bef93af932a8c1929b35ca1a2ec49cd10cdc03cb6b39543b89d18675480f709",
+    "outputs/tables/cascade_by_airport.csv": "a9dc8adb316c29ebe26ea7431be08259ad504fede01064ca35fad69e496e8ca0"
+  }
 }

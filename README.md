@@ -28,8 +28,8 @@ python dashboard/app.py
 python -m pytest tests -q
 ```
 
-The smoke command creates synthetic data and overwrites generated analysis outputs
-with fixture results. These demonstrate the workflow and are not empirical findings.
+The smoke command writes synthetic outputs to isolated sample subdirectories
+without replacing empirical figures or result files. These demonstrate the workflow and are not empirical findings.
 To analyse the real panel, run `python run_all.py --stage data`, then
 `python run_all.py --stage pipeline`. Raw and processed datasets are excluded from
 Git; source URLs and checksums are retained. The dashboard is a sample-based

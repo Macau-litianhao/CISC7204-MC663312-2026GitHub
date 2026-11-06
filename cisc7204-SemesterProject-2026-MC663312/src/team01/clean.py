@@ -50,6 +50,9 @@ def apply_schema(df: pd.DataFrame) -> pd.DataFrame:
     # crs_dep_time is an integer HHMM (855, 1900, 2400). 2400 is midnight at
     # the end of the day; taking it modulo 24 keeps it in hour 0 rather than
     # inventing hour 24, which would break the ordered hour axis.
+    clock = out["crs_dep_time"]
+    if not (clock.between(0,2400) & clock.mod(100).lt(60)).all():
+        raise ValueError("Invalid scheduled HHMM")
     hours = (out["crs_dep_time"] // 100) % 24
     minutes = out["crs_dep_time"] % 100
     out["dep_hour"] = hours.astype("int8")
@@ -62,7 +65,7 @@ def apply_schema(df: pd.DataFrame) -> pd.DataFrame:
         + pd.to_timedelta(minutes, unit="m")
     )
     out["sched_arr_dt"] = out["sched_dep_dt"] + pd.to_timedelta(
-        out["crs_elapsed"].fillna(0), unit="m"
+        out["crs_elapsed"].where(out["crs_elapsed"] > 0), unit="m"
     )
     # Actual arrival is only defined for completed legs; NaT elsewhere, which
     # is exactly what the cascade calculation needs.
@@ -83,18 +86,13 @@ def apply_schema(df: pd.DataFrame) -> pd.DataFrame:
 def completed(df: pd.DataFrame) -> pd.DataFrame:
     """Flights that actually operated and have a known arrival delay.
 
-    The result is tagged so a second ``completed()`` call returns it unchanged
-    instead of copying ~60M rows again. ``attribution_universe`` and
-    ``summarise_panel`` both call ``completed()`` on a frame a script has just
-    completed, and on the full panel that redundant copy is the difference
-    between fitting in memory and OOM.
+    Always recompute the predicate: pandas attributes survive mutation and are
+    not a safe cache of row eligibility. Unknown status flags are not imputed.
     """
-    if df.attrs.get("_team01_completed"):
-        return df
     mask = (
-        (df["cancelled"].fillna(0) == 0)
-        & (df["diverted"].fillna(0) == 0)
-        & df["arr_delay"].notna()
+        (df["cancelled"].eq(0))
+        & (df["diverted"].eq(0))
+        & np.isfinite(df["arr_delay"])
     )
     out = df.loc[mask]
     out.attrs["_team01_completed"] = True
@@ -124,6 +122,9 @@ def validate(df: pd.DataFrame, stage: str, expected_rows: int | None = None) -> 
     reported so that a decade of data can show one bad year without stopping
     the pipeline.
     """
+    absent = set(schema.REQUIRED_FOR_ANALYSIS + ["year", "cancelled", "diverted"]) - set(df)
+    if absent:
+        raise KeyError(f"Missing required columns: {sorted(absent)}")
     threshold = config.threshold()
     total = len(df)
     result: dict[str, object] = {"stage": stage, "rows": total}
@@ -131,6 +132,8 @@ def validate(df: pd.DataFrame, stage: str, expected_rows: int | None = None) -> 
     if expected_rows is not None:
         result["expected_rows"] = expected_rows
         result["row_match"] = bool(total == expected_rows)
+        if total != expected_rows:
+            raise ValueError(f"Row count mismatch: {total} != {expected_rows}")
 
     keys = [c for c in schema.KEY_COLUMNS if c in df.columns]
     if not keys:
@@ -142,7 +145,9 @@ def validate(df: pd.DataFrame, stage: str, expected_rows: int | None = None) -> 
     result["duplicate_rows"] = int(dup_mask.sum())
     result["duplicate_rate"] = round(float(dup_mask.mean()) if total else 0.0, 6)
 
-    required = [c for c in schema.REQUIRED_FOR_ANALYSIS if c in df.columns]
+    if not df[["cancelled","diverted"]].isin([0,1]).all().all():
+        raise ValueError("Unknown cancellation/diversion status")
+    required = list(schema.REQUIRED_FOR_ANALYSIS)
     result["missing_required_cells"] = int(df[required].isna().sum().sum())
 
     # An arrival delay is only *supposed* to exist for an operated leg. A
@@ -152,13 +157,18 @@ def validate(df: pd.DataFrame, stage: str, expected_rows: int | None = None) -> 
     # defect we must catch is an operated flight whose arrival delay went
     # missing, so the two counts below are separated on purpose.
     operated = (
-        (df["cancelled"].fillna(0) == 0)
-        & (df["diverted"].fillna(0) == 0)
+        (df["cancelled"].eq(0))
+        & (df["diverted"].eq(0))
     )
     result["arr_delay_na_total"] = int(df["arr_delay"].isna().sum())
     result["missing_arr_delay"] = int((operated & df["arr_delay"].isna()).sum())
 
     finished = completed(df)
+    needed = [c for c in schema.REQUIRED_FOR_ANALYSIS if c != "arr_delay"]
+    if finished[needed].isna().any().any() or not np.isfinite(finished[["arr_delay","distance"]]).all().all():
+        raise ValueError("Missing/nonfinite completed-flight predictors")
+    if finished["distance"].le(0).any():
+        raise ValueError("Nonpositive completed-flight distance")
     result["completed_rows"] = int(len(finished))
     result["cancelled_rows"] = int((df["cancelled"].fillna(0) == 1).sum())
     result["diverted_rows"] = int((df["diverted"].fillna(0) == 1).sum())

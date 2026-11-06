@@ -56,9 +56,11 @@ def test_streamed_sampling_checks_counts_and_excludes_cancelled(tmp_path,monkeyp
     monkeypatch.setattr(config,'flights_file',lambda:source)
     monkeypatch.setattr(config,'mode',lambda:'full')
     monkeypatch.setattr(config,'METRIC_DIR',tmp_path)
+    from team01 import provenance
+    (tmp_path/'validation.json').write_text(json.dumps({'completed_flights':4,'run_signature':provenance.signature()}))
     result=io.sample_completed(frame.columns.tolist(),limit=3)
     assert len(result)==3 and set(result.record)<= {0,2,4,5}
-    (tmp_path/'validation.json').write_text(json.dumps({'completed_flights':5}))
+    (tmp_path/'validation.json').write_text(json.dumps({'completed_flights':5,'run_signature':provenance.signature()}))
     with pytest.raises(ValueError,match='Validation count stale'):
         io.sample_completed(frame.columns.tolist(),limit=3)
 

@@ -10,7 +10,7 @@ project:
   name: Team01-FlightDelay-Project
   course: CISC7204 Data Science and Data Visualization
   team: Class K - Team 01
-  version: 0.4.0
+  version: 0.5.0
 
 # full   -> data/processed/flights.parquet, the real ten-year panel
 # sample -> data/sample/flights_sample.parquet, synthetic smoke fixture

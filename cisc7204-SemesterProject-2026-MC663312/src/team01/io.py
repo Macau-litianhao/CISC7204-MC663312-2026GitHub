@@ -241,15 +241,18 @@ def sample_completed(columns: list[str], limit: int = 400_000) -> pd.DataFrame:
     target = config.flights_file()
     if config.mode() == 'sample':
         frame = load_flights(columns=columns)
-        frame = frame.loc[frame.cancelled.eq(0) & frame.diverted.eq(0) & frame.arr_delay.notna()]
+        frame = frame.loc[frame.cancelled.eq(0) & frame.diverted.eq(0) & np.isfinite(frame.arr_delay)]
         return frame.sample(min(len(frame),limit),random_state=config.seed()).reset_index(drop=True)
-    validation = json.loads((config.METRIC_DIR/'validation.json').read_text(encoding='utf-8'))
+    from . import models
+    validation = models.load_metrics('validation')
+    if not validation:
+        raise ValueError('Build source validation before sampling')
     total = int(validation['completed_flights'])
     picks = np.sort(np.random.default_rng(config.seed()).choice(total,min(total,limit),replace=False))
     chunks, offset = [], 0
     for batch in pq.ParquetFile(target).iter_batches(batch_size=500_000,columns=columns):
         frame = batch.to_pandas()
-        good = frame.loc[frame.cancelled.eq(0) & frame.diverted.eq(0) & frame.arr_delay.notna()]
+        good = frame.loc[frame.cancelled.eq(0) & frame.diverted.eq(0) & np.isfinite(frame.arr_delay)]
         low,high=np.searchsorted(picks,[offset,offset+len(good)])
         if high>low:
             chunks.append(good.iloc[picks[low:high]-offset])

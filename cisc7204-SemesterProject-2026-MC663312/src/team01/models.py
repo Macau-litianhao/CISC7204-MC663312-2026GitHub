@@ -28,7 +28,6 @@ import numpy as np
 import pandas as pd
 import statsmodels.api as sm
 from sklearn.ensemble import HistGradientBoostingClassifier
-from sklearn.inspection import permutation_importance
 from sklearn.linear_model import LogisticRegression, QuantileRegressor
 from sklearn.metrics import (average_precision_score, brier_score_loss,
                              roc_auc_score)
@@ -119,8 +118,8 @@ def design_matrix(df: pd.DataFrame, factors: list[str] | None = None,
 
     ``controls`` appends the panel controls (year fixed effects, COVID era) as a
     block. They are dropped one level each, because a full set of year dummies
-    plus a constant is exactly collinear; a research factor keeps every level,
-    as before, so the factor ranking stays comparable with the pilot.
+    plus a constant is exactly collinear; each research factor also drops a recorded reference level,
+    so coefficient contrasts are identifiable.
 
     Columns that never vary are removed afterwards. A single-year panel, or a
     fixture without a pandemic year, otherwise carries a control that is
@@ -133,8 +132,7 @@ def design_matrix(df: pd.DataFrame, factors: list[str] | None = None,
     control_list = [c for c in control_list if c in df.columns]
     # A control is recognised by name even when it is passed as a plain factor
     # (the cumulative ranking does that), so the reference level is always
-    # dropped for it and never for a research factor.
-    drop_level_for = set(control_list) | set(control_names())
+    # dropped for every categorical factor and control.
     top_k = int(config.get("models.origin_top_k", 50))
     learned_levels = reference.attrs.get("factor_levels", {}) if reference is not None else {}
     factor_levels = {}
@@ -163,7 +161,7 @@ def design_matrix(df: pd.DataFrame, factors: list[str] | None = None,
                 levels = learned_levels.get(factor, [])
             column = pd.Categorical(column, categories=levels)
             dummies = pd.get_dummies(column, prefix=factor, dtype="float64",
-                                     drop_first=factor in drop_level_for)
+                                     drop_first=True)
             dummies.index = df.index
             parts.append(dummies)
 
@@ -215,9 +213,9 @@ def incremental_r2(df: pd.DataFrame, rows: int | None = None,
         factor = FACTOR_ORDER[i - 1]
         cumulative.append({
             "factor": factor,
-            "univariate_r2": round(univariate[factor], 4),
-            "cumulative_r2": round(r2, 4),
-            "incremental_r2": round(r2 - previous, 4),
+            "univariate_r2": univariate[factor],
+            "cumulative_r2": r2,
+            "incremental_r2": r2 - previous,
         })
         previous = r2
 
@@ -227,8 +225,8 @@ def incremental_r2(df: pd.DataFrame, rows: int | None = None,
         cumulative.append({
             "factor": "panel controls (" + ", ".join(controls) + ")",
             "univariate_r2": float("nan"),
-            "cumulative_r2": round(r2, 4),
-            "incremental_r2": round(r2 - previous, 4),
+            "cumulative_r2": r2,
+            "incremental_r2": r2 - previous,
         })
         previous = r2
 
@@ -243,16 +241,20 @@ def incremental_r2(df: pd.DataFrame, rows: int | None = None,
 
 def ols_with_robust_errors(df: pd.DataFrame, rows: int | None = None,
                            seed: int | None = None) -> dict:
-    """Full-factor OLS with HC1 errors, used for the coefficient table.
+    """Reference-coded full-factor OLS with day-clustered covariance.
 
-    HC1 because delay variance is far from constant across carriers and hours;
-    a plain OLS standard error would overstate significance almost everywhere.
+    Operating-day clustered covariance permits shared daily shocks and
+    heteroskedasticity. It is not a causal model and does not absorb all serial dependence.
     """
     sample = take_sample(df, rows, seed)
     matrix = design_matrix(sample)
     names = [c for c in matrix.columns if c != "const" and not _is_control(c)]
     target = sample["arr_delay"].astype("float64")
-    fitted = sm.OLS(target, matrix).fit(cov_type="HC1")
+    _assert_full_rank(matrix)
+    if sample["flight_date"].nunique() < 20:
+        raise ValueError("At least 20 day clusters required for inference")
+    fitted = sm.OLS(target, matrix).fit(cov_type="cluster",
+        cov_kwds={"groups": sample["flight_date"]})
 
     summary = pd.DataFrame({
         "term": matrix.columns,
@@ -273,6 +275,9 @@ def ols_with_robust_errors(df: pd.DataFrame, rows: int | None = None,
         "rows": int(len(sample)),
         "controls": active_controls(sample),
         "factor_terms": len(names),
+        "covariance": "operating-day clustered",
+        "reference_levels": {k: v[0] for k,v in matrix.attrs["factor_levels"].items() if v},
+        "design_rank": int(np.linalg.matrix_rank(matrix.to_numpy())),
     }
 
 
@@ -295,7 +300,8 @@ def quantile_regression(df: pd.DataFrame, quantile: float = 0.9,
     sample = take_sample(df, rows or int(config.get("sampling.tail_rows", 250_000)), seed)
     matrix = design_matrix(sample)
     feature_names = [c for c in matrix.columns if c != "const"]
-    target = sample["arr_delay_min"].astype("float64").to_numpy()
+    _assert_full_rank(matrix)
+    target = sample["arr_delay"].astype("float64").to_numpy()
 
     # sklearn fits its own intercept, so the constant column must come out.
     fitted = QuantileRegressor(quantile=quantile, alpha=0.0, solver="highs",
@@ -326,6 +332,8 @@ def quantile_regression(df: pd.DataFrame, quantile: float = 0.9,
         "rows": int(len(sample)),
         "pseudo_r2": round(1.0 - rho / rho0, 4) if rho0 else float("nan"),
         "solver": "highs",
+        "target": "signed arr_delay",
+        "reference_levels": {k:v[0] for k,v in matrix.attrs["factor_levels"].items() if v},
         "controls": active_controls(sample),
     }
 
@@ -333,20 +341,24 @@ def quantile_regression(df: pd.DataFrame, quantile: float = 0.9,
 # --------------------------------------------------------------------------
 # Risk classification
 # --------------------------------------------------------------------------
-def time_split(df: pd.DataFrame, holdout_start: str | None = None
-               ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Split by date so that no later month trains an earlier one."""
+def time_split(df: pd.DataFrame, holdout_start: str | None = None):
+    """Never share a calendar date; production requires the requested boundary."""
     start = pd.Timestamp(holdout_start or config.get("models.holdout_start"))
-    train = df[df["flight_date"] < start]
-    test = df[df["flight_date"] >= start]
-    if train.empty or test.empty:
-        # Small fixtures may not span the configured boundary; fall back to a
-        # chronological 80/20 split and say so.
-        print("[models] holdout date outside data range - using chronological 80/20")
-        ordered = df.sort_values("flight_date")
-        cut = int(len(ordered) * 0.8)
-        train, test = ordered.iloc[:cut], ordered.iloc[cut:]
+    dates = pd.to_datetime(df["flight_date"], errors="raise").dt.normalize()
+    if dates.isna().any():
+        raise ValueError("Missing holdout dates")
+    fallback = not dates.lt(start).any() or not dates.ge(start).any()
+    if fallback:
+        if config.mode() != 'sample':
+            raise ValueError("Holdout boundary outside observed dates; change it explicitly")
+        unique = np.sort(dates.unique())
+        if len(unique) < 2:
+            raise ValueError("At least two distinct dates required")
+        start = pd.Timestamp(unique[max(1,min(len(unique)-1,int(.8*len(unique))))])
+    train, test = df.loc[dates.lt(start)], df.loc[dates.ge(start)]
+    assert train.flight_date.max() < test.flight_date.min()
     return train, test
+
 
 
 def _binary_target(frame: pd.DataFrame, threshold: int) -> np.ndarray:
@@ -403,13 +415,8 @@ def risk_classifier(df: pd.DataFrame, threshold: int = 60,
             yearly.append({'year': int(year), 'rows': int(mask.sum()),
                            **_classification_metrics(y_test[mask], proba_gbm[mask], base_rate)})
 
-    # Permutation importance on the design matrix, aggregated back to the five
-    # source factors so the result is interpretable rather than a list of dummies.
-    importance = permutation_importance(
-        boosting, x_test, y_test, n_repeats=3, random_state=0,
-        scoring="roc_auc",
-    )
-    grouped = _group_importance(pd.Series(importance.importances_mean, index=x_train.columns))
+    # One common row permutation per factor block preserves valid one-hot states.
+    grouped = block_importance(boosting, x_test, y_test)
     results["importance"] = grouped.to_dict(orient="records")
 
     response = binned_response(test, proba_gbm, "dep_hour")
@@ -423,7 +430,7 @@ def risk_classifier(df: pd.DataFrame, threshold: int = 60,
         "requested_start": requested,
         "actual_test_start": str(test_start.date()),
         "train_last_date": str(train["flight_date"].max().date()),
-        "fallback_to_chronological_80_20": bool(test_start < pd.Timestamp(requested)),
+        "fallback_to_chronological_80_20": bool(not sample.flight_date.lt(pd.Timestamp(requested)).any() or not sample.flight_date.ge(pd.Timestamp(requested)).any()),
     }
     return {
         "threshold_min": threshold,
@@ -451,35 +458,9 @@ def _classification_metrics(y_true: np.ndarray, proba: np.ndarray,
     }
 
 
-def _group_importance(series: pd.Series) -> pd.DataFrame:
-    """Sum dummy-level importances back onto the five source factors.
-
-    The panel controls get their own row instead of falling into ``const``.
-    When the tree starts using the year to separate 2020-2021 from the rest,
-    that is worth seeing: it says part of the apparent accuracy is a period
-    effect, not a property of the route.
-    """
-    def family(term: str) -> str:
-        for factor in FACTOR_ORDER:
-            if term == factor or term.startswith(f"{factor}_"):
-                return factor
-        if _is_control(term):
-            return "panel controls"
-        return "const"
-
-    grouped = series.groupby(series.index.map(family)).sum()
-    grouped = grouped.drop(labels=["const"], errors="ignore").sort_values(ascending=False)
-    total = float(grouped.clip(lower=0).sum()) or 1.0
-    return pd.DataFrame({
-        "factor": grouped.index,
-        "importance": grouped.round(5).values,
-        "share": (grouped.clip(lower=0) / total).round(4).values,
-    })
-
-
 def binned_response(frame: pd.DataFrame, proba: np.ndarray, column: str,
                     bins: int | None = None) -> pd.DataFrame:
-    """Model-agnostic partial dependence: mean predicted risk per value of a column.
+    """Observed-bin mean predicted risk; not a partial dependence intervention.
 
     Cheaper than a full PDP and easier to read: for an ordered column such as
     departure hour it is exactly the curve a traveller wants to see.
@@ -557,7 +538,11 @@ def sensitivity_exclude_years(df: pd.DataFrame, years: list[int] | None = None,
 def save_metrics(payload: dict, name: str) -> Path:
     """Write a JSON metrics file for the dashboard and the report."""
     target = config.ensure_parent(config.METRIC_DIR / f"{name}.json")
-    target.write_text(json.dumps(json_safe(payload), indent=2, allow_nan=False), encoding="utf-8")
+    from . import provenance
+    payload={**payload,"artifact_sha256":provenance.artifact_fingerprints(name)}
+    temporary=target.with_suffix(".json.part")
+    temporary.write_text(json.dumps(json_safe({**payload, "run_signature": provenance.signature()}), indent=2, allow_nan=False), encoding="utf-8")
+    temporary.replace(target)
     print(f"[models] metrics -> {target}")
     return target
 
@@ -591,4 +576,47 @@ def load_metrics(name: str) -> dict:
     target = config.METRIC_DIR / f"{name}.json"
     if not target.exists():
         return {}
-    return json.loads(target.read_text(encoding="utf-8"))
+    from . import provenance
+    return provenance.check(json.loads(target.read_text(encoding="utf-8")))
+
+
+def _assert_full_rank(matrix):
+    if not np.isfinite(matrix.to_numpy()).all():
+        raise ValueError("Missing or non-finite model predictors")
+    if np.linalg.matrix_rank(matrix.to_numpy()) != matrix.shape[1]:
+        raise ValueError("Design matrix rank deficient: inspect reference levels and controls")
+
+
+def block_importance(estimator, x, y, repeats=5):
+    """Joint one-hot-block shuffling, not a sum of individual dummy perturbations."""
+    groups = {factor:[c for c in x if c == factor or c.startswith(factor+'_')]
+              for factor in FACTOR_ORDER}
+    groups['panel controls'] = [c for c in x if _is_control(c)]
+    baseline = roc_auc_score(y, estimator.predict_proba(x)[:,1])
+    rng = np.random.default_rng(config.seed())
+    records=[]
+    for factor, columns in groups.items():
+        if not columns: continue
+        drops=[]
+        for _ in range(repeats):
+            shuffled=x.copy()
+            shuffled.loc[:,columns]=x.loc[:,columns].to_numpy()[rng.permutation(len(x))]
+            drops.append(baseline-roc_auc_score(y,estimator.predict_proba(shuffled)[:,1]))
+        records.append({'factor':factor,'importance':float(np.mean(drops)),
+                        'std':float(np.std(drops,ddof=1)), 'repeats':repeats})
+    table=pd.DataFrame(records).sort_values('importance',ascending=False)
+    return table
+
+
+def conditional_factor_r2(df, rows=None):
+    sample=take_sample(df,rows)
+    matrix=design_matrix(sample);_assert_full_rank(matrix)
+    target=sample.arr_delay.astype(float)
+    full=float(sm.OLS(target,matrix).fit().rsquared)
+    records=[]
+    for factor in FACTOR_ORDER:
+        columns=[c for c in matrix if c==factor or c.startswith(factor+'_')]
+        reduced=float(sm.OLS(target,matrix.drop(columns=columns)).fit().rsquared)
+        records.append({'factor':factor,'drop_one_r2':full-reduced,'full_model_r2':full,
+                        'interpretation':'conditional association; not additive or causal'})
+    return pd.DataFrame(records)

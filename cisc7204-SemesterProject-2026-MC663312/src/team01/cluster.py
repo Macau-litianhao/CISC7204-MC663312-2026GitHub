@@ -161,13 +161,16 @@ def stability(airports: pd.DataFrame, k: int, draws: int = 10,
     rng = np.random.default_rng(config.seed() if seed is None else seed)
     frame = feature_frame(airports)
     matrix, _ = scaled_matrix(frame)
-    reference = KMeans(n_clusters=k, n_init=25, random_state=0).fit_predict(matrix)
+    reference = KMeans(n_clusters=k, n_init=int(config.get("cluster.n_init",25)),
+                       random_state=int(config.get("cluster.random_state",42))).fit_predict(matrix)
 
     scores = []
     n = len(matrix)
     for _ in range(draws):
         pick = rng.choice(n, size=int(n * fraction), replace=False)
-        sub_labels = KMeans(n_clusters=k, n_init=25, random_state=0).fit_predict(matrix[pick])
+        sub_matrix, _ = scaled_matrix(frame.iloc[pick])
+        sub_labels = KMeans(n_clusters=k, n_init=int(config.get("cluster.n_init",25)),
+                            random_state=int(config.get("cluster.random_state",42))).fit_predict(sub_matrix)
         scores.append(adjusted_rand_score(reference[pick], sub_labels))
 
     return {
@@ -175,6 +178,7 @@ def stability(airports: pd.DataFrame, k: int, draws: int = 10,
         "min_ari": round(float(np.min(scores)), 4),
         "draws": draws,
         "subsample_fraction": fraction,
+        "protocol": "configured full fit reference; preprocessing refitted on each subsample",
         "verdict": "stable" if np.mean(scores) >= 0.7 else "unstable - report with caution",
     }
 

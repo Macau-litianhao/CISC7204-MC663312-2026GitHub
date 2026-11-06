@@ -47,7 +47,8 @@ models:
 figures:
 	$(PY) src/scripts/07_figures.py
 
-pipeline: validate attribution tail clusters models figures
+pipeline:
+	$(PY) run_all.py --stage pipeline
 
 smoke:
 	TEAM01_MODE=sample $(PY) src/scripts/00_make_sample.py

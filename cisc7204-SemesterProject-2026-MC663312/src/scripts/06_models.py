@@ -46,8 +46,9 @@ def main() -> int:
 
     ols = models.ols_with_robust_errors(panel)
     quantile = models.quantile_regression(panel, quantile=0.9)
-    print(f"\nOLS(HC1) R² = {ols['r2']}; quantile-90 pseudo R² = {quantile['pseudo_r2']}")
+    print(f"\nOLS(day-clustered) R² = {ols['r2']}; quantile-90 pseudo R² = {quantile['pseudo_r2']}")
 
+    conditional = models.conditional_factor_r2(panel)
     risk = models.risk_classifier(panel, threshold=60, rows=args.rows)
     split = risk["split"]
     print(f"\nRisk model, time split: train to {split['train_last_date']}, "
@@ -68,7 +69,8 @@ def main() -> int:
 
     tables = config.ensure_dir("paths.tables")
     ranking.to_csv(tables / "factor_incremental_r2.csv", index=False)
-    ols["table"].to_csv(tables / "ols_hc1_coefficients.csv", index=False)
+    ols["table"].to_csv(tables / "ols_day_clustered_coefficients.csv", index=False)
+    conditional.to_csv(tables / "factor_conditional_r2.csv", index=False)
     quantile["table"].to_csv(tables / "quantile90_coefficients.csv", index=False)
     risk["hour_response"].to_csv(tables / "risk_by_hour.csv", index=False)
     pd.json_normalize(
@@ -76,6 +78,8 @@ def main() -> int:
          {"set": "excluding_selected_years", **sensitivity["without_excluded"]}]
     ).to_csv(tables / "sensitivity_excluded_years.csv", index=False)
 
+    pd.DataFrame(risk["models"]["importance"]).to_csv(tables/"risk_permutation_importance.csv",index=False)
+    models.save_metrics({"mode":config.mode(),"risk":risk},"risk_evaluation")
     viz.fig_importance(pd.DataFrame(risk["models"]["importance"]))
     viz.fig_hour_response(risk["hour_response"], threshold=60)
 
@@ -83,9 +87,10 @@ def main() -> int:
         "mode": config.mode(),
         "controls": controls,
         "ranking": ranking.to_dict(orient="records"),
+        "conditional_r2": conditional,
         "model_r2": ranking.attrs.get("model_r2"),
         "ols": {k: v for k, v in ols.items() if k != "table"},
-        "quantile90": {"pseudo_r2": quantile["pseudo_r2"], "rows": quantile["rows"]},
+        "quantile90": {k:v for k,v in quantile.items() if k != "table"},
         "risk": risk,
         "sensitivity": sensitivity,
     }, "models")

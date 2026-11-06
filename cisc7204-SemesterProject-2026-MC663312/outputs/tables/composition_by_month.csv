@@ -1,61 +1,61 @@
 month,cause_key,share,cause,family
-1,min_carrier,0.34831715,Carrier,Internal
-2,min_carrier,0.3414643,Carrier,Internal
-3,min_carrier,0.34783593,Carrier,Internal
-4,min_carrier,0.3414868,Carrier,Internal
-5,min_carrier,0.32752803,Carrier,Internal
-6,min_carrier,0.3324225,Carrier,Internal
-7,min_carrier,0.33464175,Carrier,Internal
-8,min_carrier,0.33539823,Carrier,Internal
-9,min_carrier,0.36315146,Carrier,Internal
-10,min_carrier,0.37864667,Carrier,Internal
-11,min_carrier,0.3762797,Carrier,Internal
-12,min_carrier,0.3537138,Carrier,Internal
-1,min_late_aircraft,0.365872,Late aircraft,Internal
-2,min_late_aircraft,0.36537364,Late aircraft,Internal
-3,min_late_aircraft,0.3894327,Late aircraft,Internal
-4,min_late_aircraft,0.38972804,Late aircraft,Internal
-5,min_late_aircraft,0.3949597,Late aircraft,Internal
-6,min_late_aircraft,0.40585554,Late aircraft,Internal
-7,min_late_aircraft,0.4107523,Late aircraft,Internal
-8,min_late_aircraft,0.39264235,Late aircraft,Internal
-9,min_late_aircraft,0.36430904,Late aircraft,Internal
-10,min_late_aircraft,0.37548748,Late aircraft,Internal
-11,min_late_aircraft,0.37018862,Late aircraft,Internal
-12,min_late_aircraft,0.39170858,Late aircraft,Internal
-1,min_nas,0.21534333,Air traffic / NAS,System
-2,min_nas,0.22492564,Air traffic / NAS,System
-3,min_nas,0.21892221,Air traffic / NAS,System
-4,min_nas,0.21687564,Air traffic / NAS,System
-5,min_nas,0.21802415,Air traffic / NAS,System
-6,min_nas,0.20308521,Air traffic / NAS,System
-7,min_nas,0.19654076,Air traffic / NAS,System
-8,min_nas,0.21245761,Air traffic / NAS,System
-9,min_nas,0.22118342,Air traffic / NAS,System
-10,min_nas,0.20651406,Air traffic / NAS,System
-11,min_nas,0.20737666,Air traffic / NAS,System
-12,min_nas,0.19181922,Air traffic / NAS,System
-1,min_weather,0.06874519,Extreme weather,System
-2,min_weather,0.066521876,Extreme weather,System
-3,min_weather,0.04193313,Extreme weather,System
-4,min_weather,0.049913347,Extreme weather,System
-5,min_weather,0.05798101,Extreme weather,System
-6,min_weather,0.056852877,Extreme weather,System
-7,min_weather,0.056441728,Extreme weather,System
-8,min_weather,0.057584982,Extreme weather,System
-9,min_weather,0.04936998,Extreme weather,System
-10,min_weather,0.037537996,Extreme weather,System
-11,min_weather,0.043699138,Extreme weather,System
-12,min_weather,0.06084723,Extreme weather,System
-1,min_security,0.0017223685,Security,System
-2,min_security,0.0017145735,Security,System
-3,min_security,0.0018760302,Security,System
-4,min_security,0.0019961204,Security,System
-5,min_security,0.0015071095,Security,System
-6,min_security,0.0017839541,Security,System
-7,min_security,0.0016235275,Security,System
-8,min_security,0.0019169146,Security,System
-9,min_security,0.0019861362,Security,System
-10,min_security,0.0018137813,Security,System
-11,min_security,0.0024558357,Security,System
-12,min_security,0.0019111348,Security,System
+1,min_carrier,0.3483171467077253,Carrier,Carrier + late aircraft
+2,min_carrier,0.34146429360130987,Carrier,Carrier + late aircraft
+3,min_carrier,0.3478359200211072,Carrier,Carrier + late aircraft
+4,min_carrier,0.3414868233026486,Carrier,Carrier + late aircraft
+5,min_carrier,0.32752801933590725,Carrier,Carrier + late aircraft
+6,min_carrier,0.3324224819022254,Carrier,Carrier + late aircraft
+7,min_carrier,0.3346417367143695,Carrier,Carrier + late aircraft
+8,min_carrier,0.33539817945622763,Carrier,Carrier + late aircraft
+9,min_carrier,0.3631514340857415,Carrier,Carrier + late aircraft
+10,min_carrier,0.3786466828845365,Carrier,Carrier + late aircraft
+11,min_carrier,0.37627972628417505,Carrier,Carrier + late aircraft
+12,min_carrier,0.35371379837303246,Carrier,Carrier + late aircraft
+1,min_late_aircraft,0.36587197938073424,Late aircraft,Carrier + late aircraft
+2,min_late_aircraft,0.3653736354058402,Late aircraft,Carrier + late aircraft
+3,min_late_aircraft,0.3894326954721729,Late aircraft,Carrier + late aircraft
+4,min_late_aircraft,0.38972805297614777,Late aircraft,Carrier + late aircraft
+5,min_late_aircraft,0.3949597182082386,Late aircraft,Carrier + late aircraft
+6,min_late_aircraft,0.4058555099336886,Late aircraft,Carrier + late aircraft
+7,min_late_aircraft,0.4107522577171695,Late aircraft,Carrier + late aircraft
+8,min_late_aircraft,0.39264233502439533,Late aircraft,Carrier + late aircraft
+9,min_late_aircraft,0.36430903583025803,Late aircraft,Carrier + late aircraft
+10,min_late_aircraft,0.37548747957737355,Late aircraft,Carrier + late aircraft
+11,min_late_aircraft,0.37018862572810474,Late aircraft,Carrier + late aircraft
+12,min_late_aircraft,0.39170860089248416,Late aircraft,Carrier + late aircraft
+1,min_nas,0.21534332058645733,Air traffic / NAS,Other reported causes
+2,min_nas,0.22492562208201514,Air traffic / NAS,Other reported causes
+3,min_nas,0.21892222291282426,Air traffic / NAS,Other reported causes
+4,min_nas,0.21687565262563208,Air traffic / NAS,Other reported causes
+5,min_nas,0.21802414387151645,Air traffic / NAS,Other reported causes
+6,min_nas,0.20308518107631054,Air traffic / NAS,Other reported causes
+7,min_nas,0.19654075293602533,Air traffic / NAS,Other reported causes
+8,min_nas,0.2124575936107792,Air traffic / NAS,Other reported causes
+9,min_nas,0.2211834157133263,Air traffic / NAS,Other reported causes
+10,min_nas,0.20651406222238253,Air traffic / NAS,Other reported causes
+11,min_nas,0.2073766710072879,Air traffic / NAS,Other reported causes
+12,min_nas,0.1918192321467146,Air traffic / NAS,Other reported causes
+1,min_weather,0.06874518488022646,Extreme weather,Other reported causes
+2,min_weather,0.0665218754644182,Extreme weather,Other reported causes
+3,min_weather,0.041933131350460694,Extreme weather,Other reported causes
+4,min_weather,0.04991335055594521,Extreme weather,Other reported causes
+5,min_weather,0.05798100910121624,Extreme weather,Other reported causes
+6,min_weather,0.056852873115554654,Extreme weather,Other reported causes
+7,min_weather,0.05644172518826382,Extreme weather,Other reported causes
+8,min_weather,0.05758497752544384,Extreme weather,Other reported causes
+9,min_weather,0.04936997817291543,Extreme weather,Other reported causes
+10,min_weather,0.037537993933661695,Extreme weather,Other reported causes
+11,min_weather,0.04369914117233304,Extreme weather,Other reported causes
+12,min_weather,0.06084723371177205,Extreme weather,Other reported causes
+1,min_security,0.001722368444856682,Security,Other reported causes
+2,min_security,0.0017145734464165644,Security,Other reported causes
+3,min_security,0.001876030243434975,Security,Other reported causes
+4,min_security,0.0019961205396262917,Security,Other reported causes
+5,min_security,0.001507109483121438,Security,Other reported causes
+6,min_security,0.0017839539722208206,Security,Other reported causes
+7,min_security,0.0016235274441719137,Security,Other reported causes
+8,min_security,0.0019169143831540187,Security,Other reported causes
+9,min_security,0.001986136197758741,Security,Other reported causes
+10,min_security,0.0018137813820457227,Security,Other reported causes
+11,min_security,0.002455835808099233,Security,Other reported causes
+12,min_security,0.0019111348759967555,Security,Other reported causes

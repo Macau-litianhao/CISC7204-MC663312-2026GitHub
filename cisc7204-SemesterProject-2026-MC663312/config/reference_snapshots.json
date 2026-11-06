@@ -1,0 +1,15 @@
+{
+  "protocol": "Content-pinned reference snapshots; upstream changes require an explicit reviewed refresh and complete rebuild",
+  "references": [
+    {
+      "path": "data/raw/reference/airports.csv",
+      "source_url": "https://davidmegginson.github.io/ourairports-data/airports.csv",
+      "sha256": "e869f2a5c500aa0a5c74c680559c4e3ab7e65c7a442daa7c92b7f99fb51613ca"
+    },
+    {
+      "path": "data/raw/reference/airport_timezones.csv",
+      "source_url": "https://raw.githubusercontent.com/mborsetti/airportsdata/main/airportsdata/airports.csv",
+      "sha256": "b218baf3b864af711bfc5c2d6de38f4cdfde873e0c60289fd9c5cc22afe57876"
+    }
+  ]
+}

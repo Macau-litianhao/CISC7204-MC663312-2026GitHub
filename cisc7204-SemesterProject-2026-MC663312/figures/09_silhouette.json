@@ -1,0 +1,14 @@
+{
+  "run_signature": {
+    "mode": "full",
+    "source_sha256": "dad608577e2b30e5fdb1b7e399a86fad893e59e29d3442d8eb575c224e0fc3d7",
+    "settings_sha256": "3db653841beafcdb0a5d80cd32bd36ddc1626ef6b3de1b4876f5d9126446e2ea",
+    "references": {
+      "airports.csv": "e869f2a5c500aa0a5c74c680559c4e3ab7e65c7a442daa7c92b7f99fb51613ca",
+      "airport_aliases.csv": "7def0791ca3396218f49fcd7c0287b493d44d747a14e55d46573d54c166af582",
+      "airport_timezones.csv": "b218baf3b864af711bfc5c2d6de38f4cdfde873e0c60289fd9c5cc22afe57876"
+    },
+    "protocol": "audit-corrected-v0.5"
+  },
+  "image_sha256": "f4ee8fdc696142965ff4f5d75ac6429a4eeb0528bafd7eff81640ad6e337673d"
+}

@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from team01 import attribution, cluster, features, models, tail
+from team01 import attribution, cluster, features, models, tail, config
 
 
 # --------------------------------------------------------------------------
@@ -209,8 +209,9 @@ def test_quantile_model_returns_coefficients(completed):
     assert -1 <= result["pseudo_r2"] <= 1
 
 
-def test_classifier_beats_a_coin_flip_only_barely(completed):
+def test_classifier_beats_a_coin_flip_only_barely(completed, monkeypatch):
     """The honest ceiling: five observable factors rank risk weakly."""
+    monkeypatch.setattr(config, "mode", lambda: "sample")
     result = models.risk_classifier(completed, threshold=60, rows=25_000, seed=2)
     for name in ("logistic", "gradient_boosting"):
         assert 0.5 <= result["models"][name]["roc_auc"] <= 1.0

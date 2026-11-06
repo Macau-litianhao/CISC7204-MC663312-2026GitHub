@@ -1,6 +1,6 @@
 # US Domestic Flight Delay Drivers
 
-CISC7204 · Class K · Team 01 · reviewed product version 0.4.0
+CISC7204 · Class K · Team 01 · reviewed product version 0.5.0
 
 An analysis of reported flight-delay causes, the long tail of arrival delays,
 exploratory airport groups, and the limits of severe-delay risk ranking.
@@ -13,7 +13,8 @@ three steps: distribution and reported causes, time patterns, then airports and
 carriers. Search carrier names, airport names, cities or codes. The compact section
 navigation keeps the current selection visible and links back to the filters.
 
-Each chart labels its scope. The map retains all airports for navigation, the
+Each chart labels its scope. The map ignores the airport selector and displays up to 120 busiest sampled
+airports with coordinates; other origins remain available in search. The
 carrier comparison retains all carriers, and airport groups and model validation
 are fixed references. The selected airport has an orange outline. Technical
 analysis, chart-reading instructions, methods and a plain-language glossary expand
@@ -28,16 +29,16 @@ completed flights arrive relative to schedule.
   percentages describe this sample, not the entire panel. Narrow filters can be sparse.
 - Airport metadata: 195/195 reviewed airports have matched coordinates.
   Physical airport type is a proxy, not an FAA passenger-enplanement hub class.
-- Exploratory groups: k=4, subsample ARI=0.713.
+- Exploratory groups: k=4, subsample ARI=0.756.
   Labels describe regions of feature space; they do not establish causal airport types.
-- Temporal risk holdout starts 2024-07-01; n=22,998.
-  Training event rate 6.09%; test event rate 6.77%.
+- Temporal risk holdout starts 2024-07-01; n=23,128.
+  Training event rate 6.09%; test event rate 6.75%.
 
 | Model | ROC AUC | Average precision | Brier error (lower is better) |
 |---|---:|---:|---:|
-| Constant training rate | 0.5000 | 0.0677 | 0.06313 |
-| Logistic | 0.6857 | 0.1452 | 0.06104 |
-| Gradient boosting | 0.6897 | 0.1470 | 0.06103 |
+| Constant training rate | 0.5000 | 0.0675 | 0.06294 |
+| Logistic | 0.6858 | 0.1368 | 0.06100 |
+| Gradient boosting | 0.6914 | 0.1403 | 0.06090 |
 
 Calibration curves and baseline scores appear in the dashboard's fixed model-evidence
 section. Ranking ability and modest baseline improvement do not guarantee an
@@ -64,9 +65,9 @@ python run_all.py --stage pipeline
 ```
 
 For a no-download synthetic demonstration, `python run_all.py --stage smoke` builds
-fixture outputs. **It overwrites shared figures and result files with synthetic
-outputs.** Use a separate checkout/directory for smoke runs. Do not quote fixture
-numbers as empirical findings.
+fixture outputs in isolated `outputs/tables/sample`, `outputs/metrics/sample` and
+`figures/sample` directories. Real reference files and empirical outputs remain
+separate. Do not quote fixture numbers as empirical findings.
 
 ## Reviewed rebuild
 
@@ -76,11 +77,21 @@ python run_all.py --stage review --part models
 python run_all.py --stage review --part rotations --tails 256
 ```
 
-The reviewed airport rebuild reuses unchanged full-panel numerical airport
-aggregates, then recomputes metadata and clustering. The model rebuild streams a
-uniform completed-flight sample. The rotation rebuild selects whole aircraft
-histories; timezone reference data is downloaded when absent. Existing source
-validation counts are checked before accepting the model sample.
+The reviewed airport rebuild streams the source anew and regenerates validation,
+reconciled cause totals, tail summaries and airport features before clustering.
+The model rebuild uniformly samples 600,000 completed flights for inference,
+then draws explicit seeded quantile/risk subsamples. OLS uses reference coding,
+full-column-rank validation and operating-day clustered covariance. Quantile
+regression targets signed arrival delay; its coefficients are point estimates.
+Joint factor-block importance and conditional drop-one R² are non-additive
+associations. The rotation rebuild selects whole aircraft source histories.
+
+The canonical full `pipeline` includes temporal validation, reference audit and
+supplementary monthly/distance and sensitivity checks. JSON results bind source,
+configuration and reference content hashes; readers reject stale results.
+`config/reference_snapshots.json` pins reference content. Restore a matching
+snapshot or deliberately review/update that registry and rebuild when sources
+change; silently accepting updated upstream references is not supported.
 
 ## Research questions and limits
 
@@ -95,7 +106,7 @@ validation counts are checked before accepting the model sample.
    Coordinates and airport physical types use explicit code mappings and documented
    historical aliases. Group names and k are regenerated, not fixed in advance.
 4. **Risk ranking:** how much do observable pre-departure factors add to a baseline?
-   Training-only category mappings, temporal holdout, calibration and baseline error
+   Training-only reference-category mappings, temporal holdout, calibration and baseline error
    are reported. Permutation importance is neither SHAP nor a causal contribution.
 
 Cancellation/diversion risk is excluded from completed-flight outcomes. NOAA weather
@@ -152,3 +163,23 @@ Turnaround pressure now includes an aircraft-cluster bootstrap interval, conditi
 on sequence coverage, timezone reference and the minimum-turn assumption.
 The source-wide airport-code coverage audit flags ISN/TKI active-reference gaps and
 ISN's missing timezone instead of inventing historical data.
+
+
+## Correctness audit fixes (6 November 2026, v0.5.0)
+
+- Acquisition merges only the requested successfully written year files and replaces
+  the formal panel atomically. Single-year runs cannot absorb stale staging years.
+- Inference contrasts use recorded reference levels and a full-rank design. OLS
+  errors cluster by operating day; HC1 output naming has been retired. Quantile
+  coefficients refer to signed arrival delay and carry no significance claim.
+- The reported cause population requires complete, nonnegative minutes reconciling
+  within one minute. Six unreported records and one unreconciled record are excluded
+  and documented in `cause_quality_exclusions.csv`; this is not zero imputation.
+- Airport subsample stability uses the actual configured fit as reference and refits
+  preprocessing within each subsample. It does not establish natural airport types.
+- A strict 200-flight carrier display floor applies even when no carrier qualifies.
+  Full-mode temporal splits fail on invalid boundaries; demo fallback separates dates.
+- `supplementary.json` records tail sensitivity and a common-support AA/DL comparison.
+  Only a limited subset has common support; this is not an airline-wide causal ranking.
+- Large raw datasets are not bundled. Matching content hashes detect input differences;
+  they do not recover unavailable historical records or certify BTS source correctness.

@@ -65,3 +65,9 @@ tmp/
 *.mp4
 *.m4a
 *.wav
+
+# Synthetic outputs are isolated from the empirical product.
+figures/sample/
+outputs/tables/sample/
+outputs/metrics/sample/
+data/processed/sample/

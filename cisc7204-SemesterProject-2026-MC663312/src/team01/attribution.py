@@ -20,6 +20,7 @@ from . import config, schema
 
 def cause_totals(df: pd.DataFrame) -> pd.DataFrame:
     """Total attributed minutes and share per cause, ordered by size."""
+    df, _ = cause_population(df)
     totals = df[schema.CAUSE_COLUMNS].sum().rename("minutes").to_frame()
     totals["cause"] = totals.index.map(schema.CAUSE_LABELS)
     totals["family"] = totals.index.map(schema.CAUSE_FAMILY)
@@ -29,6 +30,7 @@ def cause_totals(df: pd.DataFrame) -> pd.DataFrame:
 
 def family_split(df: pd.DataFrame) -> dict:
     """The headline 75/25 split, with the numbers behind it."""
+    df, _ = cause_population(df)
     totals = df[schema.CAUSE_COLUMNS].sum()
     internal = float(totals[["min_carrier", "min_late_aircraft"]].sum())
     system = float(totals[["min_nas", "min_weather", "min_security"]].sum())
@@ -47,6 +49,7 @@ def family_split(df: pd.DataFrame) -> dict:
 def bootstrap_family_share(df: pd.DataFrame, reps: int | None = None,
                            seed: int | None = None) -> dict:
     """Percentile bootstrap of the internal share, resampling whole days."""
+    df, _ = cause_population(df)
     draws = int(config.get("sampling.bootstrap_reps", 400) if reps is None else reps)
     rng = np.random.default_rng(config.seed() if seed is None else seed)
 
@@ -83,6 +86,7 @@ def bootstrap_family_share(df: pd.DataFrame, reps: int | None = None,
 
 def composition_by(df: pd.DataFrame, by: str) -> pd.DataFrame:
     """Stacked-composition input: minute shares of the five causes per group."""
+    df, _ = cause_population(df)
     sums = df.groupby(by, observed=True)[schema.CAUSE_COLUMNS].sum()
     shares = sums.div(sums.sum(axis=1).replace(0, np.nan), axis=0)
     long = (
@@ -131,6 +135,7 @@ def carrier_table(df: pd.DataFrame, min_flights: int | None = None) -> pd.DataFr
     ``config/project.yaml`` next to a comment that says which frame it applies
     to.
     """
+    df, _ = cause_population(df)
     floor = int(min_flights if min_flights is not None
                 else config.get_for_mode("attribution.carrier_min_flights", 5000))
     grouped = df.groupby("carrier", observed=True)
@@ -184,3 +189,16 @@ def threshold_audit(df: pd.DataFrame) -> pd.DataFrame:
 def _mean_or_nan(values: pd.Series) -> float:
     """Mean of a possibly empty boolean slice, as a float (NaN when empty)."""
     return float(values.mean()) if len(values) else np.nan
+
+
+def cause_population(df, tolerance=1.):
+    delayed=df.loc[df.arr_delay.ge(config.threshold())]
+    values=delayed[schema.CAUSE_COLUMNS].astype('float64')
+    known=values.notna().all(axis=1)&np.isfinite(values).all(axis=1)&values.ge(0).all(axis=1)
+    reconciled=values.sum(axis=1,min_count=len(schema.CAUSE_COLUMNS)).sub(delayed.arr_delay).abs().le(tolerance)
+    good=known&reconciled
+    out=delayed.loc[good].copy()
+    out[schema.CAUSE_COLUMNS]=values.loc[good]
+    return out, {'eligible':len(delayed),'incomplete_or_invalid':int((~known).sum()),
+                 'unreconciled':int((known&~reconciled).sum()),'retained':len(out),
+                 'unexplained_arrival_minutes':float(delayed.loc[~good,'arr_delay'].sum())}

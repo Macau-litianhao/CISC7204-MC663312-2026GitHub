@@ -22,7 +22,8 @@ they name the direction, and they stop. Interpretation beyond that belongs in th
 report, not on a card.
 """
 
-from __future__ import annotations
+from team01 import models as metric_store, attribution
+
 
 import json
 from pathlib import Path
@@ -252,7 +253,7 @@ def cluster_note() -> str:
     if not path.exists():
         return "Run src/scripts/05_clusters.py to build the archetypes."
     try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
+        payload = metric_store.load_metrics(path.stem)
     except json.JSONDecodeError:
         return "The cluster metrics file could not be read."
 
@@ -283,7 +284,7 @@ def model_note() -> str:
     if not path.exists():
         return "Run src/scripts/06_models.py to fit the models this page refers to."
     try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
+        payload = metric_store.load_metrics(path.stem)
     except json.JSONDecodeError:
         return "The model metrics file could not be read."
 
@@ -323,7 +324,8 @@ def method_note(frame: pd.DataFrame) -> str:
     return (warning + f"In this filter {below:.0%} of the {len(frame):,} flights shown here arrived "
             f"less than {floor:.0f} minutes late and therefore carry no cause minutes. "
             f"The cause ranking and the monthly composition are computed on the "
-            f"remaining {1 - below:.0%}.")
+            f"remaining {1 - below:.0%}, after excluding incomplete or unreconciled cause records. "
+            f"Excluded in this selection: {attribution.cause_population(frame)[1]["eligible"] - attribution.cause_population(frame)[1]["retained"]:,}.")
 
 
 def takeaways(frame: pd.DataFrame) -> list[dict]:

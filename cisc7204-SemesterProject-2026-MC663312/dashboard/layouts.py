@@ -105,7 +105,7 @@ def panel(title: str, read: str, graph_id: str, finding_id: str | None = None,
 
 def scope_for(graph_id):
     return {'fig-clusters':'Full-panel reference · does not filter',
-            'fig-geo':'Airport navigator · retains all airports',
+            'fig-geo':'Airport navigator · ignores airport selector',
             'fig-carrier':'Comparison · retains all carriers'}.get(graph_id,'Current sample filters')
 
 
@@ -264,7 +264,7 @@ def _grid(initial: dict[str, str]) -> html.Div:
               "fig-lorenz", "find-lorenz", initial=initial["lorenz"]),
         panel("Delay and traffic are different maps",
               "Fill: 50 states + DC, mean delay. Bubble area: departures. "
-              "Territory flights remain in KPIs. Click a bubble or use Origin airport.",
+              "Territory flights remain in KPIs. Bubbles show up to 120 busiest sampled airports with coordinates. Use Origin airport search for other origins.",
               "fig-geo", "find-geo", initial=initial["geo"], height="560px",
               extra=[html.Div([
                   html.Span(id="airport-chip-label", className="chip"),

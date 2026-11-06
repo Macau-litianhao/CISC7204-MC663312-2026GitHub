@@ -33,6 +33,7 @@ STAGES: dict[str, list[tuple[str, str]]] = {
     "review": [("08_review_rebuild", None)],
     "temporal": [("09_temporal_validation", None)],
     "reference-audit": [("10_reference_audit", None)],
+    "supplementary": [("11_supplementary", None)],
 }
 
 PIPELINE = ["validate", "attribution", "tail", "clusters", "models", "figures"]
@@ -45,6 +46,12 @@ def run(script: str, mode: str | None, extra: list[str]) -> None:
     command = [sys.executable, str(ROOT / "src" / "scripts" / f"{script}.py"), *extra]
     print(f"\n$ {' '.join(command)}   [{env.get('TEAM01_MODE', 'default')}]", flush=True)
     subprocess.run(command, cwd=ROOT, env=env, check=True)
+
+
+def config_mode_full():
+    sys.path.insert(0,str(ROOT/"src"))
+    from team01 import config
+    return config.mode()=="full"
 
 
 def main() -> int:
@@ -60,7 +67,7 @@ def main() -> int:
     if args.list:
         for name in STAGES:
             print(f"  {name:12s} {'(fixture)' if name == 'sample' else ''}")
-        print("  pipeline     validate -> figures on the active mode")
+        print("  pipeline     streamed real rebuild + temporal/reference/supplementary checks")
         print("  smoke        sample + pipeline in TEAM01_MODE=sample")
         print("  dashboard    launch dashboard/app.py")
         return 0
@@ -76,6 +83,10 @@ def main() -> int:
     elif args.stage == "dashboard":
         subprocess.run([sys.executable, str(ROOT / "dashboard" / "app.py")], cwd=ROOT, check=True)
     elif args.stage == "pipeline":
+        if config_mode_full():
+            for script in ["08_review_rebuild", "09_temporal_validation", "10_reference_audit", "11_supplementary", "07_figures"]:
+                run(script, "full", extra)
+            return 0
         for name in PIPELINE:
             script, _ = STAGES[name][0]
             run(script, None, extra)

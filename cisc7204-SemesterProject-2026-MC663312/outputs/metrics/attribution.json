@@ -1,92 +1,116 @@
 {
   "mode": "full",
   "split": {
-    "attributed_minutes": 757355744.0,
-    "internal_minutes": 555441664.0,
-    "system_minutes": 201914080.0,
-    "internal_share": 0.7334,
-    "system_share": 0.2666,
-    "late_aircraft_share": 0.3876
+    "attributed_minutes": 757355708.0,
+    "internal_minutes": 555441636.0,
+    "system_minutes": 201914072.0,
+    "internal_share": 0.7333959857076828,
+    "system_share": 0.26660401429231717,
+    "late_aircraft_share": 0.38763733064780703
   },
   "bootstrap": {
-    "share": 0.7334,
-    "ci_low": 0.7301,
-    "ci_high": 0.7364,
+    "share": 0.7333959857076828,
+    "ci_low": 0.7301368712686342,
+    "ci_high": 0.7363623272418224,
     "reps": 400,
     "days": 3653
   },
   "stability": [
     {
       "year": 2015,
-      "attributed_minutes": 62651868.0,
-      "internal_share": 0.7204,
-      "system_share": 0.2796,
-      "late_aircraft_share": 0.3984
+      "attributed_minutes": 62651867.0,
+      "internal_share": 0.7204076935169386,
+      "system_share": 0.2795923064830614,
+      "late_aircraft_share": 0.3984227796435819
     },
     {
       "year": 2016,
-      "attributed_minutes": 59850336.0,
-      "internal_share": 0.7183,
-      "system_share": 0.2817,
-      "late_aircraft_share": 0.392
+      "attributed_minutes": 59850334.0,
+      "internal_share": 0.7183202853972377,
+      "system_share": 0.2816797146027623,
+      "late_aircraft_share": 0.391950995628529
     },
     {
       "year": 2017,
-      "attributed_minutes": 65815740.0,
-      "internal_share": 0.7053,
-      "system_share": 0.2947,
-      "late_aircraft_share": 0.3936
+      "attributed_minutes": 65815738.0,
+      "internal_share": 0.7053179590571483,
+      "system_share": 0.2946820409428517,
+      "late_aircraft_share": 0.39359993197979487
     },
     {
       "year": 2018,
-      "attributed_minutes": 87498068.0,
-      "internal_share": 0.6968,
-      "system_share": 0.3032,
-      "late_aircraft_share": 0.3963
+      "attributed_minutes": 87498074.0,
+      "internal_share": 0.6968127435582182,
+      "system_share": 0.3031872564417818,
+      "late_aircraft_share": 0.3963361639251625
     },
     {
       "year": 2019,
-      "attributed_minutes": 95889720.0,
-      "internal_share": 0.7032,
-      "system_share": 0.2968,
-      "late_aircraft_share": 0.3971
+      "attributed_minutes": 95889721.0,
+      "internal_share": 0.7031919719528644,
+      "system_share": 0.2968080280471355,
+      "late_aircraft_share": 0.3970803293921358
     },
     {
       "year": 2020,
       "attributed_minutes": 26909377.0,
-      "internal_share": 0.7106,
-      "system_share": 0.2894,
-      "late_aircraft_share": 0.2921
+      "internal_share": 0.7105537225926858,
+      "system_share": 0.2894462774073142,
+      "late_aircraft_share": 0.2921059079145534
     },
     {
       "year": 2021,
-      "attributed_minutes": 66613290.0,
-      "internal_share": 0.7608,
-      "system_share": 0.2392,
-      "late_aircraft_share": 0.3525
+      "attributed_minutes": 66613291.0,
+      "internal_share": 0.760766991680384,
+      "system_share": 0.23923300831961597,
+      "late_aircraft_share": 0.3524810086323464
     },
     {
       "year": 2022,
-      "attributed_minutes": 92635162.0,
-      "internal_share": 0.7743,
-      "system_share": 0.2257,
-      "late_aircraft_share": 0.3765
+      "attributed_minutes": 92635169.0,
+      "internal_share": 0.77432023684223,
+      "system_share": 0.22567976315777002,
+      "late_aircraft_share": 0.37648392480398024
     },
     {
       "year": 2023,
       "attributed_minutes": 95698124.0,
-      "internal_share": 0.7646,
-      "system_share": 0.2354,
-      "late_aircraft_share": 0.4003
+      "internal_share": 0.7646135048582562,
+      "system_share": 0.23538649514174384,
+      "late_aircraft_share": 0.40032136889120207
     },
     {
       "year": 2024,
-      "attributed_minutes": 103794012.0,
-      "internal_share": 0.7495,
-      "system_share": 0.2505,
-      "late_aircraft_share": 0.4044
+      "attributed_minutes": 103794013.0,
+      "internal_share": 0.7495253892919623,
+      "system_share": 0.25047461070803767,
+      "late_aircraft_share": 0.40439142670011224
     }
   ],
-  "attribution_universe": 11454282,
-  "completed_flights": 61689698
+  "attribution_universe": 11454275,
+  "completed_flights": 61689698,
+  "quality_exclusions": {
+    "cause_eligible": 11454282,
+    "cause_incomplete_or_invalid": 6,
+    "cause_unreconciled": 1,
+    "cause_retained": 11454275,
+    "cause_unexplained_arrival_minutes": 1314.0
+  },
+  "run_signature": {
+    "mode": "full",
+    "source_sha256": "dad608577e2b30e5fdb1b7e399a86fad893e59e29d3442d8eb575c224e0fc3d7",
+    "settings_sha256": "3db653841beafcdb0a5d80cd32bd36ddc1626ef6b3de1b4876f5d9126446e2ea",
+    "references": {
+      "airports.csv": "e869f2a5c500aa0a5c74c680559c4e3ab7e65c7a442daa7c92b7f99fb51613ca",
+      "airport_aliases.csv": "7def0791ca3396218f49fcd7c0287b493d44d747a14e55d46573d54c166af582",
+      "airport_timezones.csv": "b218baf3b864af711bfc5c2d6de38f4cdfde873e0c60289fd9c5cc22afe57876"
+    },
+    "protocol": "audit-corrected-v0.5"
+  },
+  "artifact_sha256": {
+    "outputs/tables/cause_totals.csv": "71240f8f15c8f9194fef5d2c3c8671529b410aed7f9e0e664fbfea349f306f53",
+    "outputs/tables/composition_by_month.csv": "99238b0338f85c58d4d5972b9ee1cf2a065fab5dadc6d9eff7ff3260208fdc13",
+    "outputs/tables/carrier_table.csv": "3bafc19bb7f13f97a28271fa7617073f8838a45a465116b58cf6726e125c6e47",
+    "outputs/tables/cause_quality_exclusions.csv": "24e61770357f077c052e97244f9cb529e6b54019ffa0efa8084542ccefb9d472"
+  }
 }

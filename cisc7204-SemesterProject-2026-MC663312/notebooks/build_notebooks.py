@@ -223,8 +223,9 @@ viz.fig_percentile_band(tail.monthly_profile(panel))"""),
             md("""
 # 04 · Exploratory turnaround propagation pressure
 
-**RQ2.** How much of the delay observed in a given hour is inherited from earlier
-legs of the same aircraft?
+**RQ2.** Under an explicit minimum-turnaround assumption, how much schedule
+shortfall appears in matched observed aircraft sequences? This is not a causal
+partition of realised arrival delay.
 
 BTS reports `LateAircraftDelay` as a cause, which is a label rather than a
 mechanism. Reconstructing the aircraft rotation turns it into a quantity: the
@@ -315,7 +316,7 @@ viz.fig_cluster_scatter(labelled, names)"""),
 
 **RQ4.** Given route, departure hour and month, how well can delay risk be ranked?
 
-Three models, each with its own honest ceiling: sequential R² to rank factors, a
+Three models, each with its own honest ceiling: order-dependent sequential R² and conditional drop-one comparisons, a
 quantile regression for the tail, and a time-based holdout classifier for risk.
 """),
             code(PREAMBLE),
@@ -331,7 +332,7 @@ ranking"""),
 ## 6.1 The tail moves differently
 
 A factor can be irrelevant on average and decisive at the ninetieth percentile, so
-the same design is fitted at q = 0.9.
+a reference-coded full-rank design is fitted to signed arrival delay at q = 0.9. Coefficients compare with recorded reference levels; their magnitudes across different units are not a factor ranking.
 """),
             code("""
 quantile = models.quantile_regression(panel, quantile=0.9)
@@ -380,7 +381,7 @@ audit = pd.DataFrame([
     ("05 lorenz", "position", "concentration", "05_lorenz"),
     ("06 distance bands", "position, flat lines", "near-null effect", "06_distance_bands"),
     ("07 state tiles", "colour + label", "geography, equal weight", "07_state_tiles"),
-    ("08 cascade hour", "position + bar", "within-day mechanism", "08_cascade_hour"),
+    ("08 cascade hour", "position + bar", "hypothetical turnaround pressure", "08_cascade_hour"),
     ("09 silhouette", "position", "selection evidence", "09_silhouette"),
     ("10 cluster scatter", "position + area", "similarity", "10_cluster_scatter"),
     ("11 importance", "length", "model explanation", "11_importance"),

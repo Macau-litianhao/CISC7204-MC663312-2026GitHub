@@ -81,7 +81,13 @@ def get_for_mode(dotted: str, default: Any = None) -> Any:
 
 def path(dotted: str) -> Path:
     """Absolute path for a ``paths.*`` or ``files.*`` entry."""
-    return ROOT / str(get(dotted))
+    value = ROOT / str(get(dotted))
+    if mode() == "sample":
+        if dotted in {"paths.figures", "paths.tables", "paths.metrics"}:
+            value = value / "sample"
+        elif dotted in {"files.airport_features_parquet", "files.airport_clusters_csv"}:
+            value = value.parent / "sample" / value.name
+    return value
 
 
 def ensure_dir(dotted: str) -> Path:
@@ -105,9 +111,9 @@ RAW_WEATHER_DIR = ROOT / str(get("paths.raw_weather"))
 REFERENCE_DIR = ROOT / str(get("paths.reference"))
 INTERIM_DIR = ROOT / str(get("paths.interim"))
 PROCESSED_DIR = ROOT / str(get("paths.processed"))
-FIG_DIR = ROOT / str(get("paths.figures"))
-TABLE_DIR = ROOT / str(get("paths.tables"))
-METRIC_DIR = ROOT / str(get("paths.metrics"))
+FIG_DIR = path("paths.figures")
+TABLE_DIR = path("paths.tables")
+METRIC_DIR = path("paths.metrics")
 
 
 def flights_file() -> Path:
@@ -132,11 +138,11 @@ def weather_file() -> Path:
 
 
 def airport_features_file() -> Path:
-    return ROOT / str(get("files.airport_features_parquet"))
+    return path("files.airport_features_parquet")
 
 
 def airports_clustered_file() -> Path:
-    return ROOT / str(get("files.airport_clusters_csv"))
+    return path("files.airport_clusters_csv")
 
 
 def years() -> list[int]:

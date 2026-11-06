@@ -58,6 +58,9 @@ def save(fig, name: str) -> str:
     _stamp_source(fig)
     target = config.ensure_parent(config.FIG_DIR / f"{name}.png")
     fig.savefig(target)
+    from . import provenance
+    import json
+    target.with_suffix(".json").write_text(json.dumps({"run_signature":provenance.signature(),"image_sha256":provenance.file_digest(target)},indent=2),encoding="utf-8")
     plt.close(fig)
     print(f"[viz] {target.name}")
     return str(target)
@@ -468,11 +471,11 @@ def fig_distance_bands(bands: pd.DataFrame, name: str = "06_distance_bands"):
     ax.set_xticks(x)
     ax.set_xticklabels(bands["band"])
     ax.set_ylim(bottom=0)
-    ax.set_title("Distance barely moves delay\nArrival delay by route distance band (miles)")
+    ax.set_title("Arrival delay by route distance band\nDescriptive groups, different flight mixes")
     ax.legend(loc="upper left", fontsize=9)
     _clean(ax, "Route distance band (statute miles)", "Delay (min)")
-    _caption(fig, "Flat curves are the finding: distance contributes <1% of "
-                  "explained variance once timing is controlled.")
+    _caption(fig, "These raw groups mix routes, carriers and schedules. "
+                  "They do not isolate the effect of distance.")
     return save(fig, name)
 
 
@@ -568,7 +571,7 @@ def _luminance(rgba: tuple[float, float, float, float]) -> float:
 # --------------------------------------------------------------------------
 # 8. Within-day cascade
 # --------------------------------------------------------------------------
-def fig_cascade_hour(hourly: pd.DataFrame, name: str = "08_cascade_hour"):
+def fig_cascade_hour(hourly: pd.DataFrame, name: str = "08_cascade_hour", min_turnaround: int = 25):
     """Separate aligned units; pressure is not a causal arrival-delay share."""
     floor=config.min_hour_flights()
     enough=hourly['flights'].fillna(0)>=floor
@@ -581,7 +584,7 @@ def fig_cascade_hour(hourly: pd.DataFrame, name: str = "08_cascade_hour"):
     _clean(ratio,'Scheduled departure hour · origin-local time','Pressure / arrival-delay ratio')
     ratio.set_xticks(range(0,24,2))
     fig.subplots_adjust(hspace=.25,bottom=.20)
-    _caption(fig,'25-minute assumed minimum turn; not causal arrival attribution. Ratios may exceed 1. '
+    _caption(fig,f'{min_turnaround}-minute assumed minimum turn; not causal arrival attribution. Ratios may exceed 1. '
                  f'Line hidden below {floor:,.0f} flights/hour.')
     return save(fig,name)
 
@@ -738,14 +741,14 @@ def fig_importance(importance: pd.DataFrame, name: str = "11_importance"):
     data = importance.sort_values("importance", ascending=True)
     fig, ax = plt.subplots(figsize=(6.8, 3.6))
     ax.barh(data["factor"], data["importance"], color=schema.OKABE_ITO["blue"], height=0.62)
-    for y, (value, share) in enumerate(zip(data["importance"], data["share"])):
-        ax.text(value, y, f" {share:.0%}", va="center", fontsize=8.5, color=schema.INK)
+    for y, (_, row) in enumerate(data.iterrows()):
+        value=float(row["importance"]);spread=float(row.get("std",0))
+        ax.text(value,y,f" {value:.3f} ± {spread:.3f}",va="center",fontsize=8.5,color=schema.INK)
     ax.set_title("What the risk model actually uses\nPermutation importance (AUC drop)")
     ax.margins(x=0.15)
-    _clean(ax, "Mean AUC decrease when the factor is shuffled", "", grid_axis="x")
-    _caption(fig, "Bar length is the AUC drop; the label is that factor's share of "
-                  "all positive importance. Aggregated over one-hot blocks - "
-                  "importance is association, not causation.")
+    _clean(ax, "Mean AUC decrease under joint factor-block shuffling", "", grid_axis="x")
+    _caption(fig, "Bar length and labels show mean AUC drop under joint block shuffling. "
+                  "Non-additive model reliance, not causal contribution. ± is shuffle SD, not a sampling CI.")
     return save(fig, name)
 
 

@@ -4033,5 +4033,21 @@
       "pressure_to_positive_arrival_ratio": 0.5228,
       "interpretation": "Hypothetical turnaround pressure, not a causal share of arrival delay; legacy inherited_* keys retain compatibility."
     }
+  },
+  "run_signature": {
+    "mode": "full",
+    "source_sha256": "dad608577e2b30e5fdb1b7e399a86fad893e59e29d3442d8eb575c224e0fc3d7",
+    "settings_sha256": "3db653841beafcdb0a5d80cd32bd36ddc1626ef6b3de1b4876f5d9126446e2ea",
+    "references": {
+      "airports.csv": "e869f2a5c500aa0a5c74c680559c4e3ab7e65c7a442daa7c92b7f99fb51613ca",
+      "airport_aliases.csv": "7def0791ca3396218f49fcd7c0287b493d44d747a14e55d46573d54c166af582",
+      "airport_timezones.csv": "b218baf3b864af711bfc5c2d6de38f4cdfde873e0c60289fd9c5cc22afe57876"
+    },
+    "protocol": "audit-corrected-v0.5"
+  },
+  "artifact_sha256": {
+    "outputs/tables/turnaround_pressure_by_aircraft.csv": "7495dabd725a158faab0fe4c6cf705dc28a4f3db273ae394e173341f14c261a1",
+    "outputs/tables/cascade_by_hour.csv": "3bef93af932a8c1929b35ca1a2ec49cd10cdc03cb6b39543b89d18675480f709",
+    "outputs/tables/cascade_by_airport.csv": "a9dc8adb316c29ebe26ea7431be08259ad504fede01064ca35fad69e496e8ca0"
   }
 }

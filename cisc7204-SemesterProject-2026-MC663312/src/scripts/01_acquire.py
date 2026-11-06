@@ -63,6 +63,9 @@ def main() -> int:
     staging = config.INTERIM_DIR / "flights_year"
     staging.mkdir(parents=True, exist_ok=True)
 
+    current_parts = []
+    if not years or len(set(years)) != len(years) or not 1 <= args.limit_months <= 12:
+        raise ValueError("Require unique years and 1..12 months")
     for year in years:
         year_frames: list[pd.DataFrame] = []
         for month in range(1, args.limit_months + 1):
@@ -79,6 +82,7 @@ def main() -> int:
         year_path = staging / f"flights_{year}.parquet"
         year_df.to_parquet(year_path, index=False, compression="zstd")
         print(f"[io] wrote {len(year_df):,} rows -> {year_path.name}")
+        current_parts.append(year_path)
         del year_frames, year_df
 
     # Merge the year files into one panel file without loading the whole panel:
@@ -86,12 +90,14 @@ def main() -> int:
     # schema so a year with a slightly different category value set cannot break
     # the dictionary encoding.
     target = config.flights_file()
-    parts = sorted(staging.glob("flights_*.parquet"))
+    parts = current_parts
+    temporary = config.ensure_parent(target.with_suffix(".parquet.part"))
     schema = pq.read_schema(parts[0])
-    with pq.ParquetWriter(target, schema, compression="zstd") as writer:
+    with pq.ParquetWriter(temporary, schema, compression="zstd") as writer:
         for part in parts:
             writer.write_table(pq.read_table(part).cast(schema))
-    print(f"[io] merged {len(parts)} year files -> {target}")
+    temporary.replace(target)
+    print(f"[io] merged {len(parts)} requested year files -> {target}")
 
     # Panel-level validation reads one year at a time, so the full panel is
     # never held in memory. Per-year rows keep the complete field set; the

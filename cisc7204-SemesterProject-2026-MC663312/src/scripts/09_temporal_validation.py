@@ -52,7 +52,7 @@ def evaluate(frame, years):
         scaler=StandardScaler()
         logit=LogisticRegression(max_iter=2000)
         logit.fit(scaler.fit_transform(x),y)
-        tree=HistGradientBoostingClassifier(max_iter=300,learning_rate=.05,max_depth=6,
+        tree=HistGradientBoostingClassifier(max_iter=int(config.get("models.gbm_estimators",300)),learning_rate=float(config.get("models.gbm_learning_rate",.05)),max_depth=int(config.get("models.gbm_max_depth",6)),
             early_stopping=True,validation_fraction=.15,random_state=config.seed())
         tree.fit(x,y)
         predictions={'constant_train_rate':np.full(len(test),rate),
@@ -74,9 +74,9 @@ def main():
     parser.add_argument('--years',type=int,nargs='+',default=[2019,2020,2022,2024])
     args=parser.parse_args()
     path=config.flights_file().parent/'dashboard_sample.parquet'
-    if not path.exists():
-        raise FileNotFoundError('Build the dashboard sample by starting the dashboard first')
-    frame=pd.read_parquet(path)
+    sys.path.insert(0,str(config.ROOT/'dashboard'))
+    import data_access
+    frame=data_access.load_frame()
     with threadpool_limits(limits=1):
         result=evaluate(frame,args.years)
     result.to_csv(config.TABLE_DIR/'temporal_validation.csv',index=False)
@@ -99,7 +99,8 @@ def main():
     for ax in axes:
         ax.set_xticks(args.years);ax.set_xlabel('Held-out calendar year');ax.legend(fontsize=8);ax.spines[['top','right']].set_visible(False)
     fig.suptitle('Expanding-window robustness · separate specification from primary holdout')
-    fig.savefig(config.FIG_DIR/'15_temporal_validation.png',dpi=180)
+    from team01 import viz
+    viz.save(fig,'15_temporal_validation')
     print(result[['test_year','model','roc_auc','brier','brier_gain']].to_string(index=False))
 
 if __name__=='__main__':main()

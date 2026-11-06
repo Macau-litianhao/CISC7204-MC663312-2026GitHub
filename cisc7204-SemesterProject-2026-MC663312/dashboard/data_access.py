@@ -20,7 +20,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from team01 import config, io, schema  # noqa: E402
+from team01 import config, io, schema, attribution, models  # noqa: E402
 
 COLUMNS = [
     "year", "month", "day", "dow", "flight_date", "carrier", "origin",
@@ -38,13 +38,15 @@ class DataUnavailable(RuntimeError):
 def load_frame() -> pd.DataFrame:
     """Bounded analysis frame, cached for the life of the process."""
     try:
+        if config.mode() == "full" and not models.load_metrics("validation"):
+            raise DataUnavailable("Build validated source evidence before starting the dashboard")
         limit = int(config.get("dashboard.max_rows", 400_000))
         source = config.flights_file()
         cache = source.parent / 'dashboard_sample.parquet'
         cache_meta = cache.with_suffix('.json')
         stat = source.stat()
         signature = {'size':stat.st_size,'mtime_ns':stat.st_mtime_ns,
-                     'seed':config.seed(),'limit':limit,'columns':COLUMNS,'sampling_version':2}
+                     'seed':config.seed(),'limit':limit,'columns':COLUMNS,'sampling_version':3}
         try:
             valid = cache.exists() and json.loads(cache_meta.read_text(encoding='utf-8')) == signature
         except (OSError,ValueError):
@@ -80,7 +82,7 @@ def panel_completed() -> int:
     metric = Path(config.METRIC_DIR) / "validation.json"
     if metric.exists():
         try:
-            payload = json.loads(metric.read_text(encoding="utf-8"))
+            payload = models.load_metrics("validation")
             if payload.get("mode") == config.mode():
                 total = payload.get("completed_flights")
                 if total:
@@ -174,7 +176,7 @@ def _flights_note(counted: int) -> str:
 
 def cause_mix(frame: pd.DataFrame) -> pd.DataFrame:
     """Attributed minutes by cause, scoped to the reporting universe."""
-    universe = frame[frame["arr_delay"] >= config.threshold()]
+    universe, _ = attribution.cause_population(frame)
     totals = universe[list(schema.CAUSE_COLUMNS)].sum()
     out = pd.DataFrame({
         "cause": [schema.CAUSE_LABELS_LONG[c] for c in totals.index],
@@ -205,7 +207,7 @@ def composition_by_month(frame: pd.DataFrame) -> pd.DataFrame:
     a zero-filled month would draw the stacked area down to the axis and read as
     "no delay", when the truth is "no data in this filter".
     """
-    universe = frame[frame["arr_delay"] >= config.threshold()]
+    universe, _ = attribution.cause_population(frame)
     sums = universe.groupby("month", observed=True)[list(schema.CAUSE_COLUMNS)].sum()
     totals = sums.sum(axis=1)
     sums = sums[totals > 0]
@@ -263,6 +265,7 @@ def airport_clusters() -> pd.DataFrame | None:
     path = config.airports_clustered_file()
     if not path.exists():
         return None
+    models.load_metrics("clusters")
     return pd.read_csv(path)
 
 
@@ -297,7 +300,7 @@ def lorenz_curve(frame: pd.DataFrame, points: int = 240) -> dict:
     rank = np.arange(1, n + 1)
     gini = float(((2 * rank - n - 1) * ascending).sum() / (n * ascending.sum()))
 
-    top = {share: float(cum[max(int(round(share * n)) - 1, 0)])
+    top = {share: float(cum[max(int(np.ceil(share * n)) - 1, 0)])
            for share in (0.01, 0.05, 0.10)}
 
     keep = np.unique(np.concatenate(
@@ -326,8 +329,7 @@ def carrier_profile(frame: pd.DataFrame, min_flights: int = 200) -> pd.DataFrame
         "share_60": grouped.apply(lambda s: float((s >= 60).mean())),
         "flights": grouped.size(),
     }).reset_index()
-    if out["flights"].ge(min_flights).any():
-        out = out[out["flights"] >= min_flights]
+    out = out[out["flights"] >= min_flights]
     return out.sort_values("mean").reset_index(drop=True)
 
 

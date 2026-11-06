@@ -1,0 +1,8 @@
+flight_date,carrier,tail_number,origin,dest,arr_delay,min_carrier,min_late_aircraft,min_nas,min_weather,min_security
+2017-08-22,F9,N305FR,CLT,TTN,194.0,,,,,
+2020-08-02,DL,N906DN,ANC,SEA,509.0,,,,,
+2021-03-05,F9,N322FR,MCO,STL,20.0,,,,,
+2023-10-04,UA,N37274,ORD,DCA,231.0,0.0,0.0,0.0,0.0,0.0
+2023-11-10,F9,N377FR,PHX,CLE,54.0,,,,,
+2024-07-10,F9,N228FR,BWI,MIA,126.0,,,,,
+2024-07-15,F9,N303FR,IAH,MCO,180.0,,,,,

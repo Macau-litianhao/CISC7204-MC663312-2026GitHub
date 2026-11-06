@@ -97,14 +97,14 @@ def lorenz(df: pd.DataFrame, sample_rows: int | None = None,
     gini = float(1 - 2 * area)
 
     # Share of minutes produced by the worst 1% of flights.
-    top1_cut = max(int(ordered.size * 0.01), 1)
+    top1_cut = max(int(np.ceil(ordered.size * 0.01)), 1)
     top1_share = float(ordered[:top1_cut].sum() / total)
 
     return {
         "curve": curve,
         "gini": round(gini, 4),
         "top1_share": round(top1_share, 4),
-        "top5_share": round(float(ordered[: max(int(ordered.size * 0.05), 1)].sum() / total), 4),
+        "top5_share": round(float(ordered[: max(int(np.ceil(ordered.size * 0.05)), 1)].sum() / total), 4),
         "flights": int(ordered.size),
     }
 

@@ -13,7 +13,8 @@ The legend moved from a hard-coded ``y=-0.24`` to ``LEGEND_BELOW`` +
 "Principal component 1" title.
 """
 
-from __future__ import annotations
+from team01 import models as metric_store
+
 
 import json
 from functools import lru_cache
@@ -44,7 +45,7 @@ def quality_line() -> str:
     if not path.exists():
         return ""
     try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
+        payload = metric_store.load_metrics(path.stem)
     except json.JSONDecodeError:
         return ""
 

@@ -1,0 +1,73 @@
+{
+  "mode": "full",
+  "mean_vs_tail": {
+    "pearson_r": 0.9944149891370899,
+    "spearman_r": 0.9860139860139862,
+    "scope": "Twelve pooled calendar-month aggregates; not individual-flight correlation"
+  },
+  "extreme_sensitivity": [
+    {
+      "specification": "all observed completed",
+      "upper_cap": null,
+      "flights": 61689698,
+      "mean": 4.54182938292225,
+      "median": -6.0,
+      "p90": 36.0,
+      "p99": 187.0,
+      "share_delayed_60": 0.061342997659025664
+    },
+    {
+      "specification": "exclude above full-panel p99.9",
+      "upper_cap": 577.0,
+      "flights": 61628058,
+      "mean": 3.658909842656408,
+      "median": -6.0,
+      "p90": 36.0,
+      "p99": 179.0,
+      "share_delayed_60": 0.06040415876807281
+    },
+    {
+      "specification": "winsorize above full-panel p99.9",
+      "upper_cap": 577.0,
+      "flights": 61689698,
+      "mean": 4.231789041988826,
+      "median": -6.0,
+      "p90": 36.0,
+      "p99": 187.0,
+      "share_delayed_60": 0.061342997659025664
+    }
+  ],
+  "common_support_carriers": [
+    {
+      "carrier": "AA",
+      "standardised_risk": 0.06960705958358578,
+      "supported_flights": 1066.0,
+      "sample_retained_fraction": 0.1729957805907173
+    },
+    {
+      "carrier": "DL",
+      "standardised_risk": 0.05530491031415455,
+      "supported_flights": 912.0,
+      "sample_retained_fraction": 0.14261141516810008
+    }
+  ],
+  "standardisation_protocol": "2024 dashboard sample, AA vs DL, common origin and six-hour departure blocks, at least 30 completed flights per carrier/cell, pooled common weights; descriptive association, not causal effect",
+  "extreme_protocol": "Full observed distribution retained as primary; p99.9 exclusion/winsorization are sensitivity checks, not automatic outlier deletion",
+  "artifact_sha256": {
+    "outputs/tables/monthly_profile.csv": "71d1350f201ae6ed2373b8bc55240fe8df886f2b38555b3ed6178b41a6d8ba8a",
+    "outputs/tables/distance_bands.csv": "7ddfdf3056afddc3e33b67cd496ae80a7d574fea09c6094f2e72d69d8c42a754",
+    "outputs/tables/tail_extreme_sensitivity.csv": "af4ff0e9450d9fe0c44024b224699e73a7806c2f6da6edb85c3021108f85d6af",
+    "outputs/tables/carrier_common_support.csv": "32d424f52ef77e175b224352412285c7ce76be9ba1f404704589e86b242a93ca"
+  },
+  "run_signature": {
+    "mode": "full",
+    "source_sha256": "dad608577e2b30e5fdb1b7e399a86fad893e59e29d3442d8eb575c224e0fc3d7",
+    "settings_sha256": "3db653841beafcdb0a5d80cd32bd36ddc1626ef6b3de1b4876f5d9126446e2ea",
+    "references": {
+      "airports.csv": "e869f2a5c500aa0a5c74c680559c4e3ab7e65c7a442daa7c92b7f99fb51613ca",
+      "airport_aliases.csv": "7def0791ca3396218f49fcd7c0287b493d44d747a14e55d46573d54c166af582",
+      "airport_timezones.csv": "b218baf3b864af711bfc5c2d6de38f4cdfde873e0c60289fd9c5cc22afe57876"
+    },
+    "protocol": "audit-corrected-v0.5"
+  }
+}

@@ -72,6 +72,9 @@ def main() -> int:
         legs = features.leg_sequence(panel)
         cascade = features.cascade_summary(legs, panel)
 
+    if "by_aircraft" in cascade:
+        cascade["by_aircraft"].to_csv(tables / "turnaround_pressure_by_aircraft.csv",index=False)
+    models.save_metrics(cascade,"rotation_pressure")
     cascade["hourly"].to_csv(tables / "cascade_by_hour.csv", index=False)
     cascade["by_airport"].to_csv(tables / "cascade_by_airport.csv", index=False)
 
@@ -94,7 +97,7 @@ def main() -> int:
                          "spearman_r": paradox["spearman_r"],
                          "verdict": paradox["verdict"]},
         "cascade": {k: v for k, v in cascade.items()
-                    if k not in ("hourly", "by_airport")},
+                    if k not in ("hourly", "by_airport", "by_aircraft")},
         "cascade_by_hour": cascade["hourly"].to_dict(orient="records"),
     }, "tail")
 
