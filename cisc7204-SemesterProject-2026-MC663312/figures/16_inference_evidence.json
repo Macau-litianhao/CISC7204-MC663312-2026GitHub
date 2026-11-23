@@ -10,7 +10,5 @@
     },
     "protocol": "audit-corrected-v0.5"
   },
-  "image_sha256": "e2ee36c666f05634f2647acfd89da0839bae241451f45972a37c0c1fcb471955",
-  "kind": "real_browser_screenshot",
-  "viewport": "1440x900"
+  "image_sha256": "21b6250a00cce18951aeda3d120e0ac32746e43c49fe5dcc5c05af7b5a440348"
 }

@@ -15,6 +15,13 @@ import pytest
 
 from team01 import attribution, cluster, config, features, schema, tail, viz
 
+# Figures embedded a provenance stamp, which reads the panel digest. Without the downloaded
+# panel those two tests cannot run, and the archive ships only the sample extract.
+needs_panel = pytest.mark.skipif(
+    not config.flights_file().exists(),
+    reason="full panel not present; run 01_acquire.py and 02_build.py first",
+)
+
 
 def test_waffle_allocates_exactly_one_hundred_cells(universe):
     totals = attribution.cause_totals(universe)
@@ -35,6 +42,7 @@ def test_cause_colours_come_from_the_oken_ito_palette():
         assert schema.CAUSE_COLORS[column] in schema.OKABE_ITO.values()
 
 
+@needs_panel
 def test_each_builder_writes_a_file(universe, completed, figure_dir, airport_reference):
     totals = attribution.cause_totals(universe)
     composition = attribution.composition_by(universe, "month")
@@ -95,6 +103,7 @@ def test_carrier_floor_refuses_an_empty_table(universe):
         viz.fig_carrier_bars(universe.iloc[0:0])
 
 
+@needs_panel
 def test_dashboard_figures_build_without_a_server(completed, airport_reference):
     """The figure builders are pure functions of a frame; no Flask needed."""
     import sys

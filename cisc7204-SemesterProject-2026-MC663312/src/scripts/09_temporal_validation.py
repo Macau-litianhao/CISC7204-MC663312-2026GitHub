@@ -85,22 +85,12 @@ def main():
         'sample_scope':'Existing fixed uniform completed-flight sample; distinct from the primary half-year specification',
         'uncertainty':'Paired resampling of calendar-week blocks within each test year, 1000 draws; conditional on the fixed sample and fitted models',
         'results':result},'temporal_validation')
-    import matplotlib
-    matplotlib.use('Agg')
-    import matplotlib.pyplot as plt
-    fig,axes=plt.subplots(1,2,figsize=(10,4),layout='constrained')
-    for name,label in [('logistic','Logistic'),('gradient_boosting','Gradient boosting')]:
-        part=result[result.model.eq(name)]
-        axes[0].plot(part.test_year,part.roc_auc,marker='o',label=label)
-        axes[1].errorbar(part.test_year,part.brier_gain,
-            yerr=[part.brier_gain-part.gain_ci_low,part.gain_ci_high-part.brier_gain],marker='o',capsize=3,label=label)
-    axes[0].axhline(.5,color='grey',ls='--');axes[0].set_ylabel('ROC AUC');axes[0].set_ylim(.45,.85)
-    axes[1].axhline(0,color='grey',ls='--');axes[1].set_ylabel('Brier improvement over constant baseline')
-    for ax in axes:
-        ax.set_xticks(args.years);ax.set_xlabel('Held-out calendar year');ax.legend(fontsize=8);ax.spines[['top','right']].set_visible(False)
-    fig.suptitle('Expanding-window robustness · separate specification from primary holdout')
+    # The figure lives in team01.viz with the rest of them: an inline copy could
+    # not pick up the shared style, the provenance stamp or the fixes that the
+    # rest of the figure library received, and this was the only chart in the
+    # report whose axis conventions differed from every other one.
     from team01 import viz
-    viz.save(fig,'15_temporal_validation')
+    viz.fig_temporal_validation(result, args.years)
     print(result[['test_year','model','roc_auc','brier','brier_gain']].to_string(index=False))
 
 if __name__=='__main__':main()

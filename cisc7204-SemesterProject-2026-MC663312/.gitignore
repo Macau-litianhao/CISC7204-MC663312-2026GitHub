@@ -22,6 +22,11 @@ data/sample/*
 outputs/**/tmp/
 figures/*.png.tmp
 
+# Fixture output from `make smoke`. It is rebuilt in three minutes, and its file names collide
+# with the empirical figures while describing different data, so it is never committed.
+figures/sample/
+outputs/**/sample/
+
 # --- python -----------------------------------------------------------------
 __pycache__/
 *.py[cod]

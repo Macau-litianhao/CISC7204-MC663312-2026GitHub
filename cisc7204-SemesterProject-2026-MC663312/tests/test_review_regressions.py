@@ -5,8 +5,13 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import pytest
-from team01 import airports, models, features, synth, clean
+from team01 import airports, config, models, features, synth, clean
 from team01.rotation_pressure import add_utc_times
+
+needs_panel = pytest.mark.skipif(
+    not config.flights_file().exists(),
+    reason="full panel not present; run 01_acquire.py and 02_build.py first",
+)
 
 
 def test_icao_ident_does_not_break_iata_join():
@@ -46,6 +51,7 @@ def test_design_matrix_retains_noncontiguous_source_index():
     assert np.isfinite(matrix.to_numpy()).all()
 
 
+@needs_panel
 def test_streamed_sampling_checks_counts_and_excludes_cancelled(tmp_path,monkeypatch):
     from team01 import io,config
     frame=pd.DataFrame({'record':range(6),'cancelled':[0,1,0,0,0,0],

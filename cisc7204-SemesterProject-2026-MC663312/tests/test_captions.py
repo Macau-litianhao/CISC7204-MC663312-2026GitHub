@@ -14,8 +14,16 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "dashboard"))
 
+import pytest  # noqa: E402
+
 import captions  # noqa: E402
 import data_access  # noqa: E402
+from team01 import config  # noqa: E402
+
+needs_panel = pytest.mark.skipif(
+    not config.flights_file().exists(),
+    reason="full panel not present; run 01_acquire.py and 02_build.py first",
+)
 
 
 def _frame_with_causes(completed):
@@ -23,6 +31,7 @@ def _frame_with_causes(completed):
     return completed
 
 
+@needs_panel
 def test_every_builder_returns_a_string_on_empty_frame(completed):
     empty = completed.iloc[0:0]
     for key in captions.KEYS:
@@ -30,6 +39,7 @@ def test_every_builder_returns_a_string_on_empty_frame(completed):
         assert isinstance(text, str) and text.strip(), key
 
 
+@needs_panel
 def test_findings_covers_every_panel_key(completed):
     found = captions.findings(completed, completed)
     assert set(found) == set(captions.KEYS)
