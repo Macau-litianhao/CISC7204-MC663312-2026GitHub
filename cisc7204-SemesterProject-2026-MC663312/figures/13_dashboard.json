@@ -10,7 +10,17 @@
     },
     "protocol": "audit-corrected-v0.5"
   },
-  "image_sha256": "3938cf67fce995f5c787e64aefb083ae38337af14da20844bf566b83f7070cbe",
+  "image_sha256": "1ba9be3328b3fb28c55bdaebc0faffd422a358dc39669c45ad77a9b9444d66b6",
   "kind": "real_browser_screenshot",
-  "viewport": "1440x900"
+  "viewport": "1440x900",
+  "captures": {
+    "13_dashboard.png": "1ba9be3328b3fb28c55bdaebc0faffd422a358dc39669c45ad77a9b9444d66b6",
+    "13_dashboard_charts.png": "64464777b3d883167614b4889e5f73ad002b2414d773be356e127e7d77239480",
+    "13_dashboard_deepdive.png": "13dbef91af6128d25e5163675d027af504b2c4f9611394103dc6f8221084a853",
+    "13_dashboard_filtered.png": "fb794da51b0b31524a6130234b7935a780bf4613baddd96bcb1c3d65651f6203",
+    "13_dashboard_full.png": "772e948dcf1a0647c5436f662cf38b9fa0491a205ce7a4badb03f596072af687",
+    "13_dashboard_model.png": "5663d139c7b8ae945057f88cf53057c5e089d88f1e6369c300596ec0043ce8ca",
+    "13_dashboard_places.png": "c631e02e839b66311ad470148e7609255d62e66dcbc4460eda7b3943c3416532",
+    "13_dashboard_time.png": "549c8b4aec3786025c4267b0f846e81b74392c6e82cd388b1f1ffac3966c067a"
+  }
 }
